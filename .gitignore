@@ -222,3 +222,21 @@ Drums of War/Temp/UnityLockfile
 Drums of War/Drums of War-csharp.sln
 *.sln
 *.dwlt
+*.csproj
+Drums of War/Assembly-CSharp.csproj
+*.csproj
+*.sln
+*.dwlt
+Drums of War/Library/guidmapper
+Drums of War/Library/metadata/f5/f5f67c52d1564df4a8936ccd202a3bd8
+*.info
+Drums of War/Library/ScriptAssemblies/Assembly-CSharp.dll
+*.mdb
+Drums of War/Library/metadata/00/00000000000000002000000000000000
+Drums of War/Library/metadata/00/00000000000000005000000000000000
+Drums of War/Library/metadata/00/00000000000000007000000000000000
+Drums of War/Library/metadata/00/0000000000000000a000000000000000
+Drums of War/Library/metadata/1b/1bddbcdf6c0df694ba46b5a4f96a3b59
+Drums of War/Library/ScriptAssemblies/BuiltinAssemblies.stamp
+*.mdb
+Drums of War/Library/metadata/f5/f5f67c52d1564df4a8936ccd202a3bd8
