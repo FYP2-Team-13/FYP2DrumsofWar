@@ -240,3 +240,8 @@ Drums of War/Library/metadata/1b/1bddbcdf6c0df694ba46b5a4f96a3b59
 Drums of War/Library/ScriptAssemblies/BuiltinAssemblies.stamp
 *.mdb
 Drums of War/Library/metadata/f5/f5f67c52d1564df4a8936ccd202a3bd8
+*.csproj
+Drums of War/Assets/Prefabs/Beat.prefab
+*.sln
+Drums of War/Library/assetDatabase3
+*.dwlt
