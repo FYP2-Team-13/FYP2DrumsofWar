@@ -6,6 +6,7 @@ public class BeatScript {
 	public enum BeatType
 	{
 		Beat_Rest = 0,
+		Beat_Fail,
 		Beat_Snare,
 		Beat_Tom,
 		Beat_Hithat,
