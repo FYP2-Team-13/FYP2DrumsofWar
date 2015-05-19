@@ -14,6 +14,25 @@ public class TimeScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 	}
+
+	bool BeatCheck ()
+	{
+		if (Endbeat) {
+			if (time < 0.1249f) { //if the key hits before the "beat" ended
+				//insert Beat Script sending
+				return true;
+			} else {
+				return false;
+			}
+		} else {
+			if (time > 0.1249f) { // if the key hits after the "beat starts"
+				//insert Beat Script sending
+				return true;
+			} else {
+				return false;
+			}
+		}
+	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -24,7 +43,7 @@ public class TimeScript : MonoBehaviour {
 
 			if (Endbeat)
 			{
-				if ((int)TheBeat.GetBeatType() == (int)BeatScript.BeatType.Beat_Rest)
+				if (TheBeat.GetBeatType() == BeatScript.BeatType.Beat_Rest)
 				{
 					print (TheBeat.GetBeatType() );
 				}
@@ -36,36 +55,34 @@ public class TimeScript : MonoBehaviour {
 		//check keyboard inputs
 		if (Input.GetKeyDown (Hihats) && !keydown) { //Hit Hat key pressed
 			keydown = true; //stop next instance of keydown
-			TheBeat.SetBeatType (BeatScript.BeatType.Beat_Hithat); //Set Beat
+			if (BeatCheck() ) {
+				TheBeat.SetBeatType (BeatScript.BeatType.Beat_Hithat); //Set Beat
+			}
 			print (TheBeat.GetBeatType() );
 		}
 
 		if (Input.GetKeyDown (Snare) && !keydown) { //Snare key pressed
 			keydown = true; //stop next instance of keydown
-			TheBeat.SetBeatType (BeatScript.BeatType.Beat_Snare);//Set Beat
+			if (BeatCheck() ) {
+				TheBeat.SetBeatType (BeatScript.BeatType.Beat_Snare);//Set Beat
+			}
 			print (TheBeat.GetBeatType() );
 		}
 
 		if (Input.GetKeyDown (Toms) && !keydown) { //Snare key pressed
 			keydown = true; //stop next instance of keydown
-			TheBeat.SetBeatType (BeatScript.BeatType.Beat_Tom);//Set Beat
+			if (BeatCheck() ) {
+				TheBeat.SetBeatType (BeatScript.BeatType.Beat_Tom);//Set Beat
+			}
 			print (TheBeat.GetBeatType() );
 		}
 
 		if (Input.GetKeyDown (Bass) && !keydown) { //Snare key pressed
 			keydown = true; //stop next instance of keydown
-			TheBeat.SetBeatType (BeatScript.BeatType.Beat_Bass);//Set Beat
+			if (BeatCheck() ) {
+				TheBeat.SetBeatType (BeatScript.BeatType.Beat_Bass);//Set Beat
+			}
 			print (TheBeat.GetBeatType() );
-		}
-
-		if (Endbeat) {
-			if (time < 0.1249f) { //if the key hits before the "beat" ended
-				//insert Beat Script sending
-			}
-		} else {
-			if (time > 0.1249f) { // if the key hits after the "beat starts"
-				//insert Beat Script sending
-			}
 		}
 
 		if (!Input.GetKeyDown (Hihats) 
