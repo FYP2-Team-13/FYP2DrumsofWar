@@ -106,7 +106,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 137350}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1a33b4aca586ab4aab77f90adc16e0f, type: 3}
+  m_Script: {fileID: 11500000, guid: 8d190ddfd36ab8a4db3aa8d829b4d747, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Beat: {fileID: 137350}
