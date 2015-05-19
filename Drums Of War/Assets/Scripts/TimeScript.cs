@@ -20,12 +20,12 @@ public class TimeScript : MonoBehaviour {
 
 	bool BeatCheck ()
 	{
-		if (TheBeat.GetBeatType () == BeatScript.BeatType.Beat_Rest) {
+		if (TheBeat.GetBeatType () != BeatScript.BeatType.Beat_Rest) {
 			//TheBeat.SetBeatType(BeatScript.BeatType.Beat_Fail);
 			return false;
 		}
 		if (Endbeat) {
-			if (time < 0.249f) { //if the key hits before the "beat" ended
+			if (time < 0.15f) { //if the key hits before the "beat" ended
 				//insert Beat Script sending
 				return true;
 			} else {
@@ -33,7 +33,7 @@ public class TimeScript : MonoBehaviour {
 				return false;
 			}
 		} else {
-			if (time > 0.001f) { // if the key hits after the "beat" starts
+			if (time > 0.05f) { // if the key hits after the "beat" starts
 				//insert Beat Script sending
 				return true;
 			} else {
