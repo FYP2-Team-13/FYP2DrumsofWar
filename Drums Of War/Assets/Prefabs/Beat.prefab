@@ -180,6 +180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Beat: {fileID: 137350}
+  TheInputHandler: {fileID: 0}
   Hihats: 119
   Snare: 97
   Bass: 115

@@ -7,6 +7,8 @@ public class TimeScript : MonoBehaviour {
 	float time = 0.0f;
 	public GameObject Beat;
 	bool keydown = false;
+	public GameObject TheInputHandler;
+	InputHandler TheInputScript;
 	//public GameObject DebugText;
 	//TextEditor Text;
 
@@ -15,6 +17,7 @@ public class TimeScript : MonoBehaviour {
 	public KeyCode Hihats, Snare, Bass, Toms;
 	// Use this for initialization
 	void Start () {
+		TheInputScript = TheInputHandler.GetComponent<InputHandler> ();
 		 //Text = DebugText.GetComponent<TextEditor> ();
 	}
 
@@ -41,6 +44,11 @@ public class TimeScript : MonoBehaviour {
 			}
 		}
 	}
+
+	void SendBeat ()
+	{
+		TheInputScript.ReceiveSequence (TheBeat);
+	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -56,6 +64,7 @@ public class TimeScript : MonoBehaviour {
 				if (TheBeat.GetBeatType() == BeatScript.BeatType.Beat_Rest)
 				{
 					print (TheBeat.GetBeatType() );
+					SendBeat();
 				}
 				TheBeat.SetBeatType (BeatScript.BeatType.Beat_Rest); //Reset Beat
 			}
@@ -68,6 +77,7 @@ public class TimeScript : MonoBehaviour {
 			if (BeatCheck() ) {
 				TheBeat.SetBeatType (BeatScript.BeatType.Beat_Hithat); //Set Beat
 			}
+			SendBeat();
 			print (TheBeat.GetBeatType() );
 		}
 
@@ -76,6 +86,7 @@ public class TimeScript : MonoBehaviour {
 			if (BeatCheck() ) {
 				TheBeat.SetBeatType (BeatScript.BeatType.Beat_Snare);//Set Beat
 			}
+			SendBeat();
 			print (TheBeat.GetBeatType() );
 		}
 
@@ -84,6 +95,7 @@ public class TimeScript : MonoBehaviour {
 			if (BeatCheck() ) {
 				TheBeat.SetBeatType (BeatScript.BeatType.Beat_Tom);//Set Beat
 			}
+			SendBeat();
 			print (TheBeat.GetBeatType() );
 		}
 
@@ -92,6 +104,7 @@ public class TimeScript : MonoBehaviour {
 			if (BeatCheck() ) {
 				TheBeat.SetBeatType (BeatScript.BeatType.Beat_Bass);//Set Beat
 			}
+			SendBeat();
 			print (TheBeat.GetBeatType() );
 		}
 
