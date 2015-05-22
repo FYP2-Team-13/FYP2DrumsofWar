@@ -1,0 +1,8 @@
+List of Commands
+All Advance
+All Attack
+All Defend
+All Retreat
+All Jump (Avoid Ground Attacks)
+Range Attack, Meele Defend
+Charge up

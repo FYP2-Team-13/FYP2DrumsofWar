@@ -63,7 +63,7 @@ public class TimeScript : MonoBehaviour {
 			{
 				if (TheBeat.GetBeatType() == BeatScript.BeatType.Beat_Rest)
 				{
-					print (TheBeat.GetBeatType() );
+					//print (TheBeat.GetBeatType() );
 					SendBeat();
 				}
 				TheBeat.SetBeatType (BeatScript.BeatType.Beat_Rest); //Reset Beat
@@ -78,7 +78,7 @@ public class TimeScript : MonoBehaviour {
 				TheBeat.SetBeatType (BeatScript.BeatType.Beat_Hithat); //Set Beat
 			}
 			SendBeat();
-			print (TheBeat.GetBeatType() );
+			//print (TheBeat.GetBeatType() );
 		}
 
 		if (Input.GetKeyDown (Snare) && !keydown) { //Snare key pressed
@@ -87,7 +87,7 @@ public class TimeScript : MonoBehaviour {
 				TheBeat.SetBeatType (BeatScript.BeatType.Beat_Snare);//Set Beat
 			}
 			SendBeat();
-			print (TheBeat.GetBeatType() );
+			//print (TheBeat.GetBeatType() );
 		}
 
 		if (Input.GetKeyDown (Toms) && !keydown) { //Snare key pressed
@@ -96,7 +96,7 @@ public class TimeScript : MonoBehaviour {
 				TheBeat.SetBeatType (BeatScript.BeatType.Beat_Tom);//Set Beat
 			}
 			SendBeat();
-			print (TheBeat.GetBeatType() );
+			//print (TheBeat.GetBeatType() );
 		}
 
 		if (Input.GetKeyDown (Bass) && !keydown) { //Snare key pressed
@@ -105,7 +105,7 @@ public class TimeScript : MonoBehaviour {
 				TheBeat.SetBeatType (BeatScript.BeatType.Beat_Bass);//Set Beat
 			}
 			SendBeat();
-			print (TheBeat.GetBeatType() );
+			//print (TheBeat.GetBeatType() );
 		}
 
 		if (!Input.GetKeyDown (Hihats) 

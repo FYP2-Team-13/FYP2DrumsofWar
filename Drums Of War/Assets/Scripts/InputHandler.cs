@@ -5,6 +5,7 @@ public class InputHandler : MonoBehaviour {
 
 	BeatScript[] Sequence = new BeatScript[4];
 	int drumindex = 0;
+	float TimeDur = 0.0f;
 
 	void Reset ()
 	{
@@ -30,7 +31,7 @@ public class InputHandler : MonoBehaviour {
 
 			//Add in checking for if the drum beat follows a pattern
 
-			Sequence [drumindex].SetBeatType (nextbeat.GetBeatType);
+			Sequence [drumindex].SetBeatType (nextbeat.GetBeatType() );
 			drumindex++;
 			if (drumindex > 3) {
 				drumindex = 0; //reset drum sequence
@@ -45,6 +46,9 @@ public class InputHandler : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		TimeDur += Time.deltaTime;
+		if (TimeDur > 4.0f) { //Command has lasted long enough
+			TimeDur = 0.0f; //Reset Timing
+		}
 	}
 }

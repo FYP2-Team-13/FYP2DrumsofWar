@@ -1,0 +1,34 @@
+Level Structure (Challenge Maps are Optional):
+Resource Map		1
+
+Battle Map 		1
+Battle Map		2
+Battle Map (Boss)	3
+
+Challenge Map 		1
+
+Resource Map		2
+
+Battle Map 		4
+Battle Map		5
+Battle Map (Boss)	6
+
+Resource Map		3
+
+Battle Map		7
+Battle Map		8
+Battle Map		9
+Battle Map		10
+Battle Map (Boss)	11
+
+Challenge Map		2
+
+Battle Map		12
+Battle Map		13
+Battle Map		14
+Battle Map		15
+Battle Map (Boss)	16
+
+Challenge Map		3
+
+Battle Map (Boss)	17
