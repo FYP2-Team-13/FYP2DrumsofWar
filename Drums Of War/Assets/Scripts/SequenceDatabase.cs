@@ -51,9 +51,9 @@ public class SequenceDatabase : MonoBehaviour {
 			//print (Temp.ShowSequence() );
 			SequenceList.Add(Temp);
 		}
-		foreach (SequenceClass Sequence in SequenceList) {
-			print (Sequence.ShowSequence() );
-		}
+		//foreach (SequenceClass Sequence in SequenceList) {
+		//	print (Sequence.ShowSequence() );
+		//}
 	}
 	
 	// Update is called once per frame

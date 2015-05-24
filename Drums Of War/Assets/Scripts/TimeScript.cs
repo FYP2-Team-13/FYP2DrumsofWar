@@ -9,6 +9,7 @@ public class TimeScript : MonoBehaviour {
 	bool keydown = false;
 	public GameObject TheInputHandler;
 	InputHandler TheInputScript;
+	public GameObject DrumSFX;
 	//public GameObject DebugText;
 	//TextEditor Text;
 
@@ -45,6 +46,13 @@ public class TimeScript : MonoBehaviour {
 		}
 	}
 
+	void CreateSFX()
+	{
+		GameObject TempSFX = (GameObject) Instantiate(DrumSFX);
+		TempSFX.gameObject.transform.parent = gameObject.transform;
+		TempSFX.GetComponent<DrumAudio>().Set(TheBeat);
+	}
+
 	void SendBeat ()
 	{
 		TheInputScript.ReceiveSequence (TheBeat);
@@ -78,6 +86,7 @@ public class TimeScript : MonoBehaviour {
 				TheBeat.SetBeatType (BeatScript.BeatType.Beat_Hithat); //Set Beat
 			}
 			SendBeat();
+			CreateSFX();
 			//print (TheBeat.GetBeatType() );
 		}
 
@@ -87,6 +96,7 @@ public class TimeScript : MonoBehaviour {
 				TheBeat.SetBeatType (BeatScript.BeatType.Beat_Snare);//Set Beat
 			}
 			SendBeat();
+			CreateSFX();
 			//print (TheBeat.GetBeatType() );
 		}
 
@@ -96,6 +106,7 @@ public class TimeScript : MonoBehaviour {
 				TheBeat.SetBeatType (BeatScript.BeatType.Beat_Tom);//Set Beat
 			}
 			SendBeat();
+			CreateSFX();
 			//print (TheBeat.GetBeatType() );
 		}
 
@@ -105,6 +116,7 @@ public class TimeScript : MonoBehaviour {
 				TheBeat.SetBeatType (BeatScript.BeatType.Beat_Bass);//Set Beat
 			}
 			SendBeat();
+			CreateSFX();
 			//print (TheBeat.GetBeatType() );
 		}
 
