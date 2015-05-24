@@ -16,34 +16,55 @@ public class AI : MonoBehaviour {
 
 	public GameObject Target;
 
+	private float prevTime;
+	float now;
+	float diff;
+
 	// Use this for initialization
 	void Start () {
 		moveSpeed = 1;
 		state = 1;
+
+		attackDamage = 1;
+		attackSpeed = 1000;
+
+		prevTime = Time.time;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		this.transform.Translate (direction * moveSpeed * Time.deltaTime);
 
+		now = Time.time;
+		diff = (now - prevTime) * 1000;
+
 
 		states();
+
+		if (health < 1)
+			Destroy(this.gameObject, 1);
 	}
 
 	void OnCollisionEnter2D( Collision2D col ) {
-		if (this.gameObject.tag == "Ally") {
-			if (col.gameObject.tag == "Enemy") {
-				Target = col.gameObject;
-				state = 2;
-			}
-		}
-		else if (this.gameObject.tag == "Enemy") {
-			if (col.gameObject.tag == "Ally") {
-				Target = col.gameObject;
-				state = 2;
+
+		if (state == 1) {
+
+			if (this.gameObject.tag == "Ally") {
+				if (col.gameObject.tag == "Enemy") {
+					Target = col.gameObject;
+					state = 2;
+				}
+			} 
+
+			else if (this.gameObject.tag == "Enemy") {
+				if (col.gameObject.tag == "Ally") {
+					Target = col.gameObject;
+					state = 2;
+				}
 			}
 		}
 	}
+
 
 
 	void states() {
@@ -63,7 +84,15 @@ public class AI : MonoBehaviour {
 	}
 
 	void Attacking () {
+		if (diff < attackSpeed)
+			return;
+
+		prevTime = now;
+
 		var script = Target.GetComponent<AI>();
-		script.health -= 1;
+		script.health -= attackDamage;
+
+		if (script.health < 1)
+			state = 1;
 	}
 }
