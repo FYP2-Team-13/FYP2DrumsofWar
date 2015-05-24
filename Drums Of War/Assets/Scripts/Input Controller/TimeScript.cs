@@ -51,6 +51,7 @@ public class TimeScript : MonoBehaviour {
 		GameObject TempSFX = (GameObject) Instantiate(DrumSFX);
 		TempSFX.gameObject.transform.parent = gameObject.transform;
 		TempSFX.GetComponent<DrumAudio>().Set(TheBeat);
+		Destroy (TempSFX, 1.0f);
 	}
 
 	void SendBeat ()

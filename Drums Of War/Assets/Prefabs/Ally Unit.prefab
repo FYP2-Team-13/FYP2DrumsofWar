@@ -12,6 +12,7 @@ GameObject:
   - 50: {fileID: 5011998}
   - 61: {fileID: 6170678}
   - 114: {fileID: 11449194}
+  - 114: {fileID: 11441758}
   m_Layer: 0
   m_Name: Ally Unit
   m_TagString: Ally
@@ -59,6 +60,23 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 7, y: 10.2399998}
+--- !u!114 &11441758
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 159290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6f3c5646a5623b40bea45ab7c5eab02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  state: 0
+  attackRange: 0
+  attackSpeed: 0
+  attackDamage: 0
+  Target: {fileID: 0}
 --- !u!114 &11449194
 MonoBehaviour:
   m_ObjectHideFlags: 1

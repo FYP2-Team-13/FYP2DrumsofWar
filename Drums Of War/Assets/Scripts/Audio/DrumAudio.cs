@@ -14,23 +14,24 @@ public class DrumAudio : MonoBehaviour {
 		if (TheBeat.GetBeatType () == BeatScript.BeatType.Beat_Bass) {
 			//TheSource.clip = Bass;
 			GetComponent<AudioSource> ().PlayOneShot (Bass);
-		} else if (TheBeat.GetBeatType () == BeatScript.BeatType.Beat_Hithat) {
+		} 
+		if (TheBeat.GetBeatType () == BeatScript.BeatType.Beat_Hithat) {
 			//TheSource.clip = HiHat;
 			GetComponent<AudioSource> ().PlayOneShot (HiHat);
-		} else if (TheBeat.GetBeatType () == BeatScript.BeatType.Beat_Snare) {
+		} 
+		if (TheBeat.GetBeatType () == BeatScript.BeatType.Beat_Snare) {
 			//TheSource.clip = Snare;
 			GetComponent<AudioSource> ().PlayOneShot (Snare);
-		} else {
+		} 
+		if (TheBeat.GetBeatType () == BeatScript.BeatType.Beat_Tom) {
 			//TheSource.clip = Tom;
 			GetComponent<AudioSource> ().PlayOneShot (Tom);
 		}
+		//Destroy (this, 1.0f);
 		//TheSource.PlayOneShot ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (!GetComponent<AudioSource> ().isPlaying) {
-			Destroy(this);
-		}
 	}
 }
