@@ -6,7 +6,7 @@ using System.IO;
 public class SequenceDatabase : MonoBehaviour {
 
 	public TextAsset Database;
-	static List <SequenceClass> SequenceList = new List<SequenceClass>();
+	public static List <SequenceClass> SequenceList = new List<SequenceClass>();
 
 	// Use this for initialization
 	void Start () {
@@ -54,6 +54,17 @@ public class SequenceDatabase : MonoBehaviour {
 		//foreach (SequenceClass Sequence in SequenceList) {
 		//	print (Sequence.ShowSequence() );
 		//}
+	}
+
+	public SequenceClass CommandCheck(SequenceClass theSequence)
+	{
+		foreach (SequenceClass Sequence in SequenceList) {
+			if (Sequence.isSame(theSequence) )
+			{
+				return Sequence;
+			}
+		}
+		return theSequence;
 	}
 	
 	// Update is called once per frame

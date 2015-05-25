@@ -27,6 +27,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 488220}
   - 114: {fileID: 11409806}
+  - 114: {fileID: 11425058}
   m_Layer: 0
   m_Name: InputController
   m_TagString: Untagged
@@ -208,6 +209,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8cfee77025489a49bc2901603afbe98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11425058
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 162994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1528c6a6145e7244b36df683693fd68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Database: {fileID: 4900000, guid: d33b6f08f56f4ee4185c2538f32438ad, type: 3}
 --- !u!114 &11432076
 MonoBehaviour:
   m_ObjectHideFlags: 1

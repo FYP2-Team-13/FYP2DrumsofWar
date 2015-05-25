@@ -15,7 +15,14 @@ public class SequenceClass {
 		MeleeBeh = string.Empty;
 	}
 
-
+	public SequenceClass (BeatScript[] beat) {
+		for (int i = 0; i < 4; i++) {
+			Beat[i] = new BeatScript();
+			Beat[i].SetBeatType(beat[i].GetBeatType() );
+		}
+		RangeBeh = string.Empty;
+		MeleeBeh = string.Empty;
+	}
 	
 	public SequenceClass GetSequence ()
 	{
@@ -77,5 +84,25 @@ public class SequenceClass {
 			+ " " + Beat [1].GetBeatType ().ToString () + " " + Beat [2].GetBeatType ().ToString () + " " +
 			Beat [3].GetBeatType ().ToString ());
 		return temp;
+	}
+
+	public bool isSame (SequenceClass other)
+	{
+		for (int i = 0; i < 4; i++)
+		{
+			if (Beat[i].GetBeatType() != other.Beat[i].GetBeatType() )
+				return false;
+		}
+		return true;
+	}
+
+	public void Empty ()
+	{
+		for (int i = 0; i < 4; i++) {
+			Beat[i] = new BeatScript();
+			Beat[i].SetBeatType(BeatScript.BeatType.Beat_Rest );
+		}
+		RangeBeh = string.Empty;
+		MeleeBeh = string.Empty;
 	}
 }

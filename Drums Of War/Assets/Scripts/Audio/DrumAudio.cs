@@ -4,10 +4,10 @@ using System.Collections;
 public class DrumAudio : MonoBehaviour {
 
 	public AudioClip Snare, Tom, Bass, HiHat;
-	AudioSource TheSource;
+	//AudioSource TheSource;
 	// Use this for initialization
 	void Start () {
-		AudioSource TheSource = GetComponent<AudioSource> ();
+		//AudioSource TheSource = GetComponent<AudioSource> ();
 	}
 
 	public void Set (BeatScript TheBeat) {
