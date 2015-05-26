@@ -209,6 +209,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8cfee77025489a49bc2901603afbe98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Allies: []
+  AllyTag: Ally
 --- !u!114 &11425058
 MonoBehaviour:
   m_ObjectHideFlags: 1

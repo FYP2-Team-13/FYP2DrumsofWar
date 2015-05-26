@@ -53,6 +53,15 @@ public class SequenceClass {
 		this.MeleeBeh = MeleeBeh;
 	}
 
+	public void SetSequence (SequenceClass theSequence)
+	{
+		for (int i = 0; i < 4; i++) {
+			Beat [i].SetBeatType (theSequence.Beat [i].GetBeatType ());
+		}
+		this.RangeBeh = theSequence.GetRangeBehaviour();
+		this.MeleeBeh = theSequence.GetMeleeBehaviour();
+	}
+
 	public void SetSequence (BeatScript first, BeatScript second, BeatScript third, BeatScript fourth, string RangeBeh, string MeleeBeh)
 	{
 		Beat [0].SetBeatType (first.GetBeatType ());

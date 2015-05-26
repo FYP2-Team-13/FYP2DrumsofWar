@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class InputHandler : MonoBehaviour {
 
@@ -8,15 +9,25 @@ public class InputHandler : MonoBehaviour {
 	float TimeDur = 0.0f;
 	SequenceDatabase TheDatabase;
 
+	public List<AllyClass> Allies = new List<AllyClass>();
+	public string AllyTag;
+
 	void Reset ()
 	{
 		drumindex = 0;
 		Sequence.Empty ();
+		//TimeDur = 0.0f;
 	}
 	// Use this for initialization
 	void Start () {
 		Sequence = new SequenceClass ();
 		TheDatabase = GetComponent<SequenceDatabase> ();
+
+		GameObject[] nodes = GameObject.FindGameObjectsWithTag (AllyTag);
+		foreach (GameObject Ally in nodes) {
+			Allies.Add (Ally.GetComponent<AllyClass>() );
+		}
+
 	}
 
 	public void ReceiveSequence (BeatScript nextbeat)
@@ -34,16 +45,12 @@ public class InputHandler : MonoBehaviour {
 				drumindex = 0; //reset drum sequence
 
 				//Four Beats Done, Send it to your units
-				Sequence = TheDatabase.CommandCheck(Sequence);
-				if (Sequence.GetMeleeBehaviour() == string.Empty || Sequence.GetRangeBehaviour() == string.Empty)
-				{ // No Command Sequence Found for one of the two, reset and redo
-				}
-				else 
-				{ //Command Sequence Found, Send it to your units
-					//Send both strings to each AI, AI knows if it itself is melee or range unit
-					if (Sequence.GetMeleeBehaviour().CompareTo ("Attack") == 0)
-					{
-					}
+				//SequenceClass Temp;// = SequenceClass.SetSequence (TheDatabase.CommandCheck(Sequence) );
+				Sequence.SetSequence (TheDatabase.CommandCheck(Sequence) );
+					
+				foreach (AllyClass Ally in Allies)
+				{
+					Ally.ReceiveCommand(Sequence.GetMeleeBehaviour(), Sequence.GetRangeBehaviour() );
 				}
 
 				print (Sequence.ShowSequence() );
@@ -55,9 +62,15 @@ public class InputHandler : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		TimeDur += Time.deltaTime;
-		if (TimeDur > 2.0f) { //Command has lasted long enough
-			TimeDur = 0.0f; //Reset Timing
+		if (Allies [0].GetAIState () != AllyClass.AI_Ally_State.Ally_Idle) {
+			TimeDur += Time.deltaTime;
+			if (TimeDur > 2.0f) { //Command has lasted long enough
+				TimeDur = 0.0f; //Reset Timing
+
+				foreach (AllyClass Ally in Allies) {
+					Ally.ReceiveCommand ("Nothing", "Nothing");
+				}
+			}
 		}
 	}
 }

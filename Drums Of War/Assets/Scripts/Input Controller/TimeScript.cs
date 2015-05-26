@@ -29,7 +29,7 @@ public class TimeScript : MonoBehaviour {
 			return false;
 		}
 		if (Endbeat) {
-			if (time < 0.15f) { //if the key hits before the "beat" ended
+			if (time <= 0.235f) { //if the key hits before the "beat" ended
 				//insert Beat Script sending
 				return true;
 			} else {
@@ -37,7 +37,7 @@ public class TimeScript : MonoBehaviour {
 				return false;
 			}
 		} else {
-			if (time > 0.05f) { // if the key hits after the "beat" starts
+			if (time >= 0.05f) { // if the key hits after the "beat" starts
 				//insert Beat Script sending
 				return true;
 			} else {
@@ -65,7 +65,7 @@ public class TimeScript : MonoBehaviour {
 		
 		GUI.Label(new Rect (0, 100, 100, 100), time.ToString());
 
-		if (time > 0.249f) { // Check if the beat has ended
+		if (time >= 0.25f) { // Check if the beat has ended
 			//print (time);
 			time = 0.0f; // reset time
 			if (Endbeat)
