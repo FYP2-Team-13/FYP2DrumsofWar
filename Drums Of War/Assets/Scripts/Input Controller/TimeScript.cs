@@ -10,6 +10,9 @@ public class TimeScript : MonoBehaviour {
 	public GameObject TheInputHandler;
 	InputHandler TheInputScript;
 	public GameObject DrumSFX;
+
+	public GameObject Canvas;
+	public GameObject[] VFX;
 	//public GameObject DebugText;
 	//TextEditor Text;
 
@@ -52,6 +55,17 @@ public class TimeScript : MonoBehaviour {
 		TempSFX.gameObject.transform.parent = gameObject.transform;
 		TempSFX.GetComponent<DrumAudio>().Set(TheBeat);
 		Destroy (TempSFX, 1.0f);
+		GUI.Label (new Rect (Screen.width / 2 - 15, Screen.height / 2 - 15, 30, 30), "Hit");
+	}
+
+	void CreateVFX (int beat)
+	{
+		GameObject TempVFX = (GameObject) Instantiate(VFX[beat - 1]);
+		//Rect VFXLoc = new Rect(TempVFX.GetComponent<Rect>() );
+		TempVFX.gameObject.transform.parent = Canvas.transform;
+		//TempVFX.GetComponent<RectTransform> (). = VFXLoc;
+		//TempVFX.GetComponent<DrumAudio>().Set(TheBeat);
+		Destroy (TempVFX, 1.0f);
 	}
 
 	void SendBeat ()
@@ -85,6 +99,8 @@ public class TimeScript : MonoBehaviour {
 			keydown = true; //stop next instance of keydown
 			if (BeatCheck() ) {
 				TheBeat.SetBeatType (BeatScript.BeatType.Beat_Hithat); //Set Beat
+				CreateVFX ( (int)TheBeat.GetBeatType() );
+				//Instantiate (VFX[3],)
 			}
 			SendBeat();
 			CreateSFX();
@@ -95,6 +111,7 @@ public class TimeScript : MonoBehaviour {
 			keydown = true; //stop next instance of keydown
 			if (BeatCheck() ) {
 				TheBeat.SetBeatType (BeatScript.BeatType.Beat_Snare);//Set Beat
+				CreateVFX ( (int)TheBeat.GetBeatType() );
 			}
 			SendBeat();
 			CreateSFX();
@@ -105,6 +122,7 @@ public class TimeScript : MonoBehaviour {
 			keydown = true; //stop next instance of keydown
 			if (BeatCheck() ) {
 				TheBeat.SetBeatType (BeatScript.BeatType.Beat_Tom);//Set Beat
+				CreateVFX ( (int)TheBeat.GetBeatType() );
 			}
 			SendBeat();
 			CreateSFX();
@@ -115,6 +133,7 @@ public class TimeScript : MonoBehaviour {
 			keydown = true; //stop next instance of keydown
 			if (BeatCheck() ) {
 				TheBeat.SetBeatType (BeatScript.BeatType.Beat_Bass);//Set Beat
+				CreateVFX ( (int)TheBeat.GetBeatType() );
 			}
 			SendBeat();
 			CreateSFX();

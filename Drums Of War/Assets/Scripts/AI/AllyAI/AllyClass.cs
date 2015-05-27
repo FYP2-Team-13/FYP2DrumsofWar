@@ -22,7 +22,7 @@ public class AllyClass : MonoBehaviour {
 	public Unit_Type Type = Unit_Type.Type_Melee;
 
 	//Stats
-	float Hitpoints = 100;
+	float Hitpoints = 100, HitpointMax = 100;
 
 	//Attack
 	float AttackRange = 1.0f,
@@ -36,7 +36,7 @@ public class AllyClass : MonoBehaviour {
 
 	//End of Stats
 
-	float MoveSpeed = 1.0f;
+	float MoveSpeed = 1.00f;
 	float Vision = 15;
 
 	float PrevTime;// = Time.time;
@@ -56,7 +56,7 @@ public class AllyClass : MonoBehaviour {
 		this.AttackRange = Range;
 		this.Defense = Defense;
 		this.Evasion = Evasion;
-		this.Hitpoints = HP;
+		this.Hitpoints = this.HitpointMax = HP;
 	}
 
 	public AI_Ally_State GetAIState ()
@@ -104,6 +104,8 @@ public class AllyClass : MonoBehaviour {
 		switch (AIState) {
 		case AI_Ally_State.Ally_Advance: {
 			gameObject.transform.Translate (Vector3.right * MoveSpeed * Time.deltaTime) ;
+			//print (Vector2.right * MoveSpeed * Time.deltaTime);
+			//gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * MoveSpeed * Time.deltaTime) ;
 			}
 			break;
 		case AI_Ally_State.Ally_Attack: {
@@ -156,6 +158,7 @@ public class AllyClass : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		//gameObject.GetComponent<Rigidbody2D>().
 		if (Time.time - PrevTime > (float)(1 / 30)) {
 			UpdateState();
 
@@ -173,6 +176,7 @@ public class AllyClass : MonoBehaviour {
 	void OnCollisionEnter2D( Collision2D col ) {
 		if (col.gameObject.tag == EnemyTag) {
 			//insert attacking here
+			col.gameObject.GetComponent<AI>().TakeDamage (AttackDamage);
 		}
 	}
 }

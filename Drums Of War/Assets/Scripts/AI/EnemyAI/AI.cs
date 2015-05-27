@@ -95,4 +95,9 @@ public class AI : MonoBehaviour {
 		if (script.health < 1)
 			state = 1;
 	}
+
+	public void TakeDamage (float damage)
+	{
+		health -= damage;
+	}
 }
