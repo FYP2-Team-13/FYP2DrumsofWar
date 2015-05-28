@@ -3,34 +3,48 @@ using System.Collections;
 
 public class AI : MonoBehaviour {
 
-	public float health = 100;
-	public float state = 0; // 0 neutral, 1 move, 2 attack
-	//public float AItype = 0; // 1 ally 2 enemy, 3 neutral
+	public enum AI_ENEMY_State
+	{
+			Enemy_Idle = 0
+		,	Enemy_Forward
+		,	Enemy_Attack
+	}
 
-	float moveSpeed;
+	//stats
+	AI_ENEMY_State state = AI_ENEMY_State.Enemy_Idle;
+
 	Vector3 direction = Vector3.zero;
+	
+	public float health = 100;
+	float moveSpeed = 1.0f;
 
-	public float attackRange = 0;
-	public float attackSpeed = 0;
 	public float attackDamage = 0;
+	public float attackSpeed = 0;
+	public float attackRange = 0;
 
 	public GameObject Target;
 
 	private float prevTime;
 	float now;
 	float diff;
+	
 
 	// Use this for initialization
 	void Start () {
-		moveSpeed = 1;
-		state = 1;
-
-		attackDamage = 1;
-		attackSpeed = 1000;
+		state = AI_ENEMY_State.Enemy_Forward;
 
 		prevTime = Time.time;
 	}
-	
+
+	public void Set (float ADamage, float ASpeed, float ARange, float MSpeed, float HP)
+	{
+		this.attackDamage = ADamage;
+		this.attackSpeed = ASpeed * 1000;
+		this.attackRange = ARange;
+		this.moveSpeed = MSpeed;
+		this.health = HP;
+	}
+
 	// Update is called once per frame
 	void Update () {
 		this.transform.Translate (direction * moveSpeed * Time.deltaTime);
@@ -38,66 +52,99 @@ public class AI : MonoBehaviour {
 		now = Time.time;
 		diff = (now - prevTime) * 1000;
 
-
+		Search ();
 		states();
 
 		if (health < 1)
 			Destroy(this.gameObject, 1);
 	}
 
-	void OnCollisionEnter2D( Collision2D col ) {
+//	void OnCollisionEnter2D( Collision2D col ) {
+//		if (state == AI_ENEMY_State.Enemy_Forward) {
+//			if (col.gameObject.tag == "Ally") {
+//				Target = col.gameObject;
+//				state = AI_ENEMY_State.Enemy_Attack;
+//			}
+//		}
+//	}
 
-		if (state == 1) {
+	void Search () {
 
-			if (this.gameObject.tag == "Ally") {
-				if (col.gameObject.tag == "Enemy") {
-					Target = col.gameObject;
-					state = 2;
-				}
-			} 
+		GameObject[] nodes = GameObject.FindGameObjectsWithTag("Ally");
 
-			else if (this.gameObject.tag == "Enemy") {
-				if (col.gameObject.tag == "Ally") {
-					Target = col.gameObject;
-					state = 2;
+		Target = null;// Reset Targets
+	
+		float Nearest = 999f;
+		foreach (GameObject node in nodes)
+		{
+			var script = node.GetComponent<AllyClass> ();
+			float EnemyDistance = (node.transform.position - transform.position).magnitude;
+			
+			//Check if the Enemy is in Attack Range
+			if (EnemyDistance < attackRange 
+//			    && script.Hitpoints > 0 
+			    )
+			{
+				//Check if he is the closest enemy
+				if (EnemyDistance < Nearest)
+				{
+					Nearest = EnemyDistance;
+					Target = node;
 				}
 			}
 		}
+		if (Target == null)
+			state = AI_ENEMY_State.Enemy_Forward;
+		else
+			state = AI_ENEMY_State.Enemy_Attack;
 	}
 
 
-
 	void states() {
-		if (state == 0)
-			return;
-		else if (state == 1) {
-			if (this.gameObject.tag == "Ally")
-				direction.Set(1,0,0);
-			else if (this.gameObject.tag == "Enemy")
-				direction.Set(-1,0,0);
-		}
-		else if (state == 2) {
-			direction = Vector3.zero;
+		switch (state) {
+		case AI_ENEMY_State.Enemy_Idle:
+			{
+		
+			}
+			break;
+		case AI_ENEMY_State.Enemy_Forward:
+			{
+				direction.Set (-1, 0, 0);
+			}
+			break;
+		case AI_ENEMY_State.Enemy_Attack:
+			{
+				direction = Vector3.zero;
 
-			Attacking();
+				Attacking ();
+			}
+			break;
+		default:
+			{
+
+			}
+			break;
 		}
 	}
 
 	void Attacking () {
+
 		if (diff < attackSpeed)
 			return;
 
 		prevTime = now;
 
-		var script = Target.GetComponent<AI>();
-		script.health -= attackDamage;
+//		if (Target.gameObject.tag == "Ally") {
+			var script = Target.GetComponent<AllyClass> ();
+			script.TakeDamage(attackDamage);
 
-		if (script.health < 1)
-			state = 1;
+//		}
+
 	}
 
-	public void TakeDamage (float damage)
+	void TakeDamage (float damage)
 	{
-		health -= damage;
+		if (Random.Range (0, 100) < 100)
+			health -= damage;
 	}
 }
