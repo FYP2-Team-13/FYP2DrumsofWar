@@ -15,7 +15,7 @@ public class InputHandler : MonoBehaviour {
 	void Reset ()
 	{
 		drumindex = 0;
-		Sequence.Empty ();
+		Sequence = new SequenceClass();
 		//TimeDur = 0.0f;
 	}
 	// Use this for initialization
