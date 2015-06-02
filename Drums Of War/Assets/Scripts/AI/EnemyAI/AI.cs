@@ -142,7 +142,7 @@ public class AI : MonoBehaviour {
 
 	}
 
-	void TakeDamage (float damage)
+	public void TakeDamage (float damage)
 	{
 		if (Random.Range (0, 100) < 100)
 			health -= damage;

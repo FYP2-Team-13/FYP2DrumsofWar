@@ -10,6 +10,7 @@ public class AllyClass : MonoBehaviour {
 		,	Ally_Attack
 		,	Ally_Defend
 		,	Ally_Retreat
+		,	Ally_Dead
 	}
 
 	public enum Unit_Type
@@ -133,26 +134,32 @@ public class AllyClass : MonoBehaviour {
 		//	temp = Melee;
 		//else
 		//	temp = Range;
-		switch ((Type == Unit_Type.Type_Melee ? Melee : Range)) {
-		case "Advance":{
-			AIState = AI_Ally_State.Ally_Advance;
+		if (AIState != AI_Ally_State.Ally_Dead) {
+			switch ((Type == Unit_Type.Type_Melee ? Melee : Range)) {
+			case "Advance":
+				{
+					AIState = AI_Ally_State.Ally_Advance;
+				}
+				break;
+			case "Attack":
+				{
+					AIState = AI_Ally_State.Ally_Attack;
+				}
+				break;
+			case "Defend":
+				{
+					AIState = AI_Ally_State.Ally_Defend;
+				}
+				break;
+			case "Retreat":
+				{
+					AIState = AI_Ally_State.Ally_Retreat;
+				}
+				break;
+			default:
+				AIState = AI_Ally_State.Ally_Idle;
+				break;
 			}
-			break;
-		case "Attack":{
-			AIState = AI_Ally_State.Ally_Attack;
-			}
-			break;
-		case "Defend":{
-			AIState = AI_Ally_State.Ally_Defend;
-			}
-			break;
-		case "Retreat":{
-			AIState = AI_Ally_State.Ally_Retreat;
-			}
-			break;
-		default:
-			AIState = AI_Ally_State.Ally_Idle;
-			break;
 		}
 	}
 
@@ -169,8 +176,27 @@ public class AllyClass : MonoBehaviour {
 	//Use this function when an enemy attacks the unit
 	public void TakeDamage (float damage)
 	{
-		if (Random.Range (0, 100) < 100 - Evasion)
+		if (Random.Range (0, 100) < 100 - Evasion) {
 			Hitpoints -= damage - Defense;
+			if (Hitpoints < 1)
+				AIState = AI_Ally_State.Ally_Dead;
+		}
+	}
+
+	public void Heal (float healvalue)
+	{
+		Hitpoints += healvalue;
+		if (Hitpoints > HitpointMax)
+			Hitpoints = HitpointMax;
+	}
+
+	public float GetHP()
+	{
+		return Hitpoints;
+	}
+
+	void Attack (GameObject Target)
+	{
 	}
 
 	void OnCollisionEnter2D( Collision2D col ) {
