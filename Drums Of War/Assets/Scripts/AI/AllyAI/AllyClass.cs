@@ -26,10 +26,10 @@ public class AllyClass : MonoBehaviour {
 	float Hitpoints = 100, HitpointMax = 100;
 
 	//Attack
-	float AttackRange = 1.0f,
-	AttackSpeed = 1.5f,
+	float AttackRange = 2.0f,
+	AttackSpeed = 0.5f,
 	AttackDamage = 10,
-	LastAttack = 0.0f;
+	LastAttack;
 
 	//Defense
 	float Defense = 1.0f,
@@ -43,11 +43,12 @@ public class AllyClass : MonoBehaviour {
 	float PrevTime;// = Time.time;
 
 	GameObject Target;
-	public string AllyTag, EnemyTag;
+	public string EnemyTag;
 
 	// Use this for initialization
 	void Start () {
 		PrevTime = Time.time;
+		LastAttack = 0.0f;
 	}
 
 	public void Set (float Attack, float Speed, float Range, float Defense, float Evasion, float HP)
@@ -113,8 +114,9 @@ public class AllyClass : MonoBehaviour {
 				UpdateTargets();
 				if (Target != null)
 				{
+					Attack();
 					//if (Target.transform
-					gameObject.transform.Translate (Vector3.right * MoveSpeed * Time.deltaTime) ;
+					gameObject.transform.Translate (Vector3.right * MoveSpeed * 2.0f * Time.deltaTime) ;
 				}
 			}
 			break;
@@ -195,14 +197,49 @@ public class AllyClass : MonoBehaviour {
 		return Hitpoints;
 	}
 
-	void Attack (GameObject Target)
+	void Attack ()
 	{
+		if (CheckAttackRange ()) {
+			if (Type == Unit_Type.Type_Melee) {//Melee Attacks
+				DoAttack(Target, AttackDamage * (AIState == AI_Ally_State.Ally_Attack? 1.0f: 0.7f) );
+			} 
+			else if (Type == Unit_Type.Type_Range) { // Range Attacks
+			}
+		}
+	}
+
+	void DoAttack (GameObject target, float damage)
+	{
+		if (CheckLastAttack() ) {
+			target.GetComponent<AI>().TakeDamage (damage);
+			//print ("Attack");
+		}
+	}
+
+	bool CheckLastAttack()	{
+		//print (Time.time);
+		//print (LastAttack);
+		if (Time.time - LastAttack > AttackSpeed) {// Check if the attack delay has passed
+			LastAttack = Time.time; // Reset Time
+			return true;
+		}
+		return false;
+	}
+
+	bool CheckAttackRange()
+	{
+		//print (Target.transform.position);
+		//print (transform.position);
+		if ((Target.transform.position.x - transform.position.x) < AttackRange)
+			//print ("attack!");
+			return true;
+		return false;
 	}
 
 	void OnCollisionEnter2D( Collision2D col ) {
-		if (col.gameObject.tag == EnemyTag) {
-			//insert attacking here
-			col.gameObject.GetComponent<AI>().TakeDamage (AttackDamage);
+		if (col.gameObject.tag == gameObject.tag) {
+			Physics2D.IgnoreCollision(GetComponent<Collider2D>(), col.collider);
+			return;
 		}
 	}
 }

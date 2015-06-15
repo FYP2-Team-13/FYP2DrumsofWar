@@ -90,7 +90,6 @@ GameObject:
   - 4: {fileID: 479172}
   - 50: {fileID: 5016758}
   - 61: {fileID: 6154868}
-  - 114: {fileID: 11442420}
   - 114: {fileID: 11473818}
   - 95: {fileID: 9562276}
   - 58: {fileID: 5810252}
@@ -265,18 +264,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11442420
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 178922}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a467ce58959f8c46995db12c6960cd6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IgnoreTag: Ally
 --- !u!114 &11473818
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -289,7 +276,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 0
-  AllyTag: Ally
   EnemyTag: Enemy
 --- !u!212 &21221580
 SpriteRenderer:

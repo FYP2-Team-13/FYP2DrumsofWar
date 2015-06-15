@@ -62,7 +62,7 @@ public class TimeScript : MonoBehaviour {
 	{
 		GameObject TempVFX = (GameObject) Instantiate(VFX[beat - 1]);
 		//Rect VFXLoc = new Rect(TempVFX.GetComponent<Rect>() );
-		TempVFX.gameObject.transform.parent = Canvas.transform;
+		TempVFX.gameObject.transform.SetParent(Canvas.transform);
 		//TempVFX.GetComponent<RectTransform> (). = VFXLoc;
 		//TempVFX.GetComponent<DrumAudio>().Set(TheBeat);
 		Destroy (TempVFX, 1.0f);
