@@ -277,6 +277,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 0
   EnemyTag: Enemy
+  Arrow: {fileID: 102522, guid: b4fd2626a6160074893e395376284606, type: 2}
 --- !u!212 &21221580
 SpriteRenderer:
   m_ObjectHideFlags: 1

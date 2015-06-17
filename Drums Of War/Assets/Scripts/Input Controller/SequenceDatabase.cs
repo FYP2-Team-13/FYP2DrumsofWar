@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 
 public class SequenceDatabase : MonoBehaviour {
-
+	
 	public TextAsset Database;
 	public static List <SequenceClass> SequenceList = new List<SequenceClass>();
-
+	
 	// Use this for initialization
 	void Start () {
 		//Create a String Reader that has loaded the Text Asset
@@ -16,7 +16,7 @@ public class SequenceDatabase : MonoBehaviour {
 		string Contents = Data.ReadToEnd ();
 		//Split Contents of Text Asset by lines
 		string[] Lines = Contents.Split ("\n"[0]);
-
+		
 		foreach (string line in Lines) {
 			//Split each line into variables by comma (,)
 			string[] values = line.Split(","[0]);
@@ -27,7 +27,7 @@ public class SequenceDatabase : MonoBehaviour {
 			
 			Temp.SetRangeBehaviour(values[0] );
 			Temp.SetMeleeBehaviour(values[1] );
-
+			
 			//Compare each string with the corresponding Beat
 			for (int i = 2; i < 6; i++)
 			{
@@ -46,7 +46,7 @@ public class SequenceDatabase : MonoBehaviour {
 				}
 				Temp.SetBeat (TempBeat, i - 2);
 			}
-
+			
 			//Load the Temp Sequence into to List
 			//print (Temp.ShowSequence() );
 			SequenceList.Add(Temp);
@@ -55,7 +55,7 @@ public class SequenceDatabase : MonoBehaviour {
 		//	print (Sequence.ShowSequence() );
 		//}
 	}
-
+	
 	public SequenceClass CommandCheck(SequenceClass theSequence)
 	{
 		foreach (SequenceClass Sequence in SequenceList) {
@@ -69,6 +69,6 @@ public class SequenceDatabase : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		
 	}
 }

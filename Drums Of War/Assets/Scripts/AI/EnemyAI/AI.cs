@@ -134,11 +134,11 @@ public class AI : MonoBehaviour {
 
 		prevTime = now;
 
-//		if (Target.gameObject.tag == "Ally") {
-			var script = Target.GetComponent<AllyClass> ();
-			script.TakeDamage(attackDamage);
+		//if (Target.gameObject.tag == "Ally") {
+		//	var script = Target.GetComponent<AllyClass> ();
+		//	script.TakeDamage(attackDamage);
 
-//		}
+		//}
 
 	}
 

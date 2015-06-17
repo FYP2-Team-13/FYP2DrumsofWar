@@ -27,7 +27,7 @@ public class InputHandler : MonoBehaviour {
 		foreach (GameObject Ally in nodes) {
 			Allies.Add (Ally.GetComponent<AllyClass>() );
 		}
-
+		Allies.Remove (Allies [0]);
 	}
 
 	public void ReceiveSequence (BeatScript nextbeat)
@@ -62,7 +62,8 @@ public class InputHandler : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Allies [0].GetAIState () != AllyClass.AI_Ally_State.Ally_Idle) {
+		if (Allies[0].GetAIState() != AllyClass.AI_Ally_State.Ally_Idle) 
+		{ //Check if AI is actually doing an action
 			TimeDur += Time.deltaTime;
 			if (TimeDur > 2.0f) { //Command has lasted long enough
 				TimeDur = 0.0f; //Reset Timing

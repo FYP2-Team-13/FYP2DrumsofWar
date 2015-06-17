@@ -20,13 +20,14 @@ public class AllyClass : MonoBehaviour {
 	}
 
 	AI_Ally_State AIState = AI_Ally_State.Ally_Idle;
-	public Unit_Type Type = Unit_Type.Type_Melee;
+	public Unit_Type Type = Unit_Type.Type_Range;
+	Animator TheAnimator;
 
 	//Stats
 	float Hitpoints = 100, HitpointMax = 100;
 
 	//Attack
-	float AttackRange = 2.0f,
+	float AttackRange = 10.0f,
 	AttackSpeed = 0.5f,
 	AttackDamage = 10,
 	LastAttack;
@@ -45,10 +46,14 @@ public class AllyClass : MonoBehaviour {
 	GameObject Target;
 	public string EnemyTag;
 
+	//variables for Firing Arrow
+	public GameObject Arrow;
+
 	// Use this for initialization
 	void Start () {
 		PrevTime = Time.time;
 		LastAttack = 0.0f;
+		TheAnimator = GetComponent<Animator> ();
 	}
 
 	public void Set (float Attack, float Speed, float Range, float Defense, float Evasion, float HP)
@@ -160,8 +165,11 @@ public class AllyClass : MonoBehaviour {
 				break;
 			default:
 				AIState = AI_Ally_State.Ally_Idle;
+				TheAnimator.SetInteger("State", 0);
 				break;
 			}
+			if (AIState != AI_Ally_State.Ally_Idle)
+				TheAnimator.SetInteger("State", 1);
 		}
 	}
 
@@ -201,17 +209,29 @@ public class AllyClass : MonoBehaviour {
 	{
 		if (CheckAttackRange ()) {
 			if (Type == Unit_Type.Type_Melee) {//Melee Attacks
-				DoAttack(Target, AttackDamage * (AIState == AI_Ally_State.Ally_Attack? 1.0f: 0.7f) );
+				DoAttackMelee(Target, AttackDamage * (AIState == AI_Ally_State.Ally_Attack? 1.0f: 0.7f) );
 			} 
 			else if (Type == Unit_Type.Type_Range) { // Range Attacks
+				DoAttackRange();
 			}
 		}
 	}
 
-	void DoAttack (GameObject target, float damage)
+	void DoAttackRange ()
+	{
+		if (CheckLastAttack ()) {
+			GameObject temparrow = (GameObject)Instantiate (Arrow, transform.position + ((Vector3.right + Vector3.up) * 1), transform.rotation);
+			temparrow.gameObject.tag = gameObject.tag;
+			ArrowAngleScript tempscript = temparrow.GetComponent<ArrowAngleScript> ();
+			tempscript.CalculateAngle (Target.transform, AttackRange, AttackDamage, EnemyTag);
+		}
+	}
+
+	void DoAttackMelee (GameObject target, float damage)
 	{
 		if (CheckLastAttack() ) {
 			target.GetComponent<AI>().TakeDamage (damage);
+			TheAnimator.SetInteger ("State", 2);
 			//print ("Attack");
 		}
 	}

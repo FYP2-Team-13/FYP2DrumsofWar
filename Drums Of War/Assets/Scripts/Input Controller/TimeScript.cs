@@ -32,7 +32,7 @@ public class TimeScript : MonoBehaviour {
 			return false;
 		}
 		if (Endbeat) {
-			if (time <= 0.235f) { //if the key hits before the "beat" ended
+			if (time <= 0.245f) { //if the key hits before the "beat" ended
 				//insert Beat Script sending
 				return true;
 			} else {
