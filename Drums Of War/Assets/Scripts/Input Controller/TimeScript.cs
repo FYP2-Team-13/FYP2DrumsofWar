@@ -28,7 +28,7 @@ public class TimeScript : MonoBehaviour {
 	bool BeatCheck ()
 	{
 		if (TheBeat.GetBeatType () != BeatScript.BeatType.Beat_Rest) {
-			//TheBeat.SetBeatType(BeatScript.BeatType.Beat_Fail);
+			TheBeat.SetBeatType(BeatScript.BeatType.Beat_Rest);
 			return false;
 		}
 		if (Endbeat) {

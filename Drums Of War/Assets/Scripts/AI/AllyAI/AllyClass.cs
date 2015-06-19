@@ -28,7 +28,7 @@ public class AllyClass : MonoBehaviour {
 
 	//Attack
 	float AttackRange = 10.0f,
-	AttackSpeed = 0.5f,
+	AttackSpeed = 0.75f,
 	AttackDamage = 10,
 	LastAttack;
 
@@ -54,10 +54,13 @@ public class AllyClass : MonoBehaviour {
 		PrevTime = Time.time;
 		LastAttack = 0.0f;
 		TheAnimator = GetComponent<Animator> ();
+		if (Type == Unit_Type.Type_Range)
+			TheAnimator.SetInteger ("WeaponType", 1);
 	}
 
-	public void Set (float Attack, float Speed, float Range, float Defense, float Evasion, float HP)
+	public void Set (Unit_Type Type, float Attack, float Speed, float Range, float Defense, float Evasion, float HP)
 	{
+		this.Type = Type;
 		this.AttackDamage = Attack;
 		this.AttackSpeed = Speed;
 		this.AttackRange = Range;
@@ -220,10 +223,11 @@ public class AllyClass : MonoBehaviour {
 	void DoAttackRange ()
 	{
 		if (CheckLastAttack ()) {
-			GameObject temparrow = (GameObject)Instantiate (Arrow, transform.position + ((Vector3.right + Vector3.up) * 1), transform.rotation);
+			GameObject temparrow = (GameObject)Instantiate (Arrow, transform.position + ((Vector3.right + Vector3.up) * 1.5f), transform.rotation);
 			temparrow.gameObject.tag = gameObject.tag;
 			ArrowAngleScript tempscript = temparrow.GetComponent<ArrowAngleScript> ();
-			tempscript.CalculateAngle (Target.transform, AttackRange, AttackDamage, EnemyTag);
+			tempscript.CalculateAngle (Target.transform, AttackRange * 2, AttackDamage, EnemyTag);
+			TheAnimator.SetInteger("State", 2);
 		}
 	}
 

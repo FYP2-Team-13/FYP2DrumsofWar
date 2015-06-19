@@ -4,11 +4,9 @@ using System.Collections;
 public class ArrowAngleScript : MonoBehaviour {
 
 	Rigidbody2D theRigidBody;
-	Vector2 Direction;
-	float Damage, speed;
+	float Damage;
 	string EnemyTag;
-
-
+	
 	// Use this for initialization
 	void Start () {
 		theRigidBody = GetComponent<Rigidbody2D> ();
@@ -18,6 +16,7 @@ public class ArrowAngleScript : MonoBehaviour {
 	void Update () {
 
 		//theRigidBody.AddForce (Direction * speed);
+		transform.rotation = Quaternion.FromToRotation(Vector3.up, theRigidBody.velocity);
 	}
 
 	public void CalculateAngle (Transform Target, float speed, float Damage, string EnemyTag)
@@ -29,7 +28,6 @@ public class ArrowAngleScript : MonoBehaviour {
 		float g = Physics2D.gravity.y;
 		float temp = (speed * speed * speed * speed) - (g * (g * (x * x) + 2 * y * (speed * speed)));
 
-		this.speed = speed;
 		this.Damage = Damage;
 		this.EnemyTag = EnemyTag;
 
@@ -37,12 +35,14 @@ public class ArrowAngleScript : MonoBehaviour {
 
 		if (temp > 0) {
 
-			temp = Mathf.Atan( ( (speed*speed) + temp) / (g*x) );
-			temp = Mathf.Rad2Deg;
+			temp = Mathf.Atan (((speed * speed) + temp) / (g * x));
+			//temp = Mathf.Rad2Deg;
 			//print (temp);
-			Direction = Quaternion.AngleAxis(temp, Vector3.forward) * Vector2.right;
-			print (Direction * speed);
-			theRigidBody.AddForce (Direction * speed, ForceMode2D.Impulse);
+			Vector2 TempDir = Quaternion.AngleAxis (temp, Vector3.forward) * Vector2.right;
+			//print (Direction * speed);
+			theRigidBody.AddForce (TempDir * speed, ForceMode2D.Impulse);
+		} else {
+			CalculateAngle (Target, speed + 1, Damage, EnemyTag);
 		}
 	}
 
