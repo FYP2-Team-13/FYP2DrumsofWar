@@ -10,8 +10,8 @@ public class AI : MonoBehaviour {
 		,	Enemy_Attack
 	}
 
-	//stats
-	AI_ENEMY_State state = AI_ENEMY_State.Enemy_Idle;
+	//<stats>
+	public AI_ENEMY_State state = AI_ENEMY_State.Enemy_Idle;
 
 	Vector3 direction = Vector3.zero;
 	
@@ -21,6 +21,7 @@ public class AI : MonoBehaviour {
 	public float attackDamage = 0;
 	public float attackSpeed = 0;
 	public float attackRange = 0;
+	//</stats>
 
 	public GameObject Target;
 
@@ -36,13 +37,25 @@ public class AI : MonoBehaviour {
 		prevTime = Time.time;
 	}
 
-	public void Set (float ADamage, float ASpeed, float ARange, float MSpeed, float HP)
+	public void Set (float ADamage, float ASpeed, float ARange, float MSpeed, float HP, int forceState)
 	{
 		this.attackDamage = ADamage;
 		this.attackSpeed = ASpeed * 1000;
 		this.attackRange = ARange;
 		this.moveSpeed = MSpeed;
 		this.health = HP;
+
+		//for testing
+		this.SetState(forceState);
+	}
+
+	public void SetState (int set) { //just incase I need to force state change
+		if (set == 0)
+			state = AI_ENEMY_State.Enemy_Idle;
+		if (set == 1)
+			state = AI_ENEMY_State.Enemy_Forward;
+		if (set == 2)
+			state = AI_ENEMY_State.Enemy_Attack;
 	}
 
 	// Update is called once per frame
@@ -52,23 +65,17 @@ public class AI : MonoBehaviour {
 		now = Time.time;
 		diff = (now - prevTime) * 1000;
 
-		Search ();
-		states();
+		Search (); //look for closest
+		states(); //check states and act according
 
 		if (health < 1)
 			Destroy(this.gameObject, 1);
 	}
 
-//	void OnCollisionEnter2D( Collision2D col ) {
-//		if (state == AI_ENEMY_State.Enemy_Forward) {
-//			if (col.gameObject.tag == "Ally") {
-//				Target = col.gameObject;
-//				state = AI_ENEMY_State.Enemy_Attack;
-//			}
-//		}
-//	}
-
 	void Search () {
+
+		if (state == AI_ENEMY_State.Enemy_Idle)
+			return;
 
 		GameObject[] nodes = GameObject.FindGameObjectsWithTag("Ally");
 
@@ -82,7 +89,7 @@ public class AI : MonoBehaviour {
 			
 			//Check if the Enemy is in Attack Range
 			if (EnemyDistance < attackRange 
-//			    && script.Hitpoints > 0 
+			    && script.GetHP() > 0 
 			    )
 			{
 				//Check if he is the closest enemy
@@ -104,16 +111,17 @@ public class AI : MonoBehaviour {
 		switch (state) {
 		case AI_ENEMY_State.Enemy_Idle:
 			{
-		
 			}
 			break;
 		case AI_ENEMY_State.Enemy_Forward:
 			{
+			//moving
 				direction.Set (-1, 0, 0);
 			}
 			break;
 		case AI_ENEMY_State.Enemy_Attack:
 			{
+			//stop moving and start to attack
 				direction = Vector3.zero;
 
 				Attacking ();
@@ -121,7 +129,6 @@ public class AI : MonoBehaviour {
 			break;
 		default:
 			{
-
 			}
 			break;
 		}
@@ -129,17 +136,20 @@ public class AI : MonoBehaviour {
 
 	void Attacking () {
 
+		//if can't attack now
 		if (diff < attackSpeed)
 			return;
 
 		prevTime = now;
 
-		//if (Target.gameObject.tag == "Ally") {
-		//	var script = Target.GetComponent<AllyClass> ();
-		//	script.TakeDamage(attackDamage);
+		if (attackRange > 3.0f) {
+			//var Range = this.GetComponent<Range> ();
+			//Range.createProjectile ();
+			return;
+		}
 
-		//}
-
+		var script = Target.GetComponent<AllyClass> ();
+		script.TakeDamage(attackDamage);
 	}
 
 	public void TakeDamage (float damage)
