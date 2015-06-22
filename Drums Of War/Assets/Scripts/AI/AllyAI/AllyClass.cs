@@ -122,14 +122,18 @@ public class AllyClass : MonoBehaviour {
 				UpdateTargets();
 				if (Target != null)
 				{
-					Attack();
-					//if (Target.transform
-					gameObject.transform.Translate (Vector3.right * MoveSpeed * 2.0f * Time.deltaTime) ;
+					if (CheckAttackRange() ) // Can I hit it?
+					{
+						Attack();
+					} else { // What can I do if I can't hit it?
+						CalculateMoveSpeed (Target.transform.position);
+						gameObject.transform.Translate (Vector3.right * MoveSpeed * 2.0f * Time.deltaTime) ;
+					}
 				}
 			}
 			break;
 		case AI_Ally_State.Ally_Retreat: {
-			gameObject.transform.Translate (Vector3.left * MoveSpeed * Time.deltaTime) ;
+			gameObject.transform.Translate (Vector3.right * MoveSpeed * Time.deltaTime) ;
 			}
 			break;
 		default:
@@ -137,7 +141,7 @@ public class AllyClass : MonoBehaviour {
 		}
 	}
 
-	public void ReceiveCommand (string Melee, string Range)
+	public void ReceiveCommand (string Melee, string Range, Vector3 position)
 	{
 		//string temp;
 		//if (Type == Unit_Type.Type_Melee) 
@@ -149,6 +153,7 @@ public class AllyClass : MonoBehaviour {
 			case "Advance":
 				{
 					AIState = AI_Ally_State.Ally_Advance;
+					CalculateMoveSpeed (position);
 				}
 				break;
 			case "Attack":
@@ -164,6 +169,7 @@ public class AllyClass : MonoBehaviour {
 			case "Retreat":
 				{
 					AIState = AI_Ally_State.Ally_Retreat;
+					CalculateMoveSpeed (position);
 				}
 				break;
 			default:
@@ -190,9 +196,12 @@ public class AllyClass : MonoBehaviour {
 	public void TakeDamage (float damage)
 	{
 		if (Random.Range (0, 100) < 100 - Evasion) {
-			Hitpoints -= damage - Defense;
+			Hitpoints -= (damage - Defense) * (AIState == AI_Ally_State.Ally_Defend? 0.5f: 1);
 			if (Hitpoints < 1)
+			{
 				AIState = AI_Ally_State.Ally_Dead;
+				gameObject.transform.parent.gameObject.GetComponent<AllyGroup>().UnitDied();
+			}
 		}
 	}
 
@@ -265,5 +274,10 @@ public class AllyClass : MonoBehaviour {
 			Physics2D.IgnoreCollision(GetComponent<Collider2D>(), col.collider);
 			return;
 		}
+	}
+
+	public void CalculateMoveSpeed (Vector3 destination) {
+		float distance = destination.x - transform.position.x;
+		MoveSpeed = distance / 2.0f;
 	}
 }

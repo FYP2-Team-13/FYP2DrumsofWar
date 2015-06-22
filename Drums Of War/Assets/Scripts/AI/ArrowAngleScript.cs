@@ -33,12 +33,16 @@ public class ArrowAngleScript : MonoBehaviour {
 
 		temp = Mathf.Sqrt (temp);
 
-		if (temp > 0) {
+		if (temp >= 0) {
 
 			temp = Mathf.Atan (((speed * speed) + temp) / (g * x));
 			//temp = Mathf.Rad2Deg;
 			//print (temp);
 			Vector2 TempDir = Quaternion.AngleAxis (temp, Vector3.forward) * Vector2.right;
+			if (Target.transform.position.x < transform.position.x)
+			{
+				TempDir.Set ( TempDir.x *-1, TempDir.y );
+			}
 			//print (Direction * speed);
 			theRigidBody.AddForce (TempDir * speed, ForceMode2D.Impulse);
 		} else {

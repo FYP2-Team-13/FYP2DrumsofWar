@@ -85,4 +85,15 @@ public class InputHandler : MonoBehaviour {
 			}
 		}
 	}
+
+	public void CheckDefeat ()
+	{
+		int totalunits = 0;
+		foreach (AllyGroup AllyGroup in Allies) {
+			totalunits += AllyGroup.GetQuantity();
+		}
+		if (totalunits < 1) //no more units 
+		{// insert defeat condition here
+		}
+	}
 }
