@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -9,6 +10,7 @@ public class InputHandler : MonoBehaviour {
 	float TimeDur = 0.0f;
 	SequenceDatabase TheDatabase;
 	bool runningcommand = false;
+	public Sprite Win, Lose;
 
 	public List<AllyGroup> Allies = new List<AllyGroup>();
 	public string AllyTag;
@@ -35,8 +37,8 @@ public class InputHandler : MonoBehaviour {
 			//	continue;
 			Allies.Add (Ally.GetComponent<AllyGroup>() );
 		}
-		Allies[0].Init (6, AllyClass.Unit_Type.Type_Melee, 0, 0.75f, 2, 1, 5, 100);
-		Allies[1].Init (6, AllyClass.Unit_Type.Type_Range, 10, 0.75f, 10, 1, 5, 100);
+		Allies[0].Init (1, AllyClass.Unit_Type.Type_Melee, 10, 0.75f, 2, 1, 5, 100);
+		//Allies[1].Init (6, AllyClass.Unit_Type.Type_Range, 10, 0.75f, 10, 1, 5, 100);
 		//Allies.Remove (Allies [0]);
 	}
 
@@ -61,6 +63,12 @@ public class InputHandler : MonoBehaviour {
 					//Four Beats Done, Send it to your units
 					//SequenceClass Temp;// = SequenceClass.SetSequence (TheDatabase.CommandCheck(Sequence) );
 					Sequence.SetSequence (TheDatabase.CommandCheck(Sequence) );
+					AudioClip ResponseSFX;
+					if (Sequence.GetMeleeBehaviour() != null)
+					{
+						ResponseSFX = TheDatabase.GetAudio(Sequence);
+						GetComponent<AudioSource>().PlayOneShot(ResponseSFX);
+					}
 					
 					foreach (AllyGroup Ally in Allies)
 					{
@@ -84,6 +92,14 @@ public class InputHandler : MonoBehaviour {
 				Reset();
 			}
 		}
+
+		if (Input.GetKeyDown (KeyCode.H)) {
+			GameObject[] nodes = GameObject.FindGameObjectsWithTag("Ally");
+			foreach (GameObject Ally in nodes)
+			{
+				Ally.GetComponent<AllyClass>().TakeDamage(100000);
+			}
+		}
 	}
 
 	public void CheckDefeat ()
@@ -94,15 +110,22 @@ public class InputHandler : MonoBehaviour {
 		}
 		if (totalunits < 1) //no more units 
 		{// insert defeat condition here
-			PlayDefeat();
+			PlayEnding(false);
 		}
 	}
 
-	public void PlayDefeat()
-	{//Call this function to play defeat scene
-	}
+	public void PlayEnding(bool win)
+	{//true for victory, false for defeat.
+		GameObject WinLoseIndicator = GameObject.FindGameObjectWithTag("Result");
+		Image TheSprite = WinLoseIndicator.GetComponent<Image> ();
 
-	public void PlayVictory()
-	{// Call this function to play Victory scene
+		if (win)
+			TheSprite.sprite = Win;
+		else
+			TheSprite.sprite = Lose;
+		WinLoseIndicator.GetComponent<FaderScripte> ().StartFade ();
+		//WinLoseIndicator.SetActive(true);
+		//FaderScripte Fader = WinLoseIndicator.GetComponent<FaderScripte> ();
+		//Fader.StartFade ();
 	}
 }

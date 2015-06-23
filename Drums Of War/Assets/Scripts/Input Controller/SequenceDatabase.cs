@@ -7,6 +7,7 @@ public class SequenceDatabase : MonoBehaviour {
 	
 	public TextAsset Database;
 	public static List <SequenceClass> SequenceList = new List<SequenceClass>();
+	public List<AudioClip> ResponseList = new List<AudioClip>();
 	
 	// Use this for initialization
 	void Start () {
@@ -65,6 +66,17 @@ public class SequenceDatabase : MonoBehaviour {
 			}
 		}
 		return theSequence;
+	}
+
+	public AudioClip GetAudio(SequenceClass theSequence)
+	{
+		foreach (SequenceClass Sequence in SequenceList) {
+			if (Sequence.isSame(theSequence) )
+			{
+				return ResponseList [SequenceList.IndexOf(Sequence)];
+			}
+		}
+		return null;
 	}
 	
 	// Update is called once per frame

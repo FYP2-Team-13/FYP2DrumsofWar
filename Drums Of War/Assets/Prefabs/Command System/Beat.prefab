@@ -28,6 +28,7 @@ GameObject:
   - 4: {fileID: 488220}
   - 114: {fileID: 11409806}
   - 114: {fileID: 11425058}
+  - 82: {fileID: 8235858}
   m_Layer: 0
   m_Name: InputController
   m_TagString: InputHandler
@@ -60,6 +61,75 @@ Transform:
   m_Children: []
   m_Father: {fileID: 446226}
   m_RootOrder: 0
+--- !u!82 &8235858
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 162994}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 100
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!82 &8265818
 AudioSource:
   m_ObjectHideFlags: 1
@@ -71,7 +141,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 9f37036eddd73c34c8bf311c9d9f9505, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: .75
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -209,6 +279,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8cfee77025489a49bc2901603afbe98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Win: {fileID: 21300000, guid: 9363166c7f2c2be449aec2f6f5641ea1, type: 3}
+  Lose: {fileID: 21300000, guid: 98915dc8555f74b488b96cb215e4e6ce, type: 3}
   Allies: []
   AllyTag: AllyGroup
 --- !u!114 &11425058
@@ -223,6 +295,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Database: {fileID: 4900000, guid: d33b6f08f56f4ee4185c2538f32438ad, type: 3}
+  ResponseList:
+  - {fileID: 8300000, guid: 3cbab1cec736fc547a3cbee5ba69160b, type: 3}
+  - {fileID: 8300000, guid: 2a885672b75ae774186e96bfc792cbdc, type: 3}
+  - {fileID: 8300000, guid: 82f61e44f49b1f345b9b02cbddc5b654, type: 3}
+  - {fileID: 8300000, guid: b1987ef6e4c5299449afe557d5994ec9, type: 3}
+  - {fileID: 8300000, guid: 3079e92a148bb0e4292c5b1abb27af28, type: 3}
+  - {fileID: 8300000, guid: 2325186aad4f94045a71846854ccae6c, type: 3}
+  - {fileID: 8300000, guid: f35ab935d9ef796408d9aa99c9ea30f6, type: 3}
+  - {fileID: 8300000, guid: 44517c15271706c4080c66d0bd9a394a, type: 3}
+  - {fileID: 8300000, guid: 653db5b4ac87c1b4f9e6742c9c03b272, type: 3}
+  - {fileID: 8300000, guid: 46e2f7c451541c44aa4eab2b6cc909a5, type: 3}
 --- !u!114 &11432076
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class AllyGroup : MonoBehaviour {
 
 	public Vector3 position;
+	float unitspacing = 0.5f;
 	public List<AllyClass> Allies = new List<AllyClass>();
 	public GameObject Unit;
 	AllyClass.Unit_Type GroupType;
@@ -12,7 +13,8 @@ public class AllyGroup : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+		position = transform.position;
+		transform.Translate (-transform.position);
 	}
 	
 	// Update is called once per frame
@@ -24,7 +26,7 @@ public class AllyGroup : MonoBehaviour {
 		Quantity = NumofUnits;
 		GroupType = Type;
 		for (int i = 0; i < NumofUnits; i++) {
-			GameObject tempunit = (GameObject)Instantiate(Unit, position + (Vector3.left * i * 0.8f), gameObject.transform.rotation );
+			GameObject tempunit = (GameObject)Instantiate(Unit, position + (Vector3.left * i * unitspacing), gameObject.transform.rotation );
 			tempunit.transform.parent = gameObject.transform;
 			AllyClass tempscript = tempunit.GetComponent<AllyClass>();
 			tempscript.Set(Type, Attack, Speed, Range, Defense, Evasion, HP);
@@ -61,8 +63,13 @@ public class AllyGroup : MonoBehaviour {
 		}
 		int i = 0;
 		foreach (AllyClass Ally in Allies) {
-			Ally.ReceiveCommand(Melee, Range, position + (Vector3.left * i * 0.8f) );
+			Ally.ReceiveCommand(Melee, Range, position + (Vector3.left * i * unitspacing) );
 			i++;
 		}
+	}
+
+	public void removeunit (AllyClass unit)
+	{
+		Allies.Remove (unit);
 	}
 }
