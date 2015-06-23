@@ -95,12 +95,8 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 491078, guid: ada7a3df83e3a2042829556dc359190e, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 12.0299997
-      objectReference: {fileID: 0}
-    - target: {fileID: 491078, guid: ada7a3df83e3a2042829556dc359190e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -3.05999994
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 491078, guid: ada7a3df83e3a2042829556dc359190e, type: 2}
       propertyPath: m_LocalPosition.z
@@ -134,9 +130,9 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 11468862, guid: ada7a3df83e3a2042829556dc359190e, type: 2}
-      propertyPath: attackDamage
-      value: 10
+    - target: {fileID: 491078, guid: ada7a3df83e3a2042829556dc359190e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ada7a3df83e3a2042829556dc359190e, type: 2}
@@ -162,7 +158,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11425218, guid: 571b708a177828845a2d41d3087520ba, type: 2}
       propertyPath: position.x
-      value: -10
+      value: -5.5
       objectReference: {fileID: 0}
     - target: {fileID: 11425218, guid: 571b708a177828845a2d41d3087520ba, type: 2}
       propertyPath: position.y
@@ -307,7 +303,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 11425218, guid: 571b708a177828845a2d41d3087520ba, type: 2}
       propertyPath: position.x
-      value: -2.70000005
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11425218, guid: 571b708a177828845a2d41d3087520ba, type: 2}
       propertyPath: position.y

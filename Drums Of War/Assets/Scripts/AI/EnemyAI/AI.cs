@@ -60,7 +60,7 @@ public class AI : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		this.transform.Translate (direction * moveSpeed * Time.deltaTime);
+		//this.transform.Translate (direction * moveSpeed * Time.deltaTime);
 
 		now = Time.time;
 		diff = (now - prevTime) * 1000;

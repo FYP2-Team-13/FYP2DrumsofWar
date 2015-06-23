@@ -127,7 +127,7 @@ public class AllyClass : MonoBehaviour {
 						Attack();
 					} else { // What can I do if I can't hit it?
 						CalculateMoveSpeed (Target.transform.position);
-						gameObject.transform.Translate (Vector3.right * MoveSpeed * 2.0f * Time.deltaTime) ;
+						gameObject.transform.Translate (Vector3.right * MoveSpeed * Time.deltaTime) ;
 					}
 				}
 			}
@@ -196,12 +196,15 @@ public class AllyClass : MonoBehaviour {
 	public void TakeDamage (float damage)
 	{
 		if (Random.Range (0, 100) < 100 - Evasion) {
-			Hitpoints -= (damage - Defense) * (AIState == AI_Ally_State.Ally_Defend? 0.5f: 1);
+			float DamageDone = (damage - Defense) * (AIState == AI_Ally_State.Ally_Defend? 0.5f: 1);
+			Hitpoints -= DamageDone;
 			if (Hitpoints < 1)
 			{
 				AIState = AI_Ally_State.Ally_Dead;
 				gameObject.transform.parent.gameObject.GetComponent<AllyGroup>().UnitDied();
 				gameObject.transform.tag = "Finish";
+				TheAnimator.SetBool("Dead", true);
+				TheAnimator.SetBool("DeadAnimation", true);
 			}
 		}
 	}
@@ -233,11 +236,13 @@ public class AllyClass : MonoBehaviour {
 	void DoAttackRange ()
 	{
 		if (CheckLastAttack ()) {
-			GameObject temparrow = (GameObject)Instantiate (Arrow, transform.position + ((Vector3.right + Vector3.up) * 1.5f), transform.rotation);
+			GameObject temparrow = (GameObject)Instantiate (Arrow, transform.position + ((Vector3.up) * 1.0f), transform.rotation);
 			temparrow.gameObject.tag = gameObject.tag + "Arrow";
 			temparrow.gameObject.layer = gameObject.layer;
 			ArrowAngleScript tempscript = temparrow.GetComponent<ArrowAngleScript> ();
-			tempscript.CalculateAngle (Target.transform, AttackRange * 2, AttackDamage, EnemyTag);
+			float speed = Random.Range(AttackRange, AttackRange * 1.5f);
+			print (speed);
+			tempscript.CalculateAngle (Target.transform, speed, AttackDamage, EnemyTag);
 			TheAnimator.SetInteger("State", 2);
 		}
 	}
@@ -281,5 +286,12 @@ public class AllyClass : MonoBehaviour {
 	public void CalculateMoveSpeed (Vector3 destination) {
 		float distance = destination.x - transform.position.x;
 		MoveSpeed = distance / 2.0f;
+	}
+
+	void OnBecameInvisible()
+	{
+		if (AIState == AI_Ally_State.Ally_Dead) {
+			Destroy (gameObject);
+		}
 	}
 }

@@ -21,22 +21,35 @@ public class ArrowAngleScript : MonoBehaviour {
 
 	public void CalculateAngle (Transform Target, float speed, float Damage, string EnemyTag)
 	{
-		theRigidBody = GetComponent<Rigidbody2D> ();
-
-		float y = Target.transform.position.y - transform.position.y;
-		float x = (Target.transform.position - transform.position).magnitude;
-		float g = Physics2D.gravity.y;
-		float temp = (speed * speed * speed * speed) - (g * (g * (x * x) + 2 * y * (speed * speed)));
-
+		//print (speed);
 		this.Damage = Damage;
 		this.EnemyTag = EnemyTag;
 
-		temp = Mathf.Sqrt (temp);
+		theRigidBody = GetComponent<Rigidbody2D> ();
+		float y = Target.transform.position.y - transform.position.y;
+		float x = Target.transform.position.x - transform.position.x;
+		//print (x);
+		//print (y);
+		float g = -Physics2D.gravity.y;
 
-		if (temp >= 0) {
+		float power = Mathf.Pow(speed, 4);
+		float gx = g * x * x;
+		float yv2 = 2 * y * speed * speed;
 
-			temp = Mathf.Atan (((speed * speed) + temp) / (g * x));
-			//temp = Mathf.Rad2Deg;
+		//float temp = (speed * speed * speed * speed) - (g * ((g * (x * x)) + (2 * y * (speed * speed))));
+		float temp = power - (g * (gx + yv2));
+
+		if (temp > 0) {
+			temp = Mathf.Sqrt (temp);
+
+			power = speed * speed;
+			gx = g * x;
+			//temp = (((speed * speed) + temp) / (g * x));
+			temp = (power + temp)/gx;
+			temp = Mathf.Atan(temp);
+			//print (temp);
+			temp *= Mathf.Rad2Deg;
+			//temp += 10;
 			//print (temp);
 			Vector2 TempDir = Quaternion.AngleAxis (temp, Vector3.forward) * Vector2.right;
 			if (Target.transform.position.x < transform.position.x)

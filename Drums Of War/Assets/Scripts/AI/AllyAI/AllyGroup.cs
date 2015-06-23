@@ -24,7 +24,7 @@ public class AllyGroup : MonoBehaviour {
 		Quantity = NumofUnits;
 		GroupType = Type;
 		for (int i = 0; i < NumofUnits; i++) {
-			GameObject tempunit = (GameObject)Instantiate(Unit, position + (Vector3.left * i * 1.2f), gameObject.transform.rotation );
+			GameObject tempunit = (GameObject)Instantiate(Unit, position + (Vector3.left * i * 0.8f), gameObject.transform.rotation );
 			tempunit.transform.parent = gameObject.transform;
 			AllyClass tempscript = tempunit.GetComponent<AllyClass>();
 			tempscript.Set(Type, Attack, Speed, Range, Defense, Evasion, HP);
@@ -61,7 +61,7 @@ public class AllyGroup : MonoBehaviour {
 		}
 		int i = 0;
 		foreach (AllyClass Ally in Allies) {
-			Ally.ReceiveCommand(Melee, Range, position + (Vector3.left * i * 1.2f) );
+			Ally.ReceiveCommand(Melee, Range, position + (Vector3.left * i * 0.8f) );
 			i++;
 		}
 	}

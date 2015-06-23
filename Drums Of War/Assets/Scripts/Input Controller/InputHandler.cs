@@ -35,7 +35,7 @@ public class InputHandler : MonoBehaviour {
 			//	continue;
 			Allies.Add (Ally.GetComponent<AllyGroup>() );
 		}
-		Allies[0].Init (6, AllyClass.Unit_Type.Type_Melee, 10, 0.75f, 2, 1, 5, 100);
+		Allies[0].Init (6, AllyClass.Unit_Type.Type_Melee, 0, 0.75f, 2, 1, 5, 100);
 		Allies[1].Init (6, AllyClass.Unit_Type.Type_Range, 10, 0.75f, 10, 1, 5, 100);
 		//Allies.Remove (Allies [0]);
 	}
@@ -87,13 +87,22 @@ public class InputHandler : MonoBehaviour {
 	}
 
 	public void CheckDefeat ()
-	{
+	{//This function is for checking if the army is dead
 		int totalunits = 0;
 		foreach (AllyGroup AllyGroup in Allies) {
 			totalunits += AllyGroup.GetQuantity();
 		}
 		if (totalunits < 1) //no more units 
 		{// insert defeat condition here
+			PlayDefeat();
 		}
+	}
+
+	public void PlayDefeat()
+	{//Call this function to play defeat scene
+	}
+
+	public void PlayVictory()
+	{// Call this function to play Victory scene
 	}
 }
