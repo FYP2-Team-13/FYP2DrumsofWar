@@ -39,7 +39,7 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 157530}
-  m_Mass: 1
+  m_Mass: 100
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 0
@@ -72,6 +72,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6f3c5646a5623b40bea45ab7c5eab02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 0
   health: 100
   attackDamage: 0
   attackSpeed: 0
@@ -99,6 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6f3c5646a5623b40bea45ab7c5eab02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 0
   health: 100
   attackDamage: 0
   attackSpeed: 0

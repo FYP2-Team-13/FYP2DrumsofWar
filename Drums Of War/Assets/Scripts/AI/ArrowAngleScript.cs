@@ -51,22 +51,17 @@ public class ArrowAngleScript : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D( Collision2D col ) {
-		if (col.gameObject.tag == gameObject.tag) {
-			Physics2D.IgnoreCollision (GetComponent<Collider2D> (), col.collider);
-			return;
-		} else {
-			if (col.gameObject.tag == EnemyTag)
+		if (col.gameObject.tag == EnemyTag)
+		{
+			if (gameObject.GetComponent<AllyClass>() )
 			{
-				if (gameObject.GetComponent<AllyClass>() )
-				{
-					gameObject.GetComponent<AllyClass>().TakeDamage(Damage);
-				}
-				else if (gameObject.GetComponent<AI>())
-				{
-					gameObject.GetComponent<AI>().TakeDamage(Damage);
-				}
+				gameObject.GetComponent<AllyClass>().TakeDamage(Damage);
 			}
-			Destroy(gameObject);
+			else if (gameObject.GetComponent<AI>())
+			{
+				gameObject.GetComponent<AI>().TakeDamage(Damage);
+			}
 		}
+		Destroy(gameObject);
 	}
 }

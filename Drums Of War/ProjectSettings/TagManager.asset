@@ -7,6 +7,9 @@ TagManager:
   - Ally
   - Enemy
   - InputHandler
+  - AllyGroup
+  - AllyArrow
+  - EnemyArrow
   layers:
   - Default
   - TransparentFX
@@ -16,8 +19,8 @@ TagManager:
   - UI
   - 
   - 
-  - Arrow Layer
-  - 
+  - Ally
+  - Enemy
   - 
   - 
   - 

@@ -124,7 +124,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 491078, guid: ada7a3df83e3a2042829556dc359190e, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 157530, guid: ada7a3df83e3a2042829556dc359190e, type: 2}
       propertyPath: m_TagString
@@ -132,7 +132,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 157530, guid: ada7a3df83e3a2042829556dc359190e, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11468862, guid: ada7a3df83e3a2042829556dc359190e, type: 2}
+      propertyPath: attackDamage
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ada7a3df83e3a2042829556dc359190e, type: 2}
@@ -174,6 +178,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11432076, guid: 2e9a3b67355b71842a8251b21b7c0868, type: 2}
+      propertyPath: VFX.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 446226, guid: 2e9a3b67355b71842a8251b21b7c0868, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -204,7 +212,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 446226, guid: 2e9a3b67355b71842a8251b21b7c0868, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2e9a3b67355b71842a8251b21b7c0868, type: 2}
@@ -317,7 +325,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 406182, guid: f235c142576fb9f4fb384dd444acaf4e, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 406182, guid: f235c142576fb9f4fb384dd444acaf4e, type: 2}
       propertyPath: m_LocalPosition.z

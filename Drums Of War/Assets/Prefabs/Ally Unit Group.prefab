@@ -11,7 +11,7 @@ GameObject:
   - 114: {fileID: 11425218}
   m_Layer: 0
   m_Name: Ally Unit Group
-  m_TagString: Ally
+  m_TagString: AllyGroup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39,6 +39,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8e759a87d0491f49881ac21bcc63973, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  position: {x: 0, y: 0, z: 0}
   Allies: []
   Unit: {fileID: 178922, guid: e6ca50b0fb478034da6254c7b9fe02b6, type: 2}
 --- !u!1001 &100100000

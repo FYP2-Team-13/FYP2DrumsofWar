@@ -201,6 +201,7 @@ public class AllyClass : MonoBehaviour {
 			{
 				AIState = AI_Ally_State.Ally_Dead;
 				gameObject.transform.parent.gameObject.GetComponent<AllyGroup>().UnitDied();
+				gameObject.transform.tag = "Finish";
 			}
 		}
 	}
@@ -233,7 +234,8 @@ public class AllyClass : MonoBehaviour {
 	{
 		if (CheckLastAttack ()) {
 			GameObject temparrow = (GameObject)Instantiate (Arrow, transform.position + ((Vector3.right + Vector3.up) * 1.5f), transform.rotation);
-			temparrow.gameObject.tag = gameObject.tag;
+			temparrow.gameObject.tag = gameObject.tag + "Arrow";
+			temparrow.gameObject.layer = gameObject.layer;
 			ArrowAngleScript tempscript = temparrow.GetComponent<ArrowAngleScript> ();
 			tempscript.CalculateAngle (Target.transform, AttackRange * 2, AttackDamage, EnemyTag);
 			TheAnimator.SetInteger("State", 2);

@@ -210,7 +210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Allies: []
-  AllyTag: Ally
+  AllyTag: AllyGroup
 --- !u!114 &11425058
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -238,7 +238,6 @@ MonoBehaviour:
   TheInputHandler: {fileID: 162994}
   DrumSFX: {fileID: 105002, guid: ede6b29074c782f498e2038578a4e0d2, type: 2}
   Canvas: {fileID: 0}
-  VFX: []
   Hihats: 119
   Snare: 97
   Bass: 115

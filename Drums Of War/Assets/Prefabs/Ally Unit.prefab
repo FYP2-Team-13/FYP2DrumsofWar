@@ -93,7 +93,7 @@ GameObject:
   - 114: {fileID: 11473818}
   - 95: {fileID: 9562276}
   - 58: {fileID: 5810252}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ally Unit
   m_TagString: Ally
   m_Icon: {fileID: 0}
@@ -212,7 +212,7 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 178922}
-  m_Mass: 1
+  m_Mass: 100
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 1
