@@ -19,12 +19,13 @@ public class AllyClass : MonoBehaviour {
 		,Type_Range
 	}
 
-	AI_Ally_State AIState = AI_Ally_State.Ally_Idle;
+	public AI_Ally_State AIState = AI_Ally_State.Ally_Idle;
 	public Unit_Type Type = Unit_Type.Type_Range;
 	Animator TheAnimator;
 
 	//Stats
-	float Hitpoints = 100, HitpointMax = 100;
+	public float Hitpoints = 100;
+	float HitpointMax = 100;
 
 	//Attack
 	float AttackRange = 10.0f,
@@ -291,6 +292,7 @@ public class AllyClass : MonoBehaviour {
 	void OnBecameInvisible()
 	{
 		if (AIState == AI_Ally_State.Ally_Dead) {
+			gameObject.transform.parent.GetComponent<AllyGroup>().removeunit(this);
 			Destroy (gameObject);
 		}
 	}

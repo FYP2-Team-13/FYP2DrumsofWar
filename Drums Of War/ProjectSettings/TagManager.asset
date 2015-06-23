@@ -10,6 +10,7 @@ TagManager:
   - AllyGroup
   - AllyArrow
   - EnemyArrow
+  - Result
   layers:
   - Default
   - TransparentFX
