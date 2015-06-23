@@ -3,9 +3,8 @@ using System.Collections;
 
 public class GroupSpawning : MonoBehaviour {
 
-	private GameObject Melee;
-	private GameObject Mid;
-	private GameObject Range;
+	public GameObject Melee;
+	public GameObject Range;
 
 	float spacing = 1.2f;
 
@@ -17,20 +16,15 @@ public class GroupSpawning : MonoBehaviour {
 	void Update () {
 	}
 
-	public void createGroup (float meleeAmnt, float midAmnt, float rangeAmnt,
+	public void createGroup (float meleeAmnt, float rangeAmnt,
 	                         Vector3 pos)
 	{
-		float total = meleeAmnt + midAmnt + rangeAmnt;
+		float total = meleeAmnt + rangeAmnt;
 
 		for (int me = 0; me < meleeAmnt; me++) {
 			Vector3 tempPos = pos;
 			tempPos.x -= ((total - 1)/2 - me) * spacing;
 			Instantiate(Melee, tempPos, Quaternion.identity);
-		}
-		for (int mi = 0; mi < midAmnt; mi++) {
-			Vector3 tempPos = pos;
-			tempPos.x -= ((midAmnt - 1)/2 - mi) * spacing;
-			Instantiate(Mid, tempPos, Quaternion.identity);
 		}
 		for (int ra = 0; ra < rangeAmnt; ra++) {
 			Vector3 tempPos = pos;

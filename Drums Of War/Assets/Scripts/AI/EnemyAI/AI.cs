@@ -69,7 +69,14 @@ public class AI : MonoBehaviour {
 		states(); //check states and act according
 
 		if (health < 1)
-			Destroy(this.gameObject, 1);
+			return;
+			//Destroy(this.gameObject, 1);
+	}
+
+	void OnCollisionEnter2D (Collision2D col)
+	{
+		if (col.gameObject.tag == "Enemy")
+			Physics2D.IgnoreCollision (GetComponent<Collider2D>(), col.collider);
 	}
 
 	void Search () {
@@ -143,8 +150,8 @@ public class AI : MonoBehaviour {
 		prevTime = now;
 
 		if (attackRange > 3.0f) {
-			//var Range = this.GetComponent<Range> ();
-			//Range.createProjectile ();
+			var Range = this.GetComponent<Range> ();
+			Range.createProjectile ();
 			return;
 		}
 

@@ -3,12 +3,12 @@ using System.Collections;
 
 public class Range : MonoBehaviour {
 
-	//public GameObject projectile;
+	public GameObject projectile;
 
 	// Use this for initialization
 	void Start () {
 		var script = this.gameObject.GetComponent<AI> ();
-		script.Set (0f, 1f, 5.0f, 1f, 10f, 0);
+		script.Set (0f, 1f, 5.0f, 1f, 10f, -1);
 	}
 	
 	// Update is called once per frame
@@ -16,13 +16,12 @@ public class Range : MonoBehaviour {
 	
 	}
 
-//	public void createProjectile () {
-//		var scr = this.gameObject.GetComponent<AI> ();
-//		//scr.SetState (0);
-//
-//		Vector3 tempPos = scr.gameObject.transform.position;
-//		tempPos.y += 5;
-//
-//		Instantiate(projectile, tempPos, Quaternion.identity);
-//	}
+	public void createProjectile () {
+		var scr = this.gameObject.GetComponent<AI> ();
+
+		GameObject temparrow = (GameObject)Instantiate (projectile, transform.position + ((Vector3.left + Vector3.up) * 1.5f), transform.rotation);
+		temparrow.gameObject.tag = "EnemyArrow";
+		ArrowAngleScript tempscript = temparrow.GetComponent<ArrowAngleScript> ();
+		tempscript.CalculateAngle (scr.Target.transform, scr.attackRange * 2, scr.attackDamage, "Ally");
+	}
 }
