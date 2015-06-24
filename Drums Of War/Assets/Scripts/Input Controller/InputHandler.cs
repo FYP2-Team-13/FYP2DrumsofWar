@@ -40,8 +40,7 @@ public class InputHandler : MonoBehaviour {
 		}
 		//Allies[0].Init (1, AllyClass.Unit_Type.Type_Melee, 10, 0.75f, 2, 1, 5, 100);
 		//Allies[1].Init (6, AllyClass.Unit_Type.Type_Range, 10, 0.75f, 10, 1, 5, 100);
-		//Allies[1].Init (6, AllyClass.Unit_Type.Type_Range, 10, 0.75f, 10, 1, 5, 100);
-		//Allies.Remove (Allies [0]);
+
 	}
 
 	public void ReceiveSequence (BeatScript nextbeat)
