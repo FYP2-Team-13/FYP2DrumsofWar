@@ -13,6 +13,7 @@ GameObject:
   - 114: {fileID: 11458574}
   - 212: {fileID: 21219138}
   - 114: {fileID: 11437686}
+  - 114: {fileID: 11475404}
   m_Layer: 0
   m_Name: Enemy Range
   m_TagString: Enemy
@@ -71,6 +72,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16842cd6fff4670429fae69b49da290c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectile: {fileID: 102522, guid: b4fd2626a6160074893e395376284606, type: 2}
 --- !u!114 &11458574
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -88,6 +90,18 @@ MonoBehaviour:
   attackSpeed: 0
   attackRange: 0
   Target: {fileID: 0}
+--- !u!114 &11475404
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 167930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a467ce58959f8c46995db12c6960cd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IgnoreTag: Finish
 --- !u!212 &21219138
 SpriteRenderer:
   m_ObjectHideFlags: 1
