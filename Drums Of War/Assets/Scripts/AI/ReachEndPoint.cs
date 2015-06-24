@@ -16,6 +16,7 @@ public class ReachEndPoint : MonoBehaviour {
 	void OnCollisionEnter2D( Collision2D col )
 	{
 		if (col.transform.tag == "Ally") {
+			transform.tag = "Finish";
 			GameObject.FindGameObjectWithTag("InputHandler").GetComponent<InputHandler>().PlayEnding(true);
 		}
 	}

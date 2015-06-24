@@ -10,7 +10,8 @@ public class InputHandler : MonoBehaviour {
 	float TimeDur = 0.0f;
 	SequenceDatabase TheDatabase;
 	bool runningcommand = false;
-	public Sprite Win, Lose;
+	public Sprite WinImage, LoseImage;
+	public AudioClip WinSFX, LoseSFX;
 
 	public List<AllyGroup> Allies = new List<AllyGroup>();
 	public string AllyTag;
@@ -37,7 +38,8 @@ public class InputHandler : MonoBehaviour {
 			//	continue;
 			Allies.Add (Ally.GetComponent<AllyGroup>() );
 		}
-		Allies[0].Init (1, AllyClass.Unit_Type.Type_Melee, 10, 0.75f, 2, 1, 5, 100);
+		Allies [0].Init (1);
+		Allies[0].InitStats (AllyClass.Unit_Type.Type_Melee, 10, 0.75f, 2, 1, 5, 100);
 		//Allies[1].Init (6, AllyClass.Unit_Type.Type_Range, 10, 0.75f, 10, 1, 5, 100);
 		//Allies.Remove (Allies [0]);
 	}
@@ -118,12 +120,21 @@ public class InputHandler : MonoBehaviour {
 	{//true for victory, false for defeat.
 		GameObject WinLoseIndicator = GameObject.FindGameObjectWithTag("Result");
 		Image TheSprite = WinLoseIndicator.GetComponent<Image> ();
+		AudioSource TheSource = WinLoseIndicator.GetComponent<AudioSource> ();
+		transform.parent.gameObject.GetComponent<AudioSource> ().Stop ();
 
 		if (win)
-			TheSprite.sprite = Win;
+		{
+			TheSprite.sprite = WinImage;
+			TheSource.clip = WinSFX;
+		}
 		else
-			TheSprite.sprite = Lose;
+		{
+			TheSprite.sprite = LoseImage;
+			TheSource.clip = LoseSFX;
+		}
 		WinLoseIndicator.GetComponent<FaderScripte> ().StartFade ();
+		TheSource.PlayOneShot (TheSource.clip);
 		//WinLoseIndicator.SetActive(true);
 		//FaderScripte Fader = WinLoseIndicator.GetComponent<FaderScripte> ();
 		//Fader.StartFade ();
