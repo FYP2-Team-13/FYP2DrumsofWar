@@ -11,6 +11,10 @@ public class CampMenuScript : MonoBehaviour {
 
 	private int menuCounter;
 	private int movingstate;
+	Animator anim;
+
+	Vector3 Left = new Vector3(-1,1,1);
+	Vector3 Right = new Vector3(1,1,1);
 
 	// Use this for initialization
 	void Start () {
@@ -20,6 +24,7 @@ public class CampMenuScript : MonoBehaviour {
 		left = left.GetComponent<Button>();
 		right = right.GetComponent<Button>();
 		enter = enter.GetComponent<Button>();
+		anim = MenuSelector.GetComponent<Animator> ();
 	}
 	
 	// Update is called once per frame
@@ -27,20 +32,35 @@ public class CampMenuScript : MonoBehaviour {
 		if(movingstate == 1)//moving left
 		{
 			MenuSelector.transform.Translate(-Time.deltaTime * 15,0,0);
+			MenuSelector.transform.localScale = Left;
 			if(MenuSelector.transform.position.x <= (40 + (menuCounter * 15)))
 			{
 				//MenuSelector.transform.Translate( 40 + menuCounter * 15,0,0);
 				movingstate = 0;
+				anim.SetInteger("State",0);
 			}
 		}
 		else if(movingstate == 2)//moving right
 		{
 			MenuSelector.transform.Translate(Time.deltaTime * 15,0,0);
+			MenuSelector.transform.localScale = Right;
 			if(MenuSelector.transform.position.x >= (40 + (menuCounter * 15)))
 			{
 				//MenuSelector.transform.Translate( 40 + menuCounter * 15,0,0);
 				movingstate = 0;
+				anim.SetInteger("State",0);
 			}
+		}
+
+		if (Input.GetKeyDown (KeyCode.A)) {
+			GoLeft();
+		}
+		if (Input.GetKeyDown (KeyCode.D)) {
+			GoRight();
+		}
+		if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.KeypadEnter))
+		{
+			Enter();
 		}
 
 	}
@@ -49,6 +69,7 @@ public class CampMenuScript : MonoBehaviour {
 	{
 
 		if (menuCounter > 0) {
+			anim.SetInteger("State",1);
 			menuCounter --;
 			movingstate = 1;
 		}
@@ -58,6 +79,7 @@ public class CampMenuScript : MonoBehaviour {
 	{
 
 		if (menuCounter < 3) {
+			anim.SetInteger("State",1);
 			menuCounter++;
 			movingstate = 2;
 		}

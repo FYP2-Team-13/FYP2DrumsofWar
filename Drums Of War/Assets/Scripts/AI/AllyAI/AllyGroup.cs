@@ -9,12 +9,13 @@ public class AllyGroup : MonoBehaviour {
 	public List<AllyClass> Allies = new List<AllyClass>();
 	public GameObject Unit;
 	AllyClass.Unit_Type GroupType;
-	int Quantity;
+	public int Quantity;
 
 	// Use this for initialization
 	void Start () {
 		position = transform.position;
 		transform.Translate (-transform.position);
+		Init (Quantity);
 	}
 	
 	// Update is called once per frame
@@ -22,15 +23,20 @@ public class AllyGroup : MonoBehaviour {
 	
 	}
 
-	public void Init(int NumofUnits, AllyClass.Unit_Type Type, float Attack, float Speed, float Range, float Defense, float Evasion, float HP) {
+	public void Init(int NumofUnits) {
 		Quantity = NumofUnits;
-		GroupType = Type;
 		for (int i = 0; i < NumofUnits; i++) {
 			GameObject tempunit = (GameObject)Instantiate(Unit, position + (Vector3.left * i * unitspacing), gameObject.transform.rotation );
 			tempunit.transform.parent = gameObject.transform;
 			AllyClass tempscript = tempunit.GetComponent<AllyClass>();
-			tempscript.Set(Type, Attack, Speed, Range, Defense, Evasion, HP);
 			Allies.Add(tempscript);
+		}
+	}
+
+	public void InitStats (AllyClass.Unit_Type Type, float Attack, float Speed, float Range, float Defense, float Evasion, float HP)
+	{
+		foreach (AllyClass Ally in Allies) {
+			Ally.GetComponent<AllyClass>().Set(Type, Attack, Speed, Range, Defense, Evasion, HP);
 		}
 	}
 
