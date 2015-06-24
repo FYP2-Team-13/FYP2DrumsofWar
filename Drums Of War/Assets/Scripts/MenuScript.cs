@@ -37,7 +37,7 @@ public class MenuScript : MonoBehaviour {
 
 	public void PlayPress()
 	{
-		Application.LoadLevel ("Gameplay");
+		Application.LoadLevel ("Camp Menu");
 	}
 
 	public void YesPress()

@@ -17,4 +17,9 @@ public class Backscript : MonoBehaviour {
 	{
 		Application.LoadLevel("camp menu");
 	}
+
+	public void playpressed()
+	{
+		Application.LoadLevel("GamePlay");
+	}
 }
