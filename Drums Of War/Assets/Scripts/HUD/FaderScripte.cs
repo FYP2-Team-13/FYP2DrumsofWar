@@ -9,7 +9,7 @@ public class FaderScripte : MonoBehaviour {
 	float maximum = 1;
 	public float duration = 1.0f;
 	float startTime;
-	public Image sprite;
+	Image sprite;
 
 	// Use this for initialization
 	void Start () {
