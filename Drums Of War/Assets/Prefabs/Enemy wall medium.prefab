@@ -73,8 +73,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
+  iswall: 1
   health: 50
-  moveSpeed: 0
   attackDamage: 0
   attackSpeed: 0
   attackRange: 0
