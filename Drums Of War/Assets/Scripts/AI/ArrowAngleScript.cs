@@ -28,6 +28,9 @@ public class ArrowAngleScript : MonoBehaviour {
 		theRigidBody = GetComponent<Rigidbody2D> ();
 		float y = Target.transform.position.y - transform.position.y;
 		float x = Target.transform.position.x - transform.position.x;
+		if (x < 0) {
+			x *= -1;
+		}
 		//print (x);
 		//print (y);
 		float g = -Physics2D.gravity.y;

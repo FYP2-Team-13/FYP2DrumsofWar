@@ -199,14 +199,26 @@ public class AllyClass : MonoBehaviour {
 		if (Random.Range (0, 100) < 100 - Evasion) {
 			float DamageDone = (damage - Defense) * (AIState == AI_Ally_State.Ally_Defend? 0.5f: 1);
 			Hitpoints -= DamageDone;
-			if (Hitpoints < 1)
-			{
-				AIState = AI_Ally_State.Ally_Dead;
-				gameObject.transform.parent.gameObject.GetComponent<AllyGroup>().UnitDied();
-				gameObject.transform.tag = "Finish";
-				TheAnimator.SetBool("Dead", true);
-				TheAnimator.SetBool("DeadAnimation", true);
-			}
+			checkdeath();
+		}
+	}
+
+	public void TakeDamageNoEvasion (float damage)
+	{
+		float DamageDone = (damage - Defense) * (AIState == AI_Ally_State.Ally_Defend? 0.5f: 1);
+		Hitpoints -= DamageDone;
+		checkdeath ();
+	}
+
+	void checkdeath ()
+	{
+		if (Hitpoints < 1)
+		{
+			AIState = AI_Ally_State.Ally_Dead;
+			gameObject.transform.parent.gameObject.GetComponent<AllyGroup>().UnitDied();
+			gameObject.transform.tag = "Finish";
+			TheAnimator.SetBool("Dead", true);
+			TheAnimator.SetBool("DeadAnimation", true);
 		}
 	}
 

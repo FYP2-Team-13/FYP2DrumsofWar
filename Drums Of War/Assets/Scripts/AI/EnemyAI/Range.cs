@@ -21,6 +21,7 @@ public class Range : MonoBehaviour {
 
 		GameObject temparrow = (GameObject)Instantiate (projectile, transform.position + ((Vector3.left + Vector3.up) * 1.5f), transform.rotation);
 		temparrow.gameObject.tag = "EnemyArrow";
+		temparrow.gameObject.layer = gameObject.layer;
 		ArrowAngleScript tempscript = temparrow.GetComponent<ArrowAngleScript> ();
 		tempscript.CalculateAngle (scr.Target.transform, scr.attackRange * 2, scr.attackDamage, "Ally");
 	}

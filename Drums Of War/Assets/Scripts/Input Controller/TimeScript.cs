@@ -11,8 +11,7 @@ public class TimeScript : MonoBehaviour {
 	InputHandler TheInputScript;
 	public GameObject DrumSFX;
 
-	public GameObject Canvas;
-	//public GameObject[] VFX;
+	GameObject SnareVFX, TomVFX, HihatVFX, BassVFX;
 	//public GameObject DebugText;
 	//TextEditor Text;
 
@@ -23,6 +22,10 @@ public class TimeScript : MonoBehaviour {
 	void Start () {
 		TheInputScript = TheInputHandler.GetComponent<InputHandler> ();
 		 //Text = DebugText.GetComponent<TextEditor> ();
+		SnareVFX = GameObject.FindGameObjectWithTag ("SnareVFX");
+		TomVFX = GameObject.FindGameObjectWithTag ("TomVFX");
+		HihatVFX = GameObject.FindGameObjectWithTag ("HiHatVFX");
+		BassVFX = GameObject.FindGameObjectWithTag ("BassVFX");
 	}
 
 	bool BeatCheck ()
@@ -99,6 +102,7 @@ public class TimeScript : MonoBehaviour {
 			keydown = true; //stop next instance of keydown
 			if (BeatCheck() ) {
 				TheBeat.SetBeatType (BeatScript.BeatType.Beat_Hithat); //Set Beat
+				HihatVFX.GetComponent<FadeOutScript>().ResetFade();
 				//CreateVFX ( (int)TheBeat.GetBeatType() );
 				//Instantiate (VFX[3],)
 			}
@@ -111,6 +115,7 @@ public class TimeScript : MonoBehaviour {
 			keydown = true; //stop next instance of keydown
 			if (BeatCheck() ) {
 				TheBeat.SetBeatType (BeatScript.BeatType.Beat_Snare);//Set Beat
+				SnareVFX.GetComponent<FadeOutScript>().ResetFade();
 				//CreateVFX ( (int)TheBeat.GetBeatType() );
 			}
 			SendBeat();
@@ -122,6 +127,7 @@ public class TimeScript : MonoBehaviour {
 			keydown = true; //stop next instance of keydown
 			if (BeatCheck() ) {
 				TheBeat.SetBeatType (BeatScript.BeatType.Beat_Tom);//Set Beat
+				TomVFX.GetComponent<FadeOutScript>().ResetFade();
 				//CreateVFX ( (int)TheBeat.GetBeatType() );
 			}
 			SendBeat();
@@ -133,6 +139,7 @@ public class TimeScript : MonoBehaviour {
 			keydown = true; //stop next instance of keydown
 			if (BeatCheck() ) {
 				TheBeat.SetBeatType (BeatScript.BeatType.Beat_Bass);//Set Beat
+				BassVFX.GetComponent<FadeOutScript>().ResetFade();
 				//CreateVFX ( (int)TheBeat.GetBeatType() );
 			}
 			SendBeat();

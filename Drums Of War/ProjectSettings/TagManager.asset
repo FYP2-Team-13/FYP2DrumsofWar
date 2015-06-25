@@ -11,6 +11,10 @@ TagManager:
   - AllyArrow
   - EnemyArrow
   - Result
+  - SnareVFX
+  - TomVFX
+  - HiHatVFX
+  - BassVFX
   layers:
   - Default
   - TransparentFX

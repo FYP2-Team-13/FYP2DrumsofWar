@@ -94,7 +94,7 @@ public class InputHandler : MonoBehaviour {
 			}
 		}
 
-		if (Input.GetKeyDown (KeyCode.H)) {
+		if (Input.GetKeyDown (KeyCode.H)) { // kill all units
 			GameObject[] nodes = GameObject.FindGameObjectsWithTag("Ally");
 			foreach (GameObject Ally in nodes)
 			{
