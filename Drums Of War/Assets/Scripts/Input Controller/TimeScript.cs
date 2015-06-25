@@ -102,7 +102,7 @@ public class TimeScript : MonoBehaviour {
 			keydown = true; //stop next instance of keydown
 			if (BeatCheck() ) {
 				TheBeat.SetBeatType (BeatScript.BeatType.Beat_Hithat); //Set Beat
-				HihatVFX.GetComponent<FadeOutScript>().ResetFade();
+				HihatVFX.GetComponent<FadeOutScript>().ResetFade(false);
 				//CreateVFX ( (int)TheBeat.GetBeatType() );
 				//Instantiate (VFX[3],)
 			}
@@ -115,7 +115,7 @@ public class TimeScript : MonoBehaviour {
 			keydown = true; //stop next instance of keydown
 			if (BeatCheck() ) {
 				TheBeat.SetBeatType (BeatScript.BeatType.Beat_Snare);//Set Beat
-				SnareVFX.GetComponent<FadeOutScript>().ResetFade();
+				SnareVFX.GetComponent<FadeOutScript>().ResetFade(true);
 				//CreateVFX ( (int)TheBeat.GetBeatType() );
 			}
 			SendBeat();
@@ -127,7 +127,7 @@ public class TimeScript : MonoBehaviour {
 			keydown = true; //stop next instance of keydown
 			if (BeatCheck() ) {
 				TheBeat.SetBeatType (BeatScript.BeatType.Beat_Tom);//Set Beat
-				TomVFX.GetComponent<FadeOutScript>().ResetFade();
+				TomVFX.GetComponent<FadeOutScript>().ResetFade(true);
 				//CreateVFX ( (int)TheBeat.GetBeatType() );
 			}
 			SendBeat();
@@ -139,7 +139,7 @@ public class TimeScript : MonoBehaviour {
 			keydown = true; //stop next instance of keydown
 			if (BeatCheck() ) {
 				TheBeat.SetBeatType (BeatScript.BeatType.Beat_Bass);//Set Beat
-				BassVFX.GetComponent<FadeOutScript>().ResetFade();
+				BassVFX.GetComponent<FadeOutScript>().ResetFade(false);
 				//CreateVFX ( (int)TheBeat.GetBeatType() );
 			}
 			SendBeat();

@@ -119,6 +119,7 @@ public class InputHandler : MonoBehaviour {
 
 	public void PlayEnding(bool win)
 	{//true for victory, false for defeat.
+		GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<CameraFollowScript> ().Following = false;
 		GameObject WinLoseIndicator = GameObject.FindGameObjectWithTag("Result");
 		Image TheSprite = WinLoseIndicator.GetComponent<Image> ();
 		AudioSource TheSource = WinLoseIndicator.GetComponent<AudioSource> ();

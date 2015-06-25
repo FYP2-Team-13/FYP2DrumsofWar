@@ -6,6 +6,7 @@ public class FadeOutScript : MonoBehaviour {
 	//As long as the item's alpha still exist, reduce the item's alpha
 	Image TheImage;
 	Text TheText;
+	RectTransform TheRect;
 	public float duration;
 	float startTime;
 
@@ -13,11 +14,18 @@ public class FadeOutScript : MonoBehaviour {
 	void Start () {
 		TheImage = GetComponent<Image> ();
 		TheText = GetComponent<Text> ();
+		TheRect = GetComponent<RectTransform> ();
 	}
 
-	public void ResetFade ()
+	public void ResetFade (bool VerticalChange)
 	{
+		print (TheRect.position.y);
 		startTime = Time.time;
+		if (VerticalChange) {
+			TheRect.position = new Vector3 (TheRect.position.x, Random.Range (30, 329), TheRect.position.z);
+		} else {
+			TheRect.position = new Vector3 (Random.Range (75, 563), TheRect.position.y, TheRect.position.z);
+		}
 		if (TheText != null) {
 			TheText.color = new Color (TheText.color.r, TheText.color.g, TheText.color.b, 1.0f);
 		}
