@@ -32,7 +32,7 @@ public class AI : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		state = AI_ENEMY_State.Enemy_Forward;
+		//state = AI_ENEMY_State.Enemy_Idle;
 
 		prevTime = Time.time;
 	}
@@ -81,8 +81,6 @@ public class AI : MonoBehaviour {
 
 	void Search () {
 
-		if (state == AI_ENEMY_State.Enemy_Idle)
-			return;
 
 		GameObject[] nodes = GameObject.FindGameObjectsWithTag("Ally");
 
@@ -96,8 +94,7 @@ public class AI : MonoBehaviour {
 			
 			//Check if the Enemy is in Attack Range
 			if (EnemyDistance < attackRange 
-			    && script.GetHP() > 0 
-			    )
+			    && script.GetHP() > 0)
 			{
 				//Check if he is the closest enemy
 				if (EnemyDistance < Nearest)
@@ -106,11 +103,15 @@ public class AI : MonoBehaviour {
 					Target = node;
 				}
 			}
+
+			if (EnemyDistance < attackRange + 10f)
+				state = AI_ENEMY_State.Enemy_Forward;
+			else if (Target == null)
+				state = AI_ENEMY_State.Enemy_Idle;
+			else
+				state = AI_ENEMY_State.Enemy_Attack;
 		}
-		if (Target == null)
-			state = AI_ENEMY_State.Enemy_Forward;
-		else
-			state = AI_ENEMY_State.Enemy_Attack;
+
 	}
 
 
@@ -118,6 +119,7 @@ public class AI : MonoBehaviour {
 		switch (state) {
 		case AI_ENEMY_State.Enemy_Idle:
 			{
+				direction = Vector3.zero;
 			}
 			break;
 		case AI_ENEMY_State.Enemy_Forward:
