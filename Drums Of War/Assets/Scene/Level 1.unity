@@ -202,7 +202,7 @@ Transform:
   m_LocalScale: {x: 20, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
 --- !u!1001 &410873764
 Prefab:
   m_ObjectHideFlags: 0
@@ -306,7 +306,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 8.76399231
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -341,7 +341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f2a92ccf3a51444bb0b7af6c82696b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: 0
+  distance: 1
   Following: 1
 --- !u!1001 &974355848
 Prefab:
@@ -530,11 +530,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 475036, guid: c497b77270699f44f930127733741b60, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -70.0500031
       objectReference: {fileID: 0}
     - target: {fileID: 475036, guid: c497b77270699f44f930127733741b60, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.63999999
+      value: -1.60000002
       objectReference: {fileID: 0}
     - target: {fileID: 475036, guid: c497b77270699f44f930127733741b60, type: 2}
       propertyPath: m_LocalPosition.z
@@ -558,7 +558,23 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 475036, guid: c497b77270699f44f930127733741b60, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6172546, guid: c497b77270699f44f930127733741b60, type: 2}
+      propertyPath: m_Offset.y
+      value: .0194916725
+      objectReference: {fileID: 0}
+    - target: {fileID: 6172546, guid: c497b77270699f44f930127733741b60, type: 2}
+      propertyPath: m_Size.y
+      value: 8.61801052
+      objectReference: {fileID: 0}
+    - target: {fileID: 6172546, guid: c497b77270699f44f930127733741b60, type: 2}
+      propertyPath: m_Offset.x
+      value: .0955047607
+      objectReference: {fileID: 0}
+    - target: {fileID: 6172546, guid: c497b77270699f44f930127733741b60, type: 2}
+      propertyPath: m_Size.x
+      value: 3.98073101
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c497b77270699f44f930127733741b60, type: 2}

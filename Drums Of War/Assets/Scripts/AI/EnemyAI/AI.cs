@@ -14,6 +14,8 @@ public class AI : MonoBehaviour {
 	public AI_ENEMY_State state = AI_ENEMY_State.Enemy_Idle;
 
 	Vector3 direction = Vector3.zero;
+
+	public bool iswall;
 	
 	public float health = 100;
 	float moveSpeed = 1.0f;
@@ -60,7 +62,9 @@ public class AI : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		this.transform.Translate (direction * moveSpeed * Time.deltaTime);
+		if (!iswall) {
+			this.transform.Translate (direction * moveSpeed * Time.deltaTime);
+		}
 
 		now = Time.time;
 		diff = (now - prevTime) * 1000;
