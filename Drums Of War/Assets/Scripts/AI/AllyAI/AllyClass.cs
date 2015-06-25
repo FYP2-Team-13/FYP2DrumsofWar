@@ -26,11 +26,12 @@ public class AllyClass : MonoBehaviour {
 	//Stats
 	public float Hitpoints = 100;
 	float HitpointMax = 100;
+	public float AttackDamage = 10;
+
 
 	//Attack
 	float AttackRange = 10.0f,
 	AttackSpeed = 0.75f,
-	AttackDamage = 10,
 	LastAttack;
 
 	//Defense
