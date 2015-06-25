@@ -75,6 +75,41 @@ public class AllyGroup : MonoBehaviour {
 		}
 	}
 
+	public void DanceBeat (BeatScript thebeat)
+	{
+		int dancebeat = 0;
+		switch (thebeat.GetBeatType()) 
+		{
+			case BeatScript.BeatType.Beat_Snare:
+			{
+				dancebeat = 1;
+			}
+			break;
+			case BeatScript.BeatType.Beat_Tom:
+			{
+				dancebeat = 2;
+			}
+				break;
+			case BeatScript.BeatType.Beat_Bass:
+			{
+				dancebeat = 4;
+			}
+				break;
+			case BeatScript.BeatType.Beat_Hithat:
+			{
+				dancebeat = 3;
+			}
+				break;
+			default:
+				break;
+		}
+
+		foreach (AllyClass Ally in Allies)
+		{
+			Ally.GetComponent<Animator>().SetInteger ("DanceState", dancebeat);
+		}
+	}
+
 	public void removeunit (AllyClass unit)
 	{
 		Allies.Remove (unit);

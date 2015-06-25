@@ -56,6 +56,7 @@ public class InputHandler : MonoBehaviour {
 			else
 			{
 				Sequence.SetBeat(nextbeat, drumindex);// [drumindex].SetBeatType (nextbeat.GetBeatType() );
+
 				drumindex++;
 				//print (drumindex);
 				if (drumindex > 3) {
@@ -64,7 +65,9 @@ public class InputHandler : MonoBehaviour {
 					//Four Beats Done, Send it to your units
 					//SequenceClass Temp;// = SequenceClass.SetSequence (TheDatabase.CommandCheck(Sequence) );
 					Sequence.SetSequence (TheDatabase.CommandCheck(Sequence) );
+
 					AudioClip ResponseSFX;
+
 					if (Sequence.GetMeleeBehaviour() != null)
 					{
 						ResponseSFX = TheDatabase.GetAudio(Sequence);
@@ -77,6 +80,11 @@ public class InputHandler : MonoBehaviour {
 					}
 					runningcommand = true;
 					print (Sequence.ShowSequence() );
+				} else {
+					foreach (AllyGroup Ally in Allies)
+					{
+						Ally.DanceBeat (nextbeat);
+					}
 				}
 			}
 		}
