@@ -16,7 +16,7 @@ public class AI : MonoBehaviour {
 	Vector3 direction = Vector3.zero;
 	
 	public float health = 100;
-	public float moveSpeed = 1.0f;
+	float moveSpeed = 1.0f;
 
 	public float attackDamage = 0;
 	public float attackSpeed = 0;
