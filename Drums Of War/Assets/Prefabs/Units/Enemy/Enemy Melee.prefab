@@ -11,9 +11,9 @@ GameObject:
   - 50: {fileID: 5031774}
   - 61: {fileID: 6154880}
   - 114: {fileID: 11427082}
-  - 114: {fileID: 11498188}
   - 212: {fileID: 21285218}
   - 114: {fileID: 11491566}
+  - 114: {fileID: 11498188}
   m_Layer: 0
   m_Name: Enemy Melee
   m_TagString: Enemy

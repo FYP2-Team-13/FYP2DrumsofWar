@@ -12,8 +12,8 @@ GameObject:
   - 61: {fileID: 6159632}
   - 114: {fileID: 11458574}
   - 212: {fileID: 21219138}
-  - 114: {fileID: 11437686}
   - 114: {fileID: 11475404}
+  - 114: {fileID: 11437686}
   m_Layer: 0
   m_Name: Enemy Range
   m_TagString: Enemy
