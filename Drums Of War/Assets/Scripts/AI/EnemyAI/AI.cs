@@ -16,7 +16,7 @@ public class AI : MonoBehaviour {
 	Vector3 direction = Vector3.zero;
 	
 	public float health = 100;
-	public float moveSpeed = 1.0f;
+	float moveSpeed = 1.0f;
 
 	public float attackDamage = 0;
 	public float attackSpeed = 0;
@@ -75,7 +75,7 @@ public class AI : MonoBehaviour {
 
 	void OnCollisionEnter2D (Collision2D col)
 	{
-		if (col.gameObject.tag == "Enemy")
+		if (col.gameObject.tag == "Enemy" || col.gameObject.tag == "Finish")
 			Physics2D.IgnoreCollision (GetComponent<Collider2D>(), col.collider);
 	}
 
