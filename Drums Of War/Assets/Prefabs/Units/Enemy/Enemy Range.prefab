@@ -14,7 +14,7 @@ GameObject:
   - 212: {fileID: 21219138}
   - 114: {fileID: 11437686}
   - 114: {fileID: 11475404}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Enemy Range
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ Rigidbody2D:
   m_Mass: 1000
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_FixedAngle: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -72,7 +72,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16842cd6fff4670429fae69b49da290c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 102522, guid: b7d59f0ce6d3bbb47b28586e10e8454b, type: 2}
+  projectile: {fileID: 102522, guid: b4fd2626a6160074893e395376284606, type: 2}
 --- !u!114 &11458574
 MonoBehaviour:
   m_ObjectHideFlags: 1
