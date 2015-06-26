@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 
-public class ItemDatabase : MonoBehaviour {
+[System.Serializable]
+public class ItemDatabase {
 
 	public List<Item> ItemList = new List<Item>();
 	public TextAsset Database;
@@ -23,15 +24,17 @@ public class ItemDatabase : MonoBehaviour {
 			//Create temporal variables to Load all Sequence in
 			Item temp = new Item();
 
-			temp.idNum = float.Parse(values[0]);
-			temp.name = values[1];
+			temp.idNum = int.Parse(values[0]);
+			temp.itemName = values[1];
 
-			temp.attackDamage = float.Parse(values[2]);
-			temp.attackSpeed = float.Parse(values[3]);
-			temp.Defense = float.Parse(values[4]);
-			temp.Evasion = float.Parse(values[5]);
+			temp.type = int.Parse(values[2]);
+
+			temp.attackDamage = int.Parse(values[3]);
+			temp.attackSpeed = int.Parse(values[4]);
+			temp.Defense = int.Parse(values[5]);
+			temp.Evasion = int.Parse(values[6]);
 						
-			temp.beingUsed = float.Parse(values[6]);
+			temp.beingUsed = int.Parse(values[7]);
 
 			ItemList.Add(temp);
 		}

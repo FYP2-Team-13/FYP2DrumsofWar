@@ -1,29 +1,68 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Item : MonoBehaviour {
+[System.Serializable]
+public class Item {
 
-	public float idNum;
-	public string name;
+	public enum IType {
+		Sword,
+		Javalin,
+		Bow,
+		Dagger,
+		Magic,
 
-	
-	public float attackDamage;
-	public float attackSpeed;
-	public float Defense;
-	public float Evasion;
+		Masks
+	}
 
-	public float beingUsed;
 
-	void Start () {
-		idNum = 1;
-		name = "";
+	public int idNum;
+	public string itemName;
+	public int type;
+	public IType itemType;
+
+	public int attackDamage;
+	public int attackSpeed;
+	public int Defense;
+	public int Evasion;
+
+	public int beingUsed;
+
+	public Item () {
+		this.idNum = 1;
+		this.itemName = " ";
+
+		this.type = 1;
+		switch (type) {
+		case 1:
+			itemType = IType.Sword;
+				break;
+		case 2:
+			itemType = IType.Javalin;
+				break;
+		case 3:
+			itemType = IType.Bow;
+				break;
+		case 4:
+			itemType = IType.Dagger;
+				break;
+		case 5:
+			itemType = IType.Magic;
+				break;
+			
+		case 6:
+			itemType = IType.Masks;
+				break;
+		}
 		
+		this.attackDamage = 1;
+		this.attackSpeed = 1;
+		this.Defense = 1;
+		this.Evasion = 1;
 		
-		attackDamage = 1;
-		attackSpeed = 1;
-		Defense = 1;
-		Evasion = 1;
-		
-		beingUsed = 0;
+		this.beingUsed = 0;
+	}
+
+	public int getIdNum () {
+		return idNum;
 	}
 }

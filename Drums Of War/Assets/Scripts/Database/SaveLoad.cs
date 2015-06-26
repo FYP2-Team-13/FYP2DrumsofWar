@@ -10,7 +10,8 @@ public class SaveLoad {
 
 	public static List<InventoryDatabase> savedInventoryData = new List<InventoryDatabase>();
 	public static float unlockedLevel;
-	public static ItemDatabase ItemData = new ItemDatabase();
+	public static List<ItemDatabase> ItemData = new List<ItemDatabase>();
+	public TextAsset Database;
 
 	public static void Save() {
 		//overwriting data
@@ -40,8 +41,23 @@ public class SaveLoad {
 			unlockedLevel = (float)bf.Deserialize (file);
 			file.Close ();
 
+			//Inventory();
+
 			return true;
 		} else
 			return false;
 	}
+	
+
+//	public static void Inventory() {
+//		foreach (InventoryDatabase mydata in savedInventoryData) {
+//			foreach (ItemDatabase data in ItemData) {
+//				if (mydata.item.itemName == data.ItemList )
+//			{
+//					mydata.item = data.ItemList;
+//				continue;
+//			}
+//		}
+//		}
+//	}
 }
