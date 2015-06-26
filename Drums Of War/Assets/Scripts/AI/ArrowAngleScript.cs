@@ -25,6 +25,8 @@ public class ArrowAngleScript : MonoBehaviour {
 		this.Damage = Damage;
 		this.EnemyTag = EnemyTag;
 
+		if (EnemyTag
+
 		theRigidBody = GetComponent<Rigidbody2D> ();
 		float y = Target.transform.position.y - transform.position.y;
 		float x = Target.transform.position.x - transform.position.x;
@@ -67,15 +69,19 @@ public class ArrowAngleScript : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D( Collision2D col ) {
-		if (col.gameObject.tag == EnemyTag)
+		if (col.gameObject.tag == tag) {
+			Physics2D.IgnoreCollision(GetComponent<Collider2D>(), col.collider);
+		} else if (col.gameObject.tag == EnemyTag)
 		{
-			if (gameObject.GetComponent<AllyClass>() )
+			AllyClass TempAlly = col.gameObject.GetComponent<AllyClass>();
+			AI TempEnemy = col.gameObject.GetComponent<AI>();
+			if ( TempAlly != null )
 			{
-				gameObject.GetComponent<AllyClass>().TakeDamage(Damage);
+				TempAlly.TakeDamage(Damage);
 			}
-			else if (gameObject.GetComponent<AI>())
+			else if (TempEnemy != null)
 			{
-				gameObject.GetComponent<AI>().TakeDamage(Damage);
+				TempEnemy.TakeDamage(Damage);
 			}
 		}
 		Destroy(gameObject);

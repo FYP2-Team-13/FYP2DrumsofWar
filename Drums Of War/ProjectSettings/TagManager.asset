@@ -8,8 +8,7 @@ TagManager:
   - Enemy
   - InputHandler
   - AllyGroup
-  - AllyArrow
-  - EnemyArrow
+  - Arrow
   - Result
   - SnareVFX
   - TomVFX
@@ -26,9 +25,9 @@ TagManager:
   - 
   - Ally
   - Enemy
-  - 
-  - 
-  - 
+  - Dead
+  - AllyArrow
+  - EnemyArrow
   - 
   - 
   - 

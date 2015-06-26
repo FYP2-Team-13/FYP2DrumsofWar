@@ -25,17 +25,17 @@ public class AllyClass : MonoBehaviour {
 
 	//Stats
 	public float Hitpoints = 100;
-	float HitpointMax = 100;
+	public float HitpointMax = 100;
 	public float AttackDamage = 10;
 
 
 	//Attack
-	float AttackRange = 10.0f,
-	AttackSpeed = 0.75f,
-	LastAttack;
+	public float AttackRange = 2.0f,
+	AttackSpeed = 0.75f;
+	float LastAttack;
 
 	//Defense
-	float Defense = 1.0f,
+	public float Defense = 1.0f,
 	Evasion = 5;
 
 	//End of Stats
@@ -45,7 +45,7 @@ public class AllyClass : MonoBehaviour {
 
 	float PrevTime;// = Time.time;
 
-	GameObject Target;
+	public GameObject Target;
 	public string EnemyTag;
 
 	//variables for Firing Arrow
@@ -92,7 +92,7 @@ public class AllyClass : MonoBehaviour {
 				float EnemyDistance = (node.transform.position - transform.position).magnitude;
 				
 				//Check if the Enemy is in Vision Range
-				if (EnemyDistance < Vision)
+				if (EnemyDistance < 15)
 				{
 					//Check if he is the closest enemy
 					if (EnemyDistance < Nearest)
@@ -217,7 +217,8 @@ public class AllyClass : MonoBehaviour {
 		{
 			AIState = AI_Ally_State.Ally_Dead;
 			gameObject.transform.parent.gameObject.GetComponent<AllyGroup>().UnitDied();
-			gameObject.transform.tag = "Finish";
+			gameObject.layer = LayerMask.NameToLayer ("Dead");
+			gameObject.tag = "Finish";
 			TheAnimator.SetBool("Dead", true);
 			TheAnimator.SetBool("DeadAnimation", true);
 		}
@@ -251,11 +252,11 @@ public class AllyClass : MonoBehaviour {
 	{
 		if (CheckLastAttack ()) {
 			GameObject temparrow = (GameObject)Instantiate (Arrow, transform.position + ((Vector3.up) * 1.0f), transform.rotation);
-			temparrow.gameObject.tag = gameObject.tag + "Arrow";
-			temparrow.gameObject.layer = gameObject.layer;
+			temparrow.gameObject.tag = "Arrow";
+			temparrow.gameObject.layer = LayerMask.NameToLayer(tag + "Arrow");
 			ArrowAngleScript tempscript = temparrow.GetComponent<ArrowAngleScript> ();
 			float speed = Random.Range(AttackRange, AttackRange * 1.5f);
-			print (speed);
+			//print (speed);
 			tempscript.CalculateAngle (Target.transform, speed, AttackDamage, EnemyTag);
 			TheAnimator.SetInteger("State", 2);
 		}
@@ -264,7 +265,8 @@ public class AllyClass : MonoBehaviour {
 	void DoAttackMelee (GameObject target, float damage)
 	{
 		if (CheckLastAttack() ) {
-			target.GetComponent<AI>().TakeDamage (damage);
+			AI TheAI = target.GetComponent<AI>();
+			TheAI.TakeDamage (damage);
 			TheAnimator.SetInteger ("State", 2);
 			//print ("Attack");
 		}
@@ -283,8 +285,11 @@ public class AllyClass : MonoBehaviour {
 	bool CheckAttackRange()
 	{
 		//print (Target.transform.position);
-		//print (transform.position);
-		if ((Target.transform.position.x - transform.position.x) < AttackRange)
+		//print (transform.position);]\
+		if (Target.GetComponent<AI> ().iswall && Type == Unit_Type.Type_Melee) {
+			if ((Target.transform.position.x - transform.position.x) < AttackRange*2)
+				return true;
+		} else if ((Target.transform.position.x - transform.position.x) < AttackRange)
 			//print ("attack!");
 			return true;
 		return false;

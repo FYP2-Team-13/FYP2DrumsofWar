@@ -12,7 +12,6 @@ GameObject:
   - 61: {fileID: 6159632}
   - 114: {fileID: 11458574}
   - 212: {fileID: 21219138}
-  - 114: {fileID: 11475404}
   - 114: {fileID: 11437686}
   m_Layer: 0
   m_Name: Enemy Range
@@ -28,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 167930}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20, y: -3.05999994, z: 0}
+  m_LocalPosition: {x: 20, y: -3.05999994, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -42,7 +41,7 @@ Rigidbody2D:
   m_Mass: 1000
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_FixedAngle: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -72,7 +71,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16842cd6fff4670429fae69b49da290c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 102522, guid: b4fd2626a6160074893e395376284606, type: 2}
+  projectile: {fileID: 102522, guid: b7d59f0ce6d3bbb47b28586e10e8454b, type: 2}
 --- !u!114 &11458574
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -91,18 +90,6 @@ MonoBehaviour:
   attackSpeed: 0
   attackRange: 0
   Target: {fileID: 0}
---- !u!114 &11475404
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 167930}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a467ce58959f8c46995db12c6960cd6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IgnoreTag: Finish
 --- !u!212 &21219138
 SpriteRenderer:
   m_ObjectHideFlags: 1
