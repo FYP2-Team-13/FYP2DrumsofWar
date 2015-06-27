@@ -278,7 +278,13 @@ MonoBehaviour:
   AIState: 0
   Type: 0
   Hitpoints: 100
+  HitpointMax: 100
   AttackDamage: 10
+  AttackRange: 2
+  AttackSpeed: .75
+  Defense: 1
+  Evasion: 5
+  Target: {fileID: 0}
   EnemyTag: Enemy
   Arrow: {fileID: 102522, guid: b7d59f0ce6d3bbb47b28586e10e8454b, type: 2}
 --- !u!212 &21221580

@@ -8,12 +8,15 @@ public class AI : MonoBehaviour {
 			Enemy_Idle = 0
 		,	Enemy_Forward
 		,	Enemy_Attack
+		,	Enemy_Dead
 	}
 
 	//<stats>
 	public AI_ENEMY_State state = AI_ENEMY_State.Enemy_Idle;
 
 	Vector3 direction = Vector3.zero;
+
+	public bool iswall;
 	
 	public float health = 100;
 	float moveSpeed = 1.0f;
@@ -60,16 +63,18 @@ public class AI : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		this.transform.Translate (direction * moveSpeed * Time.deltaTime);
+		
+		if (state != AI_ENEMY_State.Enemy_Dead) {
+			if (!iswall) {
+				this.transform.Translate (direction * moveSpeed * Time.deltaTime);
+			}
 
-		now = Time.time;
-		diff = (now - prevTime) * 1000;
+			now = Time.time;
+			diff = (now - prevTime) * 1000;
 
-		Search (); //look for closest
-		states(); //check states and act according
-
-		if (health < 1)
-			return;
+			Search (); //look for closest
+			states (); //check states and act according
+		}
 			//Destroy(this.gameObject, 1);
 	}
 
@@ -104,12 +109,12 @@ public class AI : MonoBehaviour {
 				}
 			}
 
-			if (EnemyDistance < attackRange + 10f)
+			if (EnemyDistance < attackRange)
+				state = AI_ENEMY_State.Enemy_Attack;
+			else if (EnemyDistance < attackRange + 10f)
 				state = AI_ENEMY_State.Enemy_Forward;
 			else if (Target == null)
 				state = AI_ENEMY_State.Enemy_Idle;
-			else
-				state = AI_ENEMY_State.Enemy_Attack;
 		}
 
 	}
@@ -164,7 +169,22 @@ public class AI : MonoBehaviour {
 	public void TakeDamage (float damage)
 	{
 		//print (damage);
-		if (Random.Range (0, 100) < 100)
+		if (Random.Range (0, 100) < 100) {
 			health -= damage;
+			//print (health);
+			if (health < 1) {
+				gameObject.layer = LayerMask.NameToLayer ("Dead");
+				gameObject.tag = "Finish";
+				state = AI_ENEMY_State.Enemy_Dead;
+				return;
+			}
+		}
+	}
+
+	void OnBecameInvisible()
+	{
+		if (state == AI_ENEMY_State.Enemy_Dead) {
+			Destroy (gameObject);
+		}
 	}
 }
