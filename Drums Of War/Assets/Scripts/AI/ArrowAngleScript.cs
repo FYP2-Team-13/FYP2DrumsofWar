@@ -25,8 +25,6 @@ public class ArrowAngleScript : MonoBehaviour {
 		this.Damage = Damage;
 		this.EnemyTag = EnemyTag;
 
-		if (EnemyTag
-
 		theRigidBody = GetComponent<Rigidbody2D> ();
 		float y = Target.transform.position.y - transform.position.y;
 		float x = Target.transform.position.x - transform.position.x;
