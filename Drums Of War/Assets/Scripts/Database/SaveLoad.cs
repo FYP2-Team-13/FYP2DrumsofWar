@@ -11,7 +11,6 @@ public class SaveLoad {
 	public static List<InventoryDatabase> savedInventoryData = new List<InventoryDatabase>();
 	public static float unlockedLevel;
 	public static List<ItemDatabase> ItemData = new List<ItemDatabase>();
-	public TextAsset Database;
 
 	public static void Save() {
 		//overwriting data

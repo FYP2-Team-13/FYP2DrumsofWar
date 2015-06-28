@@ -65,4 +65,12 @@ public class Item {
 	public int getIdNum () {
 		return idNum;
 	}
+
+
+	public bool isSame (Item other)
+	{
+		if (other.idNum == this.idNum)
+				return true;
+		return false;
+	}
 }

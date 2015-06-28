@@ -40,8 +40,14 @@ public class ItemDatabase {
 		}
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
+	public Item ItemCheck(Item item)
+	{
+		foreach (Item I in ItemList) {
+			if (I.isSame(item) )
+			{
+				return item;
+			}
+		}
+		return item;
 	}
 }
