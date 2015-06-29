@@ -3,15 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 
-[System.Serializable]
 public class ItemDatabase {
 
-	public List<Item> ItemList = new List<Item>();
-	public TextAsset Database;
+	public static List<Item> ItemList = new List<Item>();
+	//public TextAsset Database;
 
 	void Start () {
 		//Create a String Reader that has loaded the Text Asset
-		StringReader Data = new StringReader (Database.text); 
+		StringReader Data = new StringReader ("Item.txt"); 
 		//Store all the Text into a string
 		string Contents = Data.ReadToEnd (); 
 		//Split Contents of Text Asset by lines

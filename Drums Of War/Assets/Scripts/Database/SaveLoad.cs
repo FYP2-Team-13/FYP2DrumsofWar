@@ -14,7 +14,7 @@ public class SaveLoad {
 
 	public static void Save() {
 		//overwriting data
-		SaveLoad.savedInventoryData.Clear();
+		//SaveLoad.savedInventoryData.Clear();
 		SaveLoad.savedInventoryData.Add(InventoryDatabase.current);
 
 		BinaryFormatter bf = new BinaryFormatter();
@@ -47,6 +47,23 @@ public class SaveLoad {
 			return false;
 	}
 	
+
+	public static void Create () {
+		BinaryFormatter bf = new BinaryFormatter ();
+		
+		FileStream file = File.Create (Application.persistentDataPath + "/InventoryData.data");
+		bf.Serialize(file, SaveLoad.savedInventoryData);
+		file.Close();
+		
+		file = File.Create (Application.persistentDataPath + "/LevelData.data");
+		bf.Serialize(file, SaveLoad.unlockedLevel);
+		file.Close();
+	}
+
+	public static void Overwriting () {
+		SaveLoad.savedInventoryData.Clear();
+		Save ();
+	}
 
 //	public static void Inventory() {
 //		foreach (InventoryDatabase mydata in savedInventoryData) {
