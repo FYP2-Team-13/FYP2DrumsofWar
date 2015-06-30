@@ -23,6 +23,6 @@ public class Range : MonoBehaviour {
 		temparrow.gameObject.tag = "Arrow";
 		temparrow.gameObject.layer = LayerMask.NameToLayer(tag + "Arrow");
 		ArrowAngleScript tempscript = temparrow.GetComponent<ArrowAngleScript> ();
-		tempscript.CalculateAngle (scr.Target.transform, scr.attackRange * 2, scr.attackDamage, "Ally");
+		tempscript.CalculateAngle (scr.Target.transform, scr.attackRange * 2, scr.attackDamage, "Ally", false);
 	}
 }

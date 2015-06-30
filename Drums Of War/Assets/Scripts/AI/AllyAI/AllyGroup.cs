@@ -33,11 +33,11 @@ public class AllyGroup : MonoBehaviour {
 		}
 	}
 
-	public void InitStats (AllyClass.Unit_Type Type, float Attack, float Speed, float Range, float Defense, float Evasion, float HP)
+	public void InitStats (AllyClass.Unit_Type Type, float Attack, float Speed, float Range, float Evasion, float HP)
 	{
 		GroupType = Type;
 		foreach (AllyClass Ally in Allies) {
-			Ally.GetComponent<AllyClass>().Set(Type, Attack, Speed, Range, Defense, Evasion, HP);
+			Ally.GetComponent<AllyClass>().Set(Type, Attack, Speed, Range, Evasion, HP);
 		}
 	}
 

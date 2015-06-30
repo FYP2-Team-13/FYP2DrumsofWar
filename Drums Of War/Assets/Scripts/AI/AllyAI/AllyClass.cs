@@ -17,6 +17,7 @@ public class AllyClass : MonoBehaviour {
 	{
 		Type_Melee = 0
 		,Type_Range
+		,Type_Mage
 	}
 
 	public AI_Ally_State AIState = AI_Ally_State.Ally_Idle;
@@ -34,9 +35,7 @@ public class AllyClass : MonoBehaviour {
 	AttackSpeed = 0.75f;
 	float LastAttack;
 
-	//Defense
-	public float Defense = 1.0f,
-	Evasion = 5;
+	public float Evasion = 5;
 
 	//End of Stats
 
@@ -60,13 +59,12 @@ public class AllyClass : MonoBehaviour {
 			TheAnimator.SetInteger ("WeaponType", 1);
 	}
 
-	public void Set (Unit_Type Type, float Attack, float Speed, float Range, float Defense, float Evasion, float HP)
+	public void Set (Unit_Type Type, float Attack, float Speed, float Range, float Evasion, float HP)
 	{
 		this.Type = Type;
 		this.AttackDamage = Attack;
 		this.AttackSpeed = Speed;
 		this.AttackRange = Range;
-		this.Defense = Defense;
 		this.Evasion = Evasion;
 		this.Hitpoints = this.HitpointMax = HP;
 	}
@@ -92,7 +90,7 @@ public class AllyClass : MonoBehaviour {
 				float EnemyDistance = (node.transform.position - transform.position).magnitude;
 				
 				//Check if the Enemy is in Vision Range
-				if (EnemyDistance < 15)
+				if (EnemyDistance < Vision)
 				{
 					//Check if he is the closest enemy
 					if (EnemyDistance < Nearest)
@@ -198,7 +196,7 @@ public class AllyClass : MonoBehaviour {
 	public void TakeDamage (float damage)
 	{
 		if (Random.Range (0, 100) < 100 - Evasion) {
-			float DamageDone = (damage - Defense) * (AIState == AI_Ally_State.Ally_Defend? 0.5f: 1);
+			float DamageDone = (damage) * (AIState == AI_Ally_State.Ally_Defend? 0.5f: 1);
 			Hitpoints -= DamageDone;
 			checkdeath();
 		}
@@ -206,7 +204,7 @@ public class AllyClass : MonoBehaviour {
 
 	public void TakeDamageNoEvasion (float damage)
 	{
-		float DamageDone = (damage - Defense) * (AIState == AI_Ally_State.Ally_Defend? 0.5f: 1);
+		float DamageDone = (damage) * (AIState == AI_Ally_State.Ally_Defend? 0.5f: 1);
 		Hitpoints -= DamageDone;
 		checkdeath ();
 	}
@@ -257,7 +255,10 @@ public class AllyClass : MonoBehaviour {
 			ArrowAngleScript tempscript = temparrow.GetComponent<ArrowAngleScript> ();
 			float speed = Random.Range(AttackRange, AttackRange * 1.5f);
 			//print (speed);
-			tempscript.CalculateAngle (Target.transform, speed, AttackDamage, EnemyTag);
+			if (Type == Unit_Type.Type_Range)
+				tempscript.CalculateAngle (Target.transform, speed, AttackDamage, EnemyTag, false);
+			else
+				tempscript.CalculateAngle (Target.transform, speed, AttackDamage, EnemyTag, true);
 			TheAnimator.SetInteger("State", 2);
 		}
 	}

@@ -19,7 +19,7 @@ public class ArrowAngleScript : MonoBehaviour {
 		transform.rotation = Quaternion.FromToRotation(Vector3.up, theRigidBody.velocity);
 	}
 
-	public void CalculateAngle (Transform Target, float speed, float Damage, string EnemyTag)
+	public void CalculateAngle (Transform Target, float speed, float Damage, string EnemyTag, bool direct)
 	{
 		//print (speed);
 		this.Damage = Damage;
@@ -47,6 +47,9 @@ public class ArrowAngleScript : MonoBehaviour {
 
 			power = speed * speed;
 			gx = g * x;
+
+			if (direct)
+				temp *= -1;
 			//temp = (((speed * speed) + temp) / (g * x));
 			temp = (power + temp)/gx;
 			temp = Mathf.Atan(temp);
@@ -62,7 +65,7 @@ public class ArrowAngleScript : MonoBehaviour {
 			//print (Direction * speed);
 			theRigidBody.AddForce (TempDir * speed, ForceMode2D.Impulse);
 		} else {
-			CalculateAngle (Target, speed + 1, Damage, EnemyTag);
+			CalculateAngle (Target, speed + 1, Damage, EnemyTag, direct);
 		}
 	}
 
