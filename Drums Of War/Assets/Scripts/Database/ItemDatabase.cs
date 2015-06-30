@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 
-public class ItemDatabase {
+public class ItemDatabase : MonoBehaviour{
 
 	public static List<Item> ItemList = new List<Item>();
 	//public TextAsset Database;
