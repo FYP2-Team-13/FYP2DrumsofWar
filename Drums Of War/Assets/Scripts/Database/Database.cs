@@ -20,15 +20,7 @@ public class Database : MonoBehaviour {
 			SaveLoad.Create();
 			//InventoryDatabase.current = new InventoryDatabase ();
 		}
-		else {
-			foreach (InventoryDatabase g in SaveLoad.savedInventoryData) {
-				foreach (ItemDatabase d in ItemDatabase) {
-					Item tempData = d.ItemCheck(g.item);
-					g.item = tempData;
-					GUILayout.Box("checking");
-				}
-			}
-		}
+	
 		foreach(InventoryDatabase g in SaveLoad.savedInventoryData) {
 			GUILayout.Space(10);
 			GUILayout.Button(g.item.idNum + " - " + g.item.itemName);
