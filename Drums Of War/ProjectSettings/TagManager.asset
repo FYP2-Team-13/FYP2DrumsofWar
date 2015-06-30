@@ -14,6 +14,7 @@ TagManager:
   - TomVFX
   - HiHatVFX
   - BassVFX
+  - Database
   layers:
   - Default
   - TransparentFX

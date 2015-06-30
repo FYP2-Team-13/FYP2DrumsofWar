@@ -16,6 +16,12 @@ public class ArmyStats {
 
 	public Item Helmet, Weapon;
 
+	public ArmyStats ()
+	{
+		Helmet = new Item ();
+		Weapon = new Item ();
+	}
+
 	public void ChangeHelmet (Item Helmet)
 	{
 		this.Helmet = Helmet;

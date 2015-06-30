@@ -57,6 +57,16 @@ public class AllyClass : MonoBehaviour {
 		TheAnimator = GetComponent<Animator> ();
 		if (Type == Unit_Type.Type_Range)
 			TheAnimator.SetInteger ("WeaponType", 1);
+
+		ConsistentArmy ArmyCustomization = GameObject.FindGameObjectWithTag ("Database").GetComponent<ConsistentArmy> ();
+		if (ArmyCustomization != null) {
+			gameObject.transform.Find("Body_Origin").gameObject.GetComponent<SpriteRenderer>().color = ArmyCustomization.GetArmyColor();
+			gameObject.transform.Find("Body_Origin").gameObject.GetComponent<SpriteRenderer>().sprite = ArmyCustomization.GetCurrentBodySprite();
+			gameObject.transform.Find("Body_FrontHand").gameObject.GetComponent<SpriteRenderer>().color = ArmyCustomization.GetArmyColor();
+			gameObject.transform.Find("Body_BackHand").gameObject.GetComponent<SpriteRenderer>().color = ArmyCustomization.GetArmyColor();
+			gameObject.transform.Find("Body_FrontLeg").gameObject.GetComponent<SpriteRenderer>().color = ArmyCustomization.GetArmyColor();
+			gameObject.transform.Find("Body_BackLeg").gameObject.GetComponent<SpriteRenderer>().color = ArmyCustomization.GetArmyColor();
+		}
 	}
 
 	public void Set (Unit_Type Type, float Attack, float Speed, float Range, float Evasion, float HP)
