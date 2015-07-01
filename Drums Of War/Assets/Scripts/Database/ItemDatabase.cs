@@ -6,11 +6,11 @@ using System.IO;
 public class ItemDatabase : MonoBehaviour{
 
 	public static List<Item> ItemList = new List<Item>();
-	//public TextAsset Database;
+	public TextAsset Database;
 
 	void Start () {
 		//Create a String Reader that has loaded the Text Asset
-		StringReader Data = new StringReader ("Item.txt"); 
+		StringReader Data = new StringReader (Database.text); 
 		//Store all the Text into a string
 		string Contents = Data.ReadToEnd (); 
 		//Split Contents of Text Asset by lines
@@ -30,7 +30,7 @@ public class ItemDatabase : MonoBehaviour{
 
 			temp.attackDamage = int.Parse(values[3]);
 			temp.attackSpeed = int.Parse(values[4]);
-			temp.Defense = int.Parse(values[5]);
+			temp.HealthPoint = int.Parse(values[5]);
 			temp.Evasion = int.Parse(values[6]);
 						
 			temp.beingUsed = int.Parse(values[7]);
@@ -38,14 +38,13 @@ public class ItemDatabase : MonoBehaviour{
 			ItemList.Add(temp);
 		}
 	}
+
 	
 	public Item ItemCheck(Item item)
 	{
 		foreach (Item I in ItemList) {
 			if (I.isSame(item) )
-			{
 				return item;
-			}
 		}
 		return item;
 	}

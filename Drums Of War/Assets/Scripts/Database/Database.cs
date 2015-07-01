@@ -7,46 +7,16 @@ public class Database : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		InventoryDatabase.current = new InventoryDatabase ();
-	}
-
-	void OnGUI() {
-//		GUILayout.BeginArea(new Rect(0,0,Screen.width, Screen.height));
-//		GUILayout.BeginHorizontal();
-//		GUILayout.FlexibleSpace();
-//		GUILayout.BeginVertical();
-//		GUILayout.FlexibleSpace();
-
+	
 		if (!SaveLoad.Load ()) {
 			SaveLoad.Create();
-			//InventoryDatabase.current = new InventoryDatabase ();
 		}
-	
-		foreach(InventoryDatabase g in SaveLoad.savedInventoryData) {
-			GUILayout.Space(10);
-			GUILayout.Button(g.item.idNum + " - " + g.item.itemName);
-			
-			GUILayout.Box("savefiles");
+		foreach (InventoryDatabase g in SaveLoad.savedInventoryData) {
+		foreach (Item d in ItemDatabase.ItemList) {
+				if(g.item.getIdNum() == d.getIdNum())
+					g.item = d;
 		}
-
-
-		GUILayout.Label("Knight");
-		InventoryDatabase.current.item.itemName = GUILayout.TextField(InventoryDatabase.current.item.itemName, 20);
-		string temp = GUILayout.TextArea(InventoryDatabase.current.item.idNum.ToString());
-
-		InventoryDatabase.current.item.idNum = int.Parse(temp);
-
-		if(GUILayout.Button("Save")) {
-			SaveLoad.Save();
 		}
-		if(GUILayout.Button("OverSave")) {
-			SaveLoad.Overwriting();
-		}
-
-//		GUILayout.FlexibleSpace();
-//		GUILayout.EndVertical();
-//		GUILayout.FlexibleSpace();
-//		GUILayout.EndHorizontal();
-//		GUILayout.EndArea();
 	}
 
 }

@@ -13,8 +13,6 @@ public class SaveLoad {
 	public static List<ItemDatabase> ItemData = new List<ItemDatabase>();
 
 	public static void Save() {
-		//overwriting data
-		//SaveLoad.savedInventoryData.Clear();
 		SaveLoad.savedInventoryData.Add(InventoryDatabase.current);
 
 		BinaryFormatter bf = new BinaryFormatter();
@@ -40,8 +38,6 @@ public class SaveLoad {
 			unlockedLevel = (float)bf.Deserialize (file);
 			file.Close ();
 
-			//Inventory();
-
 			return true;
 		} else
 			return false;
@@ -64,16 +60,4 @@ public class SaveLoad {
 		SaveLoad.savedInventoryData.Clear();
 		Save ();
 	}
-
-//	public static void Inventory() {
-//		foreach (InventoryDatabase mydata in savedInventoryData) {
-//			foreach (ItemDatabase data in ItemData) {
-//				if (mydata.item.itemName == data.ItemList )
-//			{
-//					mydata.item = data.ItemList;
-//				continue;
-//			}
-//		}
-//		}
-//	}
 }

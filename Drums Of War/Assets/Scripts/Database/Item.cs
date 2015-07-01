@@ -22,7 +22,7 @@ public class Item {
 
 	public int attackDamage;
 	public int attackSpeed;
-	public int Defense;
+	public int HealthPoint;
 	public int Evasion;
 
 	public int beingUsed;
@@ -56,7 +56,7 @@ public class Item {
 		
 		this.attackDamage = 1;
 		this.attackSpeed = 1;
-		this.Defense = 1;
+		this.HealthPoint = 1;
 		this.Evasion = 1;
 		
 		this.beingUsed = 0;
@@ -70,7 +70,7 @@ public class Item {
 	public bool isSame (Item other)
 	{
 		if (other.idNum == this.idNum)
-				return true;
+			return true;
 		return false;
 	}
 }
