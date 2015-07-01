@@ -11,7 +11,7 @@ public class ColorCustomizationScript : MonoBehaviour {
 	Slider RedSlider, BlueSlider, GreenSlider;
 	Color CurrentColor;
 	List<GameObject> AllUnits = new List<GameObject>();
-	//GameObject OriginalColor;
+	public GameObject OriginalColor;
 
 	public int CurrentBody = 0;
 
@@ -19,10 +19,10 @@ public class ColorCustomizationScript : MonoBehaviour {
 	void Start () {
 		GameObject[] TempAllUnits = GameObject.FindGameObjectsWithTag ("Ally");
 		for (int i = 0; i < TempAllUnits.Length; i ++) {
-			if (i != TempAllUnits.Length - 1)
+			if (TempAllUnits[i] != OriginalColor)
 				AllUnits.Add(TempAllUnits[i]);
-//			else
-//				OriginalColor = TempAllUnits[i];
+			else
+				OriginalColor = TempAllUnits[i];
 		}
 
 		RedSlider = RedObject.GetComponent<Slider> ();
