@@ -35,6 +35,8 @@ public class ItemDatabase : MonoBehaviour{
 						
 			temp.beingUsed = int.Parse(values[7]);
 
+			temp.unlockedLevel = int.Parse(values[8]);
+
 			ItemList.Add(temp);
 		}
 	}

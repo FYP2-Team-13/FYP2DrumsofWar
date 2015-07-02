@@ -27,6 +27,9 @@ public class Item {
 
 	public int beingUsed;
 
+	
+	public int unlockedLevel;
+
 	public Item () {
 		this.idNum = 1;
 		this.itemName = " ";

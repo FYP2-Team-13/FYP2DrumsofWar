@@ -1,4 +1,7 @@
-﻿using UnityEngine; 
+﻿
+
+
+using UnityEngine; 
 using System.Collections;
 
 public class Database : MonoBehaviour {
@@ -11,6 +14,8 @@ public class Database : MonoBehaviour {
 		if (!SaveLoad.Load ()) {
 			SaveLoad.Create();
 		}
+
+
 		foreach (InventoryDatabase g in SaveLoad.savedInventoryData) {
 		foreach (Item d in ItemDatabase.ItemList) {
 				if(g.item.getIdNum() == d.getIdNum())
