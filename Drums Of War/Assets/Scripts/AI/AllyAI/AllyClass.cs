@@ -244,6 +244,11 @@ public class AllyClass : MonoBehaviour {
 		return Hitpoints;
 	}
 
+	public float GetHPMax()
+	{
+		return HitpointMax;
+	}
+
 	void Attack ()
 	{
 		if (CheckAttackRange ()) {

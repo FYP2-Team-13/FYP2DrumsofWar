@@ -46,4 +46,15 @@ public class ArmyStats {
 		                    (Type == AllyClass.Unit_Type.Type_Melee ? BASE_ATTACK_RANGE_MELEE : BASE_ATTACK_RANGE_RANGE), BASE_EVASION + Helmet.Evasion + Weapon.Evasion,
 		                    BASE_HP);
 	}
+
+	public bool RecruitUnit()
+	{
+		if (Quantity < 5) {
+			Quantity ++;
+			//Remove Money
+			return true;
+		} else {
+			return false;
+		}
+	}
 }

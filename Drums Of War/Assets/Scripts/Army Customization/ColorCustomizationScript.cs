@@ -71,4 +71,14 @@ public class ColorCustomizationScript : MonoBehaviour {
 			CurrentBody += ArmyForceDatabase.SpriteDatabase.Count;
 		}
 	}
+
+	public void PurchaseUnit (int Index)
+	{
+		if (ArmyForceDatabase.TheArmy [Index].RecruitUnit ())//Add in money here 
+		{
+			//Recruiting Successful
+		} else {
+			//Recruiting Failed
+		}
+	}
 }
