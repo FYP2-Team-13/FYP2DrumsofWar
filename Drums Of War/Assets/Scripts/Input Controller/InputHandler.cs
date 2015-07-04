@@ -145,8 +145,12 @@ public class InputHandler : MonoBehaviour {
 		}
 		WinLoseIndicator.GetComponent<FaderScripte> ().StartFade ();
 		TheSource.PlayOneShot (TheSource.clip);
-		//WinLoseIndicator.SetActive(true);
-		//FaderScripte Fader = WinLoseIndicator.GetComponent<FaderScripte> ();
-		//Fader.StartFade ();
+
+		Invoke ("BacktoCamp", 8);
+	}
+
+	void BacktoCamp ()
+	{
+		Application.LoadLevel ("Camp Menu");
 	}
 }
