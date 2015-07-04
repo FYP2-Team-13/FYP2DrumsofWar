@@ -1,0 +1,165 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &184668
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 410680}
+  - 114: {fileID: 11423116}
+  - 114: {fileID: 11408606}
+  - 114: {fileID: 11408632}
+  - 114: {fileID: 11435842}
+  m_Layer: 0
+  m_Name: Database
+  m_TagString: Database
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &410680
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 184668}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -86.2586365, y: -.320554823, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11408606
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 184668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 484936a4a269c9d4a912b6d871552258, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Database: {fileID: 4900000, guid: 3dd33ee26a53fa44781028e9673b9661, type: 3}
+--- !u!114 &11408632
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 184668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02afc1f173f867540a9e172d133a24d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11423116
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 184668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d9baeeb031b6d94f927d98d22e71260, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11435842
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 184668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba4d81c8bd53bd0459e5ca04aaabe3d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TheArmy:
+  - Quantity: 1
+    Type: 0
+    Helmet:
+      idNum: 1
+      itemName: ' '
+      type: 1
+      itemType: 0
+      attackDamage: 1
+      attackSpeed: 1
+      HealthPoint: 1
+      Evasion: 1
+      beingUsed: 0
+      unlockedLevel: 0
+    Weapon:
+      idNum: 1
+      itemName: ' '
+      type: 1
+      itemType: 0
+      attackDamage: 1
+      attackSpeed: 1
+      HealthPoint: 1
+      Evasion: 1
+      beingUsed: 0
+      unlockedLevel: 0
+  - Quantity: 0
+    Type: 0
+    Helmet:
+      idNum: 1
+      itemName: ' '
+      type: 1
+      itemType: 0
+      attackDamage: 1
+      attackSpeed: 1
+      HealthPoint: 1
+      Evasion: 1
+      beingUsed: 0
+      unlockedLevel: 0
+    Weapon:
+      idNum: 1
+      itemName: ' '
+      type: 1
+      itemType: 0
+      attackDamage: 1
+      attackSpeed: 1
+      HealthPoint: 1
+      Evasion: 1
+      beingUsed: 0
+      unlockedLevel: 0
+  - Quantity: 0
+    Type: 0
+    Helmet:
+      idNum: 1
+      itemName: ' '
+      type: 1
+      itemType: 0
+      attackDamage: 1
+      attackSpeed: 1
+      HealthPoint: 1
+      Evasion: 1
+      beingUsed: 0
+      unlockedLevel: 0
+    Weapon:
+      idNum: 1
+      itemName: ' '
+      type: 1
+      itemType: 0
+      attackDamage: 1
+      attackSpeed: 1
+      HealthPoint: 1
+      Evasion: 1
+      beingUsed: 0
+      unlockedLevel: 0
+  ArmyColor: {r: 1, g: 1, b: 1, a: 0}
+  BodySprite: {fileID: 21300000, guid: 5546fdb1d1d8c7440a204b29eb35b525, type: 3}
+  SpriteDatabase: []
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 184668}
+  m_IsPrefabParent: 1

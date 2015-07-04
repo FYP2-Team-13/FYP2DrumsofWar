@@ -7,8 +7,11 @@ public class MenuScript : MonoBehaviour {
 	public Canvas QuitMenu;
 	public Button Play;
 	public Button Exit;
-	public GameObject arrow;
+	public GameObject menuArrow;
+	public GameObject quitArrow;
 	int menuCounter;
+	int exitCounter;
+	bool QuitMenubool;
 
 	// Use this for initialization
 	void Start () {
@@ -17,22 +20,70 @@ public class MenuScript : MonoBehaviour {
 		Exit = Exit.GetComponent<Button> ();
 		QuitMenu.enabled = false;	
 		menuCounter = 1;
+		exitCounter = 1;
+		QuitMenubool = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown (KeyCode.W)) {
-			if(menuCounter != 1)
+			if (QuitMenubool == false) {
+				if (menuCounter != 1) {
+					menuCounter--;
+					menuArrow.transform.Translate (0, 77, 0);
+				}
+			}
+			else
 			{
-				menuCounter--;
-				arrow.transform.Translate(77,0,0);
+				if(exitCounter != 1)
+				{
+					exitCounter--;
+					quitArrow.transform.Translate (0,24,0);
+				}
+			}
+		} 
+		else if (Input.GetKeyDown (KeyCode.S)) {
+			if (QuitMenubool == false)
+			{
+				if (menuCounter != 2) {
+					menuCounter++;
+					menuArrow.transform.Translate (0, -77, 0);
+				}
+			}
+			else
+			{
+				if(exitCounter != 2)
+				{
+					exitCounter++;
+					quitArrow.transform.Translate (0,-48,0);
+				}
 			}
 		}
-		else if (Input.GetKeyDown (KeyCode.S)) {
-			if(menuCounter != 2)
+		if(Input.GetKeyDown(KeyCode.Space) )//|| Input.GetKeyDown(KeyCode.KeypadEnter))
+		{
+			if(QuitMenubool == false)
 			{
-				menuCounter++;
-				arrow.transform.Translate(-77,0,0);
+			if(menuCounter == 1)
+			{
+				PlayPress();
+			}
+			else if(menuCounter == 2)
+			{
+				ExitPress();
+				QuitMenubool = true;
+			}
+			}
+			else
+			{
+				if(exitCounter == 1)
+				{
+					YesPress();
+				}
+				else if(exitCounter == 2)
+				{
+					NoPress();
+					QuitMenubool = false;
+				}
 			}
 		}
 	}
