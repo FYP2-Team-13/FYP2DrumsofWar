@@ -19,7 +19,7 @@ public class AI : MonoBehaviour {
 	public bool iswall;
 	
 	public float health = 100;
-	float moveSpeed = 1.0f;
+	public float moveSpeed = 1.0f;
 
 	public float attackDamage = 0;
 	public float attackSpeed = 0;
