@@ -89,6 +89,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 495078}
   - 95: {fileID: 9531044}
+  - 114: {fileID: 11406064}
   m_Layer: 0
   m_Name: Animation
   m_TagString: Untagged
@@ -322,6 +323,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11406064
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 152028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdc47f8f4b7ac0145a476d12a4417b08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11427082
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -336,6 +348,7 @@ MonoBehaviour:
   state: 0
   iswall: 0
   health: 50
+  moveSpeed: 1
   attackDamage: 5
   attackSpeed: 0
   attackRange: 0
