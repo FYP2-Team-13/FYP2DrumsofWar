@@ -39,7 +39,7 @@ public class levelselectorscript : MonoBehaviour {
 		}
 		else if (Input.GetKeyDown (KeyCode.D))
 		{
-			if(menuCounter < 15)
+			if(menuCounter < 16)
 			{
 
 				if(menuCounter != 8)
