@@ -201,6 +201,7 @@ Transform:
   - {fileID: 1095564497}
   - {fileID: 1376682158}
   - {fileID: 115878860}
+  - {fileID: 509943784}
   m_Father: {fileID: 0}
   m_RootOrder: 10
 --- !u!1001 &135103050
@@ -342,6 +343,50 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cf15e23115ff4464fac82817e45fddbe, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &509943783
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 151306, guid: db4b83d19681af24f918da7fc3b494df, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 509943784}
+  - 114: {fileID: 509943785}
+  m_Layer: 0
+  m_Name: Ally Unit Group 4
+  m_TagString: AllyGroup
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &509943784
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 405668, guid: db4b83d19681af24f918da7fc3b494df, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 509943783}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.69999981, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 133810477}
+  m_RootOrder: 3
+--- !u!114 &509943785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11471418, guid: db4b83d19681af24f918da7fc3b494df,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 509943783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8e759a87d0491f49881ac21bcc63973, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  position: {x: 0, y: -3, z: 0}
+  Allies: []
+  Unit: {fileID: 159594, guid: a4c25f92f0e3ec3479972f5b0810aa50, type: 2}
+  Quantity: 1
 --- !u!1001 &566517806
 Prefab:
   m_ObjectHideFlags: 0
