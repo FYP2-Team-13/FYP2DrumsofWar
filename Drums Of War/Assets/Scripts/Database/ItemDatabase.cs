@@ -29,12 +29,13 @@ public class ItemDatabase : MonoBehaviour{
 			temp.type = int.Parse(values[2]);
 
 			temp.attackDamage = int.Parse(values[3]);
-			temp.attackSpeed = int.Parse(values[4]);
+			temp.attackSpeed = float.Parse(values[4]);
 			temp.HealthPoint = int.Parse(values[5]);
 			temp.Evasion = int.Parse(values[6]);
 						
 			temp.beingUsed = int.Parse(values[7]);
 
+			//print (values[8]);
 			temp.unlockedLevel = int.Parse(values[8]);
 
 			ItemList.Add(temp);
@@ -49,5 +50,26 @@ public class ItemDatabase : MonoBehaviour{
 				return item;
 		}
 		return item;
+	}
+
+	public Item GetItem (int id)
+	{
+		foreach (Item I in ItemList) {
+			if (I.idNum == id )
+				return I;
+		}
+		return null;
+	}
+
+	public List<Item> GetAllItemFromLevel (int level)
+	{
+		List<Item> ItemsFromThisLevel = new List<Item> ();
+		foreach (Item item in ItemList) {
+			if (item.unlockedLevel >= level)
+			{
+				ItemsFromThisLevel.Add (item);
+			}
+		}
+		return ItemsFromThisLevel;
 	}
 }

@@ -17,6 +17,26 @@ public class AnimationScript : MonoBehaviour {
 			TheAnimator.SetInteger("WeaponType",1);
 		}
 
+		ConsistentArmy ArmyCustomization = GameObject.FindGameObjectWithTag ("Database").GetComponent<ConsistentArmy> ();
+		if (ArmyCustomization != null) {
+			Color ArmyColor = ArmyCustomization.GetArmyColor();
+			Color EnemyColor = new Color (1f - ArmyColor.r, 1f - ArmyColor.g, 1f - ArmyColor.b); 
+
+			int spriteindex = ArmyCustomization.SpriteDatabase.IndexOf(ArmyCustomization.GetCurrentBodySprite() );
+			spriteindex += ArmyCustomization.SpriteDatabase.Count/2;
+			if (spriteindex >= ArmyCustomization.SpriteDatabase.Count)
+			{
+				spriteindex -= ArmyCustomization.SpriteDatabase.Count;
+			}
+
+			gameObject.transform.Find("Body_Origin").gameObject.GetComponent<SpriteRenderer>().color = EnemyColor;
+			gameObject.transform.Find("Body_Origin").gameObject.GetComponent<SpriteRenderer>().sprite = ArmyCustomization.SpriteDatabase[spriteindex];
+			gameObject.transform.Find("Body_FrontHand").gameObject.GetComponent<SpriteRenderer>().color = EnemyColor;
+			gameObject.transform.Find("Body_BackHand").gameObject.GetComponent<SpriteRenderer>().color = EnemyColor;
+			gameObject.transform.Find("Body_FrontLeg").gameObject.GetComponent<SpriteRenderer>().color = EnemyColor;
+			gameObject.transform.Find("Body_BackLeg").gameObject.GetComponent<SpriteRenderer>().color = EnemyColor;
+		}
+
 	}
 	
 	// Update is called once per frame

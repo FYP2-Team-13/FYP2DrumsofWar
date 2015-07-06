@@ -31,6 +31,8 @@ public class AI : MonoBehaviour {
 	private float prevTime;
 	float now;
 	float diff;
+
+	public GameObject DamageText;
 	
 
 	// Use this for initialization
@@ -162,8 +164,10 @@ public class AI : MonoBehaviour {
 			return;
 		}
 
-		var script = Target.GetComponent<AllyClass> ();
-		script.TakeDamage(attackDamage);
+		if (Target != null) {
+			var script = Target.GetComponent<AllyClass> ();
+			script.TakeDamage (attackDamage);
+		}
 	}
 
 	public void TakeDamage (float damage)
@@ -171,6 +175,11 @@ public class AI : MonoBehaviour {
 		//print (damage);
 		if (Random.Range (0, 100) < 100) {
 			health -= damage;
+
+			GameObject DamageIndicator = (GameObject)Instantiate(DamageText, transform.position + Vector3.up, transform.rotation);
+			TextMesh Text= DamageIndicator.GetComponent<TextMesh>();
+			Text.text = damage.ToString();
+			Destroy (DamageIndicator,3);
 			//print (health);
 			if (health < 1) {
 				gameObject.layer = LayerMask.NameToLayer ("Dead");

@@ -9,9 +9,8 @@ using System.IO;
 public class SaveLoad {
 
 	public static List<InventoryDatabase> savedInventoryData = new List<InventoryDatabase>();
-	public static List<ItemDatabase> ItemData = new List<ItemDatabase>();
 
-	public static List<ArmyStats> savedArmyData = new List<ArmyStats>();
+//	public static List<ArmyStats> savedArmyData = new List<ArmyStats>();
 
 	public static float unlockedLevel;
 
@@ -28,9 +27,9 @@ public class SaveLoad {
 		bf.Serialize(file, SaveLoad.unlockedLevel);
 		file.Close();
 
-		file = File.Create (Application.persistentDataPath + "/ArmyData.data");
-		bf.Serialize(file, SaveLoad.savedArmyData);
-		file.Close();
+//		file = File.Create (Application.persistentDataPath + "/ArmyData.data");
+//		bf.Serialize(file, SaveLoad.savedArmyData);
+//		file.Close();
 	}
 
 	public static bool Load() {
@@ -45,9 +44,9 @@ public class SaveLoad {
 			unlockedLevel = (float)bf.Deserialize (file);
 			file.Close ();
 
-			file = File.Open (Application.persistentDataPath + "/ArmyData.data", FileMode.Open);
-			savedArmyData = (List<ArmyStats>)bf.Deserialize (file);
-			file.Close ();
+			//file = File.Open (Application.persistentDataPath + "/ArmyData.data", FileMode.Open);
+			//savedArmyData = (List<ArmyStats>)bf.Deserialize (file);
+			//file.Close ();
 
 			return true;
 		} else
@@ -66,9 +65,9 @@ public class SaveLoad {
 		bf.Serialize(file, SaveLoad.unlockedLevel);
 		file.Close();
 
-		file = File.Create (Application.persistentDataPath + "/ArmyData.data");
-		bf.Serialize(file, SaveLoad.savedArmyData);
-		file.Close();
+//		file = File.Create (Application.persistentDataPath + "/ArmyData.data");
+//		bf.Serialize(file, SaveLoad.savedArmyData);
+//		file.Close();
 	}
 
 	public static void Overwriting () {

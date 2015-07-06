@@ -50,6 +50,9 @@ public class AllyClass : MonoBehaviour {
 	//variables for Firing Arrow
 	public GameObject Arrow;
 
+	//game object for damage indicator
+	public GameObject DamageText;
+
 	// Use this for initialization
 	void Start () {
 		PrevTime = Time.time;
@@ -208,6 +211,12 @@ public class AllyClass : MonoBehaviour {
 		if (Random.Range (0, 100) < 100 - Evasion) {
 			float DamageDone = (damage) * (AIState == AI_Ally_State.Ally_Defend? 0.5f: 1);
 			Hitpoints -= DamageDone;
+
+			GameObject DamageIndicator = (GameObject)Instantiate(DamageText, transform.position + Vector3.up, transform.rotation);
+			TextMesh Text= DamageIndicator.GetComponent<TextMesh>();
+			Text.text = DamageDone.ToString();
+			Destroy (DamageIndicator,3);
+
 			checkdeath();
 		}
 	}
@@ -255,7 +264,7 @@ public class AllyClass : MonoBehaviour {
 			if (Type == Unit_Type.Type_Melee) {//Melee Attacks
 				DoAttackMelee(Target, AttackDamage * (AIState == AI_Ally_State.Ally_Attack? 1.0f: 0.7f) );
 			} 
-			else if (Type == Unit_Type.Type_Range) { // Range Attacks
+			else { // Range Attacks
 				DoAttackRange();
 			}
 		}
@@ -270,9 +279,9 @@ public class AllyClass : MonoBehaviour {
 			ArrowAngleScript tempscript = temparrow.GetComponent<ArrowAngleScript> ();
 			float speed = Random.Range(AttackRange, AttackRange * 1.5f);
 			//print (speed);
-			if (Type == Unit_Type.Type_Range)
+			if (Type == Unit_Type.Type_Range) //lobbing strikes from range units
 				tempscript.CalculateAngle (Target.transform, speed, AttackDamage, EnemyTag, false);
-			else
+			else //direct fire aka wizard power!
 				tempscript.CalculateAngle (Target.transform, speed, AttackDamage, EnemyTag, true);
 			TheAnimator.SetInteger("State", 2);
 		}

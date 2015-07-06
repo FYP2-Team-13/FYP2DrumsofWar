@@ -16,6 +16,9 @@ public class InputHandler : MonoBehaviour {
 	public List<AllyGroup> Allies = new List<AllyGroup>();
 	public string AllyTag;
 
+	GameObject Database;
+	ConsistentArmy theArmy;
+
 	void Reset ()
 	{
 		TimeDur = 0.0f;
@@ -37,6 +40,24 @@ public class InputHandler : MonoBehaviour {
 			//if (Ally == nodes[0])
 			//	continue;
 			Allies.Add (Ally.GetComponent<AllyGroup>() );
+		}
+
+		Database = GameObject.FindGameObjectWithTag ("Database");
+		theArmy = Database.GetComponent<ConsistentArmy> ();
+
+		foreach (AllyGroup Ally in Allies)
+		{
+			if (Allies.IndexOf(Ally) < theArmy.TheArmy.Length)
+			{
+				int index = Allies.IndexOf (Ally);
+				ArmyStats ThisArmy = theArmy.TheArmy[index];
+				Ally.Init (ThisArmy.Quantity);
+				ThisArmy.ApplyStats (Ally);
+			}
+			else
+			{
+				Ally.Init (Ally.Quantity);
+			}
 		}
 		//Allies[0].Init (1, AllyClass.Unit_Type.Type_Melee, 10, 0.75f, 2, 1, 5, 100);
 		//Allies[1].Init (6, AllyClass.Unit_Type.Type_Range, 10, 0.75f, 10, 1, 5, 100);

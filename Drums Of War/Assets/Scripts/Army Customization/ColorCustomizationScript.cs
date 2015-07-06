@@ -30,6 +30,12 @@ public class ColorCustomizationScript : MonoBehaviour {
 		GreenSlider = GreenObject.GetComponent<Slider> ();
 
 		ArmyForceDatabase = GameObject.FindGameObjectWithTag ("Database").GetComponent<ConsistentArmy> ();
+
+		RedSlider.value = ArmyForceDatabase.ArmyColor.r;
+		BlueSlider.value = ArmyForceDatabase.ArmyColor.b;
+		GreenSlider.value = ArmyForceDatabase.ArmyColor.g;
+
+		CurrentBody = ArmyForceDatabase.SpriteDatabase.IndexOf (ArmyForceDatabase.BodySprite);
 	}
 	
 	// Update is called once per frame

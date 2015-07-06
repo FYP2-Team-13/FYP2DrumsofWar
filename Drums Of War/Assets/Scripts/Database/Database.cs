@@ -16,7 +16,10 @@ public class Database : MonoBehaviour {
 		foreach (InventoryDatabase g in SaveLoad.savedInventoryData) {
 		foreach (Item d in ItemDatabase.ItemList) {
 				if(g.item.getIdNum() == d.getIdNum())
+				{
 					g.item = d;
+					print(g.item);
+				}
 		}
 		}
 	}

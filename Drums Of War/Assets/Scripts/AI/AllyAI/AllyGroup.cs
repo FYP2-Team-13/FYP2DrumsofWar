@@ -15,7 +15,6 @@ public class AllyGroup : MonoBehaviour {
 	void Start () {
 		position = transform.position;
 		transform.Translate (-transform.position);
-		Init (Quantity);
 	}
 	
 	// Update is called once per frame

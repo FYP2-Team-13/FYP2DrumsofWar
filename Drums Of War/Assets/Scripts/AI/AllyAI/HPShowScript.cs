@@ -3,19 +3,18 @@ using System.Collections;
 
 public class HPShowScript : MonoBehaviour {
 
-	float HP, HPMax;
+	public float HP, HPMax;
 
 	// Use this for initialization
 	void Start () {
-		
+		HPMax = gameObject.transform.parent.gameObject.GetComponent<AllyClass> ().GetHPMax ();
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		HP = gameObject.transform.parent.gameObject.GetComponent<AllyClass> ().GetHP ();
-		HPMax = gameObject.transform.parent.gameObject.GetComponent<AllyClass> ().GetHPMax ();
 
 		float HPPercentage = HP / HPMax;
-		gameObject.transform.localScale.Set (HPPercentage * 10, gameObject.transform.localScale.y, gameObject.transform.localScale.z);
+		transform.localScale = new Vector3 (HPPercentage * 10, gameObject.transform.localScale.y, gameObject.transform.localScale.z);
 	}
 }

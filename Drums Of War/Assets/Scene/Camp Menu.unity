@@ -840,6 +840,10 @@ Prefab:
       propertyPath: m_Name
       value: BGM 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8275444, guid: 07e51a4ce7991e6428d8b589194c0ab1, type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 36397c0e9fc2c41418a8e4f066c40a00, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 07e51a4ce7991e6428d8b589194c0ab1, type: 2}
   m_IsPrefabParent: 0

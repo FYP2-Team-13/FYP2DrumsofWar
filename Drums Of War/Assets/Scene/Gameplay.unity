@@ -308,6 +308,14 @@ Prefab:
       propertyPath: position.y
       value: -3
       objectReference: {fileID: 0}
+    - target: {fileID: 457806, guid: 571b708a177828845a2d41d3087520ba, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -5.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 457806, guid: 571b708a177828845a2d41d3087520ba, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 571b708a177828845a2d41d3087520ba, type: 2}
   m_IsPrefabParent: 0
@@ -445,6 +453,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 11443822, guid: 6220a7953c3b11443ba23015f68a966e, type: 2}
+      propertyPath: TheArmy.Array.data[0].Weapon.attackSpeed
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6220a7953c3b11443ba23015f68a966e, type: 2}
   m_IsPrefabParent: 0
@@ -469,6 +481,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11425218, guid: 571b708a177828845a2d41d3087520ba, type: 2}
       propertyPath: position.y
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 457806, guid: 571b708a177828845a2d41d3087520ba, type: 2}
+      propertyPath: m_LocalPosition.y
       value: -3
       objectReference: {fileID: 0}
     m_RemovedComponents: []

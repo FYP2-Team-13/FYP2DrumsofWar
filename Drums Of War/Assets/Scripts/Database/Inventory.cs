@@ -1,0 +1,131 @@
+﻿using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+
+public class Inventory : MonoBehaviour {
+
+	static List<Item> TheInventory = new List<Item>();
+	ItemDatabase theItemDatabase;
+	int Currency;
+
+	// Use this for initialization
+	void Start () {
+		theItemDatabase = GameObject.FindGameObjectWithTag("Database").GetComponent<ItemDatabase> ();
+
+		if (Load ()) {
+			print ("Load Successful");
+		} else {
+			print ("Load Failed");
+		}
+	}
+
+	public void NewItem( int id )
+	{
+		TheInventory.Add (theItemDatabase.GetItem (id));
+	}
+
+	public void RemoveItem (int index)
+	{
+		TheInventory.Remove (TheInventory [index]);
+	}
+
+	public List<Item> GetItemsofType (Item.IType type)
+	{
+		List<Item> ItemsOfType = new List<Item> ();
+		foreach (Item item in TheInventory) {
+			if (item.itemType == type)
+			{
+				ItemsOfType.Add (item);
+			}
+		}
+		return ItemsOfType;
+	}
+
+	public List<Item> GetItemsNotofType (Item.IType type)
+	{
+		List<Item> ItemsNotOfType = new List<Item> ();
+		foreach (Item item in TheInventory) {
+			if (item.itemType != type)
+			{
+				ItemsNotOfType.Add (item);
+			}
+		}
+		return ItemsNotOfType;
+	}
+
+	public void AddMoney (int Value)
+	{
+		if (Value > 0)
+		{
+			Currency += Value;
+		}
+	}
+
+	public bool RemoveMoney (int Value)
+	{
+		if (Currency < Value) {
+			return false;
+		} else {
+			Currency -= Value;
+			return true;
+		}
+	}
+
+	public bool Load()
+	{
+		if (File.Exists (Application.persistentDataPath + "/Inventory.data")) {
+			BinaryFormatter bf = new BinaryFormatter ();
+			FileStream file = File.Open (Application.persistentDataPath + "/Inventory.data", FileMode.Open);
+
+			InventoryIDS InventoryData = (InventoryIDS)bf.Deserialize(file);
+			file.Close();
+
+			Currency = InventoryData.Currency;
+
+			foreach (int id in InventoryData.ItemIDs)
+			{
+				TheInventory.Add(theItemDatabase.GetItem(id) );
+			}
+
+			return true;	
+		} else {
+			return false;
+		}
+	}
+
+	public void Save ()
+	{
+		InventoryIDS InventoryID = new InventoryIDS ();
+
+		foreach (Item item in TheInventory) {
+			InventoryID.ItemIDs.Add (item.getIdNum() );
+		}
+		InventoryID.Currency = Currency;
+		
+		BinaryFormatter bf = new BinaryFormatter ();
+		if (!File.Exists (Application.persistentDataPath + "/Inventory.data")) {
+			FileStream filetemp = File.Create (Application.persistentDataPath + "/Inventory.data");
+			filetemp.Close();
+		}
+		FileStream file = File.Open (Application.persistentDataPath + "/Inventory.data", FileMode.Open);
+		
+		bf.Serialize (file, InventoryID);
+		file.Close (); 
+		
+		print ("Save Successful");
+	}
+
+	void OnApplicationQuit()
+	{
+		Save();
+	}
+}
+
+[System.Serializable]
+public class InventoryIDS
+{
+	public List<int> ItemIDs = new List<int>();
+	public int Currency;
+}

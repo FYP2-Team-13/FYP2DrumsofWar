@@ -74,10 +74,12 @@ MonoBehaviour:
   state: 0
   iswall: 1
   health: 50
+  moveSpeed: 1
   attackDamage: 0
   attackSpeed: 0
   attackRange: 0
   Target: {fileID: 0}
+  DamageText: {fileID: 117630, guid: ccdda4777c3876e46b8b8e8b7904cb2b, type: 2}
 --- !u!114 &11495174
 MonoBehaviour:
   m_ObjectHideFlags: 1

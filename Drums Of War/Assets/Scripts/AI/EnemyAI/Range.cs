@@ -18,11 +18,12 @@ public class Range : MonoBehaviour {
 
 	public void createProjectile () {
 		var scr = this.gameObject.GetComponent<AI> ();
-
-		GameObject temparrow = (GameObject)Instantiate (projectile, transform.position + ((Vector3.left + Vector3.up) * 1.5f), transform.rotation);
-		temparrow.gameObject.tag = "Arrow";
-		temparrow.gameObject.layer = LayerMask.NameToLayer(tag + "Arrow");
-		ArrowAngleScript tempscript = temparrow.GetComponent<ArrowAngleScript> ();
-		tempscript.CalculateAngle (scr.Target.transform, scr.attackRange * 2, scr.attackDamage, "Ally", false);
+		if (scr.Target != null) {
+			GameObject temparrow = (GameObject)Instantiate (projectile, transform.position + ((Vector3.left + Vector3.up) * 1.5f), transform.rotation);
+			temparrow.gameObject.tag = "Arrow";
+			temparrow.gameObject.layer = LayerMask.NameToLayer (tag + "Arrow");
+			ArrowAngleScript tempscript = temparrow.GetComponent<ArrowAngleScript> ();
+			tempscript.CalculateAngle (scr.Target.transform, scr.attackRange * 2, scr.attackDamage, "Ally", false);
+		}
 	}
 }

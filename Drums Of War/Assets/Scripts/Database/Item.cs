@@ -21,7 +21,7 @@ public class Item {
 	public IType itemType;
 
 	public int attackDamage;
-	public int attackSpeed;
+	public float attackSpeed;
 	public int HealthPoint;
 	public int Evasion;
 
