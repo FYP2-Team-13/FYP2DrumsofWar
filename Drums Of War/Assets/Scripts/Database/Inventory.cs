@@ -6,7 +6,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public class Inventory : MonoBehaviour {
 
-	static List<Item> TheInventory = new List<Item>();
+	public List<Item> TheInventory = new List<Item>();
 	ItemDatabase theItemDatabase;
 	int Currency;
 
@@ -31,11 +31,11 @@ public class Inventory : MonoBehaviour {
 		TheInventory.Remove (TheInventory [index]);
 	}
 
-	public List<Item> GetItemsofType (Item.IType type)
+	public List<Item> GetItemsofType (int type)
 	{
 		List<Item> ItemsOfType = new List<Item> ();
 		foreach (Item item in TheInventory) {
-			if (item.itemType == type)
+			if (item.type == type)
 			{
 				ItemsOfType.Add (item);
 			}
@@ -43,11 +43,11 @@ public class Inventory : MonoBehaviour {
 		return ItemsOfType;
 	}
 
-	public List<Item> GetItemsNotofType (Item.IType type)
+	public List<Item> GetItemsNotofType (int type)
 	{
 		List<Item> ItemsNotOfType = new List<Item> ();
 		foreach (Item item in TheInventory) {
-			if (item.itemType != type)
+			if (item.type != type)
 			{
 				ItemsNotOfType.Add (item);
 			}
@@ -120,6 +120,13 @@ public class Inventory : MonoBehaviour {
 	void OnApplicationQuit()
 	{
 		Save();
+	}
+
+	public void CreateRandomItem ()
+	{
+		int id = Random.Range (0, theItemDatabase.GetAllItems ().Count);
+		Item RandomedItem = theItemDatabase.GetAllItems () [id];
+		TheInventory.Add (RandomedItem);
 	}
 }
 

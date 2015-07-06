@@ -40,7 +40,7 @@ public class ColorCustomizationScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		CurrentColor = new Color (RedSlider.value, BlueSlider.value, GreenSlider.value);
+		CurrentColor = new Color (RedSlider.value, GreenSlider.value, BlueSlider.value);
 		foreach (GameObject Unit in AllUnits) {
 			Unit.transform.Find("Body_Origin").gameObject.GetComponent<SpriteRenderer>().color = CurrentColor;
 			Unit.transform.Find("Body_Origin").gameObject.GetComponent<SpriteRenderer>().sprite = ArmyForceDatabase.GetSprite(CurrentBody);

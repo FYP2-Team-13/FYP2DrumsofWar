@@ -209,15 +209,20 @@ public class AllyClass : MonoBehaviour {
 	public void TakeDamage (float damage)
 	{
 		if (Random.Range (0, 100) < 100 - Evasion) {
-			float DamageDone = (damage) * (AIState == AI_Ally_State.Ally_Defend? 0.5f: 1);
+			float DamageDone = (damage) * (AIState == AI_Ally_State.Ally_Defend ? 0.5f : 1);
 			Hitpoints -= DamageDone;
 
-			GameObject DamageIndicator = (GameObject)Instantiate(DamageText, transform.position + Vector3.up, transform.rotation);
-			TextMesh Text= DamageIndicator.GetComponent<TextMesh>();
-			Text.text = DamageDone.ToString();
-			Destroy (DamageIndicator,3);
+			GameObject DamageIndicator = (GameObject)Instantiate (DamageText, transform.position + Vector3.up, transform.rotation);
+			TextMesh Text = DamageIndicator.GetComponent<TextMesh> ();
+			Text.text = DamageDone.ToString ();
+			Destroy (DamageIndicator, 3);
 
-			checkdeath();
+			checkdeath ();
+		} else {
+			GameObject DamageIndicator = (GameObject)Instantiate (DamageText, transform.position + Vector3.up, transform.rotation);
+			TextMesh Text = DamageIndicator.GetComponent<TextMesh> ();
+			Text.text = "Miss";
+			Destroy (DamageIndicator, 3);
 		}
 	}
 

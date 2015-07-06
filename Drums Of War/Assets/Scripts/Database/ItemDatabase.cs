@@ -72,4 +72,9 @@ public class ItemDatabase : MonoBehaviour{
 		}
 		return ItemsFromThisLevel;
 	}
+
+	public List<Item> GetAllItems ()
+	{
+		return ItemList;
+	}
 }
