@@ -21,7 +21,8 @@ public class ArmoryInventory : MonoBehaviour {
 				TheInventoryUI.Add (TempGameObject.GetComponent<Text>());
 			}
 		}
-		TheInventory = GameObject.FindGameObjectWithTag ("Database").GetComponent<Inventory> ();
+		GameObject Temp = GameObject.FindGameObjectWithTag ("Database");
+		TheInventory = Temp.GetComponent<Inventory> ();
 	}
 	
 	// Update is called once per frame

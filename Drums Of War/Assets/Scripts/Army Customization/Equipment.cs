@@ -35,8 +35,4 @@ public class Equipment : MonoBehaviour {
 	{
 		ItemList = TheInventory.GetItemsNotofType (searchvalue);
 	}
-
-	public void NextIndex ()
-	{
-	}
 }

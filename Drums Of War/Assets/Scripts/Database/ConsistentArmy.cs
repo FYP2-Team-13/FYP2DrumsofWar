@@ -9,12 +9,18 @@ public class ConsistentArmy : MonoBehaviour {
 
 	public ArmyStats[] TheArmy = new ArmyStats[3];
 	public Color ArmyColor;
-	public Sprite BodySprite;
+//	public Sprite BodySprite;
+	public int SpriteIndex;
 
 	public List<Sprite> SpriteDatabase;
 
 	// Use this for initialization
 	void Start () {
+
+		for (int i = 0; i < 6; i ++) {
+			SpriteDatabase.Add (Resources.Load<Sprite> ("BodyImages/BodyType" + i));
+		}
+
 		if (Load ()) {
 			print ("Load Successful");
 		} else {
@@ -25,6 +31,8 @@ public class ConsistentArmy : MonoBehaviour {
 				TheArmy[i].Helmet = GameObject.FindGameObjectWithTag("Database").GetComponent<ItemDatabase>().GetItem(11);
 				TheArmy[i].Weapon = GameObject.FindGameObjectWithTag("Database").GetComponent<ItemDatabase>().GetItem(1);
 			}
+//			BodySprite = SpriteDatabase[0];
+			SpriteIndex = 0;
 		}
 		//print (Application.persistentDataPath);
 	}
@@ -49,13 +57,13 @@ public class ConsistentArmy : MonoBehaviour {
 
 	public Sprite GetCurrentBodySprite ()
 	{
-		return BodySprite;
+		return SpriteDatabase[SpriteIndex];
 	}
 
-	public void SetSprite (Sprite NewSprite)
-	{
-		BodySprite = NewSprite;
-	}
+//	public void SetSprite (Sprite NewSprite)
+//	{
+//		BodySprite = NewSprite;
+//	}
 
 	public void Save ()
 	{
@@ -63,7 +71,12 @@ public class ConsistentArmy : MonoBehaviour {
 		theArmyData.r = ArmyColor.r;
 		theArmyData.g = ArmyColor.g;
 		theArmyData.b = ArmyColor.b;
-		theArmyData.SpriteIndex = SpriteDatabase.IndexOf (BodySprite);
+//		theArmyData.SpriteIndex = SpriteDatabase.IndexOf (BodySprite);
+//		if (theArmyData.SpriteIndex < 0)
+//		{
+//			theArmyData.SpriteIndex = 0;
+//		}
+		theArmyData.SpriteIndex = SpriteIndex;
 		theArmyData.TheArmy = TheArmy;
 
 		BinaryFormatter bf = new BinaryFormatter ();
@@ -89,7 +102,8 @@ public class ConsistentArmy : MonoBehaviour {
 			file.Close();
 
 			ArmyColor = new Color(data.r, data.g, data.b);
-			BodySprite = SpriteDatabase[data.SpriteIndex];
+//			BodySprite = SpriteDatabase[data.SpriteIndex];
+			SpriteIndex = data.SpriteIndex;
 
 			for (int i= 0; i < data.TheArmy.Length; i++)
 			{

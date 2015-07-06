@@ -35,7 +35,7 @@ public class ColorCustomizationScript : MonoBehaviour {
 		BlueSlider.value = ArmyForceDatabase.ArmyColor.b;
 		GreenSlider.value = ArmyForceDatabase.ArmyColor.g;
 
-		CurrentBody = ArmyForceDatabase.SpriteDatabase.IndexOf (ArmyForceDatabase.BodySprite);
+		CurrentBody = ArmyForceDatabase.SpriteIndex;
 	}
 	
 	// Update is called once per frame
@@ -54,7 +54,7 @@ public class ColorCustomizationScript : MonoBehaviour {
 	public void Comfirm ()
 	{
 		ArmyForceDatabase.SetArmyColor (CurrentColor);
-		ArmyForceDatabase.SetSprite (ArmyForceDatabase.GetSprite (CurrentBody));
+		ArmyForceDatabase.SpriteIndex = CurrentBody;
 		//print (ArmyForceDatabase.ArmyColor);
 	}
 

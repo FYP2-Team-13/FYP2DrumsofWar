@@ -22,7 +22,7 @@ public class AnimationScript : MonoBehaviour {
 			Color ArmyColor = ArmyCustomization.GetArmyColor();
 			Color EnemyColor = new Color (1f - ArmyColor.r, 1f - ArmyColor.g, 1f - ArmyColor.b); 
 
-			int spriteindex = ArmyCustomization.SpriteDatabase.IndexOf(ArmyCustomization.GetCurrentBodySprite() );
+			int spriteindex = ArmyCustomization.SpriteIndex;
 			spriteindex += ArmyCustomization.SpriteDatabase.Count/2;
 			if (spriteindex >= ArmyCustomization.SpriteDatabase.Count)
 			{

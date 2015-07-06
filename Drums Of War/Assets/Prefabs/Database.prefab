@@ -117,15 +117,8 @@ MonoBehaviour:
       beingUsed: 0
       unlockedLevel: 0
   ArmyColor: {r: 1, g: 1, b: 1, a: 0}
-  BodySprite: {fileID: 21300000, guid: 5546fdb1d1d8c7440a204b29eb35b525, type: 3}
-  SpriteDatabase:
-  - {fileID: 21300000, guid: 5546fdb1d1d8c7440a204b29eb35b525, type: 3}
-  - {fileID: 21300000, guid: edcc40d2aeb11fb4f84ba43eaaf5e15c, type: 3}
-  - {fileID: 21300000, guid: 6e478b20da91b134ca84c4bbe8d1fbc3, type: 3}
-  - {fileID: 21300000, guid: 40a05132e29c0c2418e74eb655145436, type: 3}
-  - {fileID: 21300000, guid: 21b1691039787284eb533634246b9bc5, type: 3}
-  - {fileID: 21300000, guid: dde7057f727c4fc41a2e17c81c7b5fb1, type: 3}
-  - {fileID: 21300000, guid: 122ffcc105fce0243b5ce581a48ef506, type: 3}
+  SpriteIndex: 0
+  SpriteDatabase: []
 --- !u!114 &11444640
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -171,6 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a50ea0f6dbe83d349bd0f9688ac9fe0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TheInventory: []
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

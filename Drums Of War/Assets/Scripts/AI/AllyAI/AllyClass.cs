@@ -64,7 +64,7 @@ public class AllyClass : MonoBehaviour {
 		ConsistentArmy ArmyCustomization = GameObject.FindGameObjectWithTag ("Database").GetComponent<ConsistentArmy> ();
 		if (ArmyCustomization != null) {
 			gameObject.transform.Find("Body_Origin").gameObject.GetComponent<SpriteRenderer>().color = ArmyCustomization.GetArmyColor();
-			gameObject.transform.Find("Body_Origin").gameObject.GetComponent<SpriteRenderer>().sprite = ArmyCustomization.GetCurrentBodySprite();
+			gameObject.transform.Find("Body_Origin").gameObject.GetComponent<SpriteRenderer>().sprite = ArmyCustomization.SpriteDatabase[ArmyCustomization.SpriteIndex];
 			gameObject.transform.Find("Body_FrontHand").gameObject.GetComponent<SpriteRenderer>().color = ArmyCustomization.GetArmyColor();
 			gameObject.transform.Find("Body_BackHand").gameObject.GetComponent<SpriteRenderer>().color = ArmyCustomization.GetArmyColor();
 			gameObject.transform.Find("Body_FrontLeg").gameObject.GetComponent<SpriteRenderer>().color = ArmyCustomization.GetArmyColor();
