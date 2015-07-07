@@ -45,7 +45,7 @@ public class MenuScript : MonoBehaviour {
 		else if (Input.GetKeyDown (KeyCode.S)) {
 			if (QuitMenubool == false)
 			{
-				if (menuCounter != 2) {
+				if (menuCounter != 3) {
 					menuCounter++;
 					menuArrow.transform.Translate (0, -40, 0);
 				}
@@ -71,6 +71,10 @@ public class MenuScript : MonoBehaviour {
 				{
 					ExitPress();
 					QuitMenubool = true;
+				}
+				else if(menuCounter == 2)
+				{
+					LoadPress();
 				}
 			}
 			else
@@ -111,5 +115,9 @@ public class MenuScript : MonoBehaviour {
 	{
 		//UnityEditor.EditorApplication.isPlaying = false;
 		Application.Quit ();
+	}
+	public void LoadPress()
+	{
+		//load code here
 	}
 }

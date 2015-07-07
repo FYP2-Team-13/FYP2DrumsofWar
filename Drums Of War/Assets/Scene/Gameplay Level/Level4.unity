@@ -172,6 +172,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 21212454, guid: c37e5e3b2e8f2e3419a439b1f423e8de, type: 2}
+      propertyPath: m_SortingOrder
+      value: -2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c37e5e3b2e8f2e3419a439b1f423e8de, type: 2}
   m_IsPrefabParent: 0
@@ -488,15 +492,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 449760, guid: a79169e07582bf44ba100d939a6bbbb4, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 89.2717896
+      value: 87.3000031
       objectReference: {fileID: 0}
     - target: {fileID: 449760, guid: a79169e07582bf44ba100d939a6bbbb4, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -2.84086323
+      value: -3.9000001
       objectReference: {fileID: 0}
     - target: {fileID: 449760, guid: a79169e07582bf44ba100d939a6bbbb4, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 4.875
+      value: 4.9000001
       objectReference: {fileID: 0}
     - target: {fileID: 449760, guid: a79169e07582bf44ba100d939a6bbbb4, type: 2}
       propertyPath: m_LocalRotation.x
