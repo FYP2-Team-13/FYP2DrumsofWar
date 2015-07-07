@@ -29,40 +29,39 @@ public class CampMenuScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(movingstate == 1)//moving left
-		{
-			MenuSelector.transform.Translate(-Time.deltaTime * 15,0,0);
+		if (movingstate == 1) {//moving left
+			MenuSelector.transform.Translate (-Time.deltaTime * 15, 0, 0);
 			MenuSelector.transform.localScale = Left;
-			if(MenuSelector.transform.position.x <= (40 + (menuCounter * 15)))
-			{
+			if (MenuSelector.transform.position.x <= (40 + (menuCounter * 15))) {
 				//MenuSelector.transform.Translate( 40 + menuCounter * 15,0,0);
 				movingstate = 0;
-				anim.SetInteger("State",0);
+				anim.SetInteger ("State", 0);
 			}
-		}
-		else if(movingstate == 2)//moving right
-		{
-			MenuSelector.transform.Translate(Time.deltaTime * 15,0,0);
+		} else if (movingstate == 2) {//moving right
+			MenuSelector.transform.Translate (Time.deltaTime * 15, 0, 0);
 			MenuSelector.transform.localScale = Right;
-			if(MenuSelector.transform.position.x >= (40 + (menuCounter * 15)))
-			{
+			if (MenuSelector.transform.position.x >= (40 + (menuCounter * 15))) {
 				//MenuSelector.transform.Translate( 40 + menuCounter * 15,0,0);
 				movingstate = 0;
-				anim.SetInteger("State",0);
+				anim.SetInteger ("State", 0);
 			}
 		}
 
-		if (Input.GetKeyDown (KeyCode.A)) {
-			GoLeft();
-		}
-		if (Input.GetKeyDown (KeyCode.D)) {
-			GoRight();
-		}
-		if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.KeypadEnter))
+		if (movingstate == 0)
 		{
-			Enter();
+			if (Input.GetKeyDown (KeyCode.A)) {
+				GoLeft ();
+			}
+			if (Input.GetKeyDown (KeyCode.D)) {
+				GoRight ();
+			}
+			if (Input.GetKeyDown (KeyCode.Space) || Input.GetKeyDown (KeyCode.KeypadEnter)) {
+				Enter ();
+			}
+			if (Input.GetKeyDown (KeyCode.Backspace)) {
+				Back ();
+			}
 		}
-
 	}
 
 	public void GoLeft()
@@ -99,5 +98,10 @@ public class CampMenuScript : MonoBehaviour {
 		else if (menuCounter == 3) {
 			Application.LoadLevel("level selection");
 		}
+	}
+
+	void Back()
+	{
+		Application.LoadLevel("Main Menu");
 	}
 }
