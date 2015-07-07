@@ -16,8 +16,10 @@ public class GetItemDetail : MonoBehaviour {
 
 	public void OnMouseOver()
 	{
-		ArmoryInventory theArmory = transform.parent.gameObject.GetComponent<ArmoryInventory>();
-		theArmory.FocusOnItem (theArmory.TheInventoryUI.IndexOf (this.gameObject.GetComponent<Text> ()));
+		if (GetComponent<Text> ().text != "Empty") {
+			ArmoryInventory theArmory = transform.parent.gameObject.GetComponent<ArmoryInventory> ();
+			theArmory.FocusOnItem (theArmory.TheInventoryUI.IndexOf (this.gameObject.GetComponent<Text> ()));
+		}
 	}
 
 	public void OnMouseLeave()

@@ -237,6 +237,7 @@ public class AllyClass : MonoBehaviour {
 	{
 		if (Hitpoints < 1)
 		{
+			Hitpoints = 0;
 			AIState = AI_Ally_State.Ally_Dead;
 			gameObject.transform.parent.gameObject.GetComponent<AllyGroup>().UnitDied();
 			gameObject.layer = LayerMask.NameToLayer ("Dead");

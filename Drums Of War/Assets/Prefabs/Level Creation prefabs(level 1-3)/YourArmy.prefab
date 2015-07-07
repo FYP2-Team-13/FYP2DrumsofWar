@@ -113,7 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   position: {x: -5.5, y: -3, z: 0}
   Allies: []
-  Unit: {fileID: 118140, guid: ca48d98e59423154a87816b4550672d9, type: 2}
+  Unit: {fileID: 178922, guid: e6ca50b0fb478034da6254c7b9fe02b6, type: 2}
   Quantity: 1
 --- !u!1001 &100100000
 Prefab:

@@ -17,7 +17,7 @@ public class TimeScript : MonoBehaviour {
 
 	bool Endbeat = true;
 
-	public KeyCode Hihats, Snare, Bass, Toms;
+	KeyCode Hihats, Snare, Bass, Toms;
 	// Use this for initialization
 	void Start () {
 		TheInputScript = TheInputHandler.GetComponent<InputHandler> ();
@@ -26,6 +26,11 @@ public class TimeScript : MonoBehaviour {
 		TomVFX = GameObject.FindGameObjectWithTag ("TomVFX");
 		HihatVFX = GameObject.FindGameObjectWithTag ("HiHatVFX");
 		BassVFX = GameObject.FindGameObjectWithTag ("BassVFX");
+
+		Hihats = KeyCode.W;
+		Snare = KeyCode.A;
+		Toms = KeyCode.D;
+		Bass = KeyCode.S;
 	}
 
 	bool BeatCheck ()
@@ -37,16 +42,20 @@ public class TimeScript : MonoBehaviour {
 		if (Endbeat) {
 			if (time <= 0.245f) { //if the key hits before the "beat" ended
 				//insert Beat Script sending
+				print ("hit");
 				return true;
 			} else {
 				//TheBeat.SetBeatType(BeatScript.BeatType.Beat_Fail );
+				print ("miss");
 				return false;
 			}
 		} else {
 			if (time >= 0.05f) { // if the key hits after the "beat" starts
 				//insert Beat Script sending
+				print ("hit");
 				return true;
 			} else {
+				print ("miss");
 				return false;
 			}
 		}
@@ -58,7 +67,7 @@ public class TimeScript : MonoBehaviour {
 		TempSFX.gameObject.transform.parent = gameObject.transform;
 		TempSFX.GetComponent<DrumAudio>().Set(TheBeat);
 		Destroy (TempSFX, 1.0f);
-		GUI.Label (new Rect (Screen.width / 2 - 15, Screen.height / 2 - 15, 30, 30), "Hit");
+		//GUI.Label (new Rect (Screen.width / 2 - 15, Screen.height / 2 - 15, 30, 30), "Hit");
 	}
 
 	//void CreateVFX (int beat)
@@ -80,7 +89,7 @@ public class TimeScript : MonoBehaviour {
 	void Update () {
 		time += Time.deltaTime;//Time Update
 		
-		GUI.Label(new Rect (0, 100, 100, 100), time.ToString());
+		//GUI.Label(new Rect (0, 100, 100, 100), time.ToString());
 
 		if (time >= 0.25f) { // Check if the beat has ended
 			//print (time);
