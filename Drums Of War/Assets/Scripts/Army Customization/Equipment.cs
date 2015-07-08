@@ -29,10 +29,19 @@ public class Equipment : MonoBehaviour {
 	public void InventorySearchOfType (int searchvalue)
 	{
 		ItemList = TheInventory.GetItemsofType (searchvalue);
+		EquipmentListBehaviour EquipmentList= GameObject.FindGameObjectWithTag ("Enemy").GetComponent<EquipmentListBehaviour> ();
+		EquipmentList.OpenEquipmentList (TheArmysStats.Helmet, ItemList);
 	}
 
 	public void InventorySearchWithoutType (int searchvalue)
 	{
 		ItemList = TheInventory.GetItemsNotofType (searchvalue);
+		EquipmentListBehaviour EquipmentList= GameObject.FindGameObjectWithTag ("Enemy").GetComponent<EquipmentListBehaviour> ();
+		EquipmentList.OpenEquipmentList (TheArmysStats.Helmet, ItemList);
+	}
+
+	public void OpenEquipmentList ()
+	{
+		EquipmentListBehaviour EquipmentList= GameObject.FindGameObjectWithTag ("Enemy").GetComponent<EquipmentListBehaviour> ();
 	}
 }
