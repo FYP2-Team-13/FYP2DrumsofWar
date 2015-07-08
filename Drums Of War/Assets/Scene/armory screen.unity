@@ -1017,12 +1017,6 @@ RectTransform:
   m_PrefabParentObject: {fileID: 22429622, guid: 3b49027ae2d18c04fa79784aff531aa1,
     type: 2}
   m_PrefabInternal: {fileID: 1803896790}
---- !u!114 &1680596188 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11493488, guid: 6220a7953c3b11443ba23015f68a966e,
-    type: 2}
-  m_PrefabInternal: {fileID: 1747235544}
-  m_Script: {fileID: 11500000, guid: a50ea0f6dbe83d349bd0f9688ac9fe0b, type: 3}
 --- !u!1001 &1735939269
 Prefab:
   m_ObjectHideFlags: 0
@@ -1246,6 +1240,7 @@ GameObject:
   - 222: {fileID: 1833537931}
   - 114: {fileID: 1833537930}
   - 114: {fileID: 1833537929}
+  - 114: {fileID: 1833537932}
   m_Layer: 5
   m_Name: New Item Button
   m_TagString: Untagged
@@ -1310,7 +1305,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1680596188}
+      - m_Target: {fileID: 1833537932}
         m_MethodName: CreateRandomItem
         m_Mode: 1
         m_Arguments:
@@ -1351,6 +1346,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1833537927}
+--- !u!114 &1833537932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1833537927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c65eb2f03621fd418e48f324ebde347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2000256826
 GameObject:
   m_ObjectHideFlags: 0

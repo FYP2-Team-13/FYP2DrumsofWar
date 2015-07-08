@@ -42,6 +42,23 @@ public class ArmyStats {
 
 	public void ApplyStats (AllyGroup TheGroup)
 	{
+		switch (Weapon.type) {
+		case 1:
+			Type = AllyClass.Unit_Type.Type_Melee;
+			break;
+		case 4:
+			Type = AllyClass.Unit_Type.Type_Melee;
+			break;
+		case 2:
+			Type = AllyClass.Unit_Type.Type_Range;
+			break;
+		case 3:
+			Type = AllyClass.Unit_Type.Type_Range;
+			break;
+		case 5:
+			Type = AllyClass.Unit_Type.Type_Range;
+			break;
+		}
 		TheGroup.InitStats (Type, BASE_ATTACK_DAMAGE + Helmet.attackDamage + Weapon.attackDamage, BASE_ATTACK_SPEED - Helmet.attackSpeed - Weapon.attackSpeed,
 		                    (Type == AllyClass.Unit_Type.Type_Melee ? BASE_ATTACK_RANGE_MELEE : BASE_ATTACK_RANGE_RANGE), BASE_EVASION + Helmet.Evasion + Weapon.Evasion,
 		                    BASE_HP);

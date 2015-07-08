@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f2a92ccf3a51444bb0b7af6c82696b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: 5
+  distance: 2
   Following: 1
 --- !u!124 &12489364
 Behaviour:

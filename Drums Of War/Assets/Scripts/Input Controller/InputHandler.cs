@@ -25,7 +25,7 @@ public class InputHandler : MonoBehaviour {
 		drumindex = 0;
 		Sequence = new SequenceClass();
 		foreach (AllyGroup Ally in Allies) {
-			Ally.ReceiveCommand ("Nothing", "Nothing");
+			Ally.ReceiveCommand ("Nothing", "Nothing", Vector3.up);
 		}
 		runningcommand = false;
 		//TimeDur = 0.0f;
@@ -95,10 +95,24 @@ public class InputHandler : MonoBehaviour {
 						GetComponent<AudioSource>().PlayOneShot(ResponseSFX);
 					}
 					
+					Vector3 FrontMostAlly = new Vector3();
+
+					GameObject[] nodes = GameObject.FindGameObjectsWithTag ("Ally");
+					float furthestdistance = 0;
+					if (nodes.Length > 0) {
+						foreach (GameObject TheAlly in nodes) {
+							if (TheAlly.transform.position.x > furthestdistance) {
+								furthestdistance = TheAlly.transform.position.x;
+								FrontMostAlly.Set (TheAlly.transform.position.x, TheAlly.transform.position.y, TheAlly.transform.position.z);
+							}
+						}
+					}
+
 					foreach (AllyGroup Ally in Allies)
 					{
-						Ally.ReceiveCommand(Sequence.GetMeleeBehaviour(), Sequence.GetRangeBehaviour() );
+						Ally.ReceiveCommand(Sequence.GetMeleeBehaviour(), Sequence.GetRangeBehaviour(), FrontMostAlly + Vector3.left * 3.5f * Allies.IndexOf (Ally));
 					}
+
 					runningcommand = true;
 					print (Sequence.ShowSequence() );
 				} else {

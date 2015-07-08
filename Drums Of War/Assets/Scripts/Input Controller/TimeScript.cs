@@ -40,7 +40,7 @@ public class TimeScript : MonoBehaviour {
 			return false;
 		}
 		if (Endbeat) {
-			if (time <= 0.245f) { //if the key hits before the "beat" ended
+			if (time <= 0.25f) { //if the key hits before the "beat" ended
 				//insert Beat Script sending
 				print ("hit");
 				return true;
@@ -50,7 +50,7 @@ public class TimeScript : MonoBehaviour {
 				return false;
 			}
 		} else {
-			if (time >= 0.05f) { // if the key hits after the "beat" starts
+			if (time >= 0.00f) { // if the key hits after the "beat" starts
 				//insert Beat Script sending
 				print ("hit");
 				return true;

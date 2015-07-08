@@ -9,7 +9,6 @@ public class Equipment : MonoBehaviour {
 	Inventory TheInventory;
 
 	List<Item> ItemList;
-	int PageIndex = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -29,19 +28,18 @@ public class Equipment : MonoBehaviour {
 	public void InventorySearchOfType (int searchvalue)
 	{
 		ItemList = TheInventory.GetItemsofType (searchvalue);
-		EquipmentListBehaviour EquipmentList= GameObject.FindGameObjectWithTag ("Enemy").GetComponent<EquipmentListBehaviour> ();
-		EquipmentList.OpenEquipmentList (TheArmysStats.Helmet, ItemList);
+		GameObject tempobject = GameObject.FindGameObjectWithTag ("TomVFX");
+		EquipmentListBehaviour EquipmentList= tempobject.GetComponent<EquipmentListBehaviour> ();
+//		EquipmentListBehaviour EquipmentList= GameObject.FindGameObjectWithTag ("Enemy").GetComponent<EquipmentListBehaviour> ();
+		EquipmentList.OpenEquipmentList (TheArmysStats.Helmet, ItemList, TheArmysStats);
+//		GameObject.FindGameObjectWithTag ("Enemy").GetComponent<EquipmentListBehaviour> ().OpenEquipmentList (TheArmysStats.Helmet, ItemList);
 	}
 
 	public void InventorySearchWithoutType (int searchvalue)
 	{
 		ItemList = TheInventory.GetItemsNotofType (searchvalue);
-		EquipmentListBehaviour EquipmentList= GameObject.FindGameObjectWithTag ("Enemy").GetComponent<EquipmentListBehaviour> ();
-		EquipmentList.OpenEquipmentList (TheArmysStats.Helmet, ItemList);
-	}
-
-	public void OpenEquipmentList ()
-	{
-		EquipmentListBehaviour EquipmentList= GameObject.FindGameObjectWithTag ("Enemy").GetComponent<EquipmentListBehaviour> ();
+		EquipmentListBehaviour EquipmentList= GameObject.FindGameObjectWithTag ("TomVFX").GetComponent<EquipmentListBehaviour> ();
+		EquipmentList.OpenEquipmentList (TheArmysStats.Weapon, ItemList, TheArmysStats);
+//		GameObject.FindGameObjectWithTag ("Enemy").GetComponent<EquipmentListBehaviour> ().OpenEquipmentList (TheArmysStats.Helmet, ItemList);
 	}
 }

@@ -17,6 +17,7 @@ public class ReachEndPoint : MonoBehaviour {
 	{
 		if (col.transform.tag == "Ally") {
 			transform.tag = "Finish";
+			gameObject.layer = LayerMask.NameToLayer ("Dead");
 			GameObject.FindGameObjectWithTag("InputHandler").GetComponent<InputHandler>().PlayEnding(true);
 		}
 	}

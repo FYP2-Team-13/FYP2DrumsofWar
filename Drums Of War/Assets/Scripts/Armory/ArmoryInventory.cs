@@ -50,7 +50,6 @@ public class ArmoryInventory : MonoBehaviour {
 				PageNumber--;
 			}
 		}
-
 	}
 
 	public void FocusOnItem (int index)

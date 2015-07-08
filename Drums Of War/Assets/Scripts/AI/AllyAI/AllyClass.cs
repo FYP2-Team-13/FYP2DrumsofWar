@@ -162,6 +162,7 @@ public class AllyClass : MonoBehaviour {
 		//else
 		//	temp = Range;
 		if (AIState != AI_Ally_State.Ally_Dead) {
+			UpdateTargets();
 			switch ((Type == Unit_Type.Type_Melee ? Melee : Range)) {
 			case "Advance":
 				{
@@ -317,10 +318,7 @@ public class AllyClass : MonoBehaviour {
 	{
 		//print (Target.transform.position);
 		//print (transform.position);]\
-		if (Target.GetComponent<AI> ().iswall && Type == Unit_Type.Type_Melee) {
-			if ((Target.transform.position.x - transform.position.x) < AttackRange*2)
-				return true;
-		} else if ((Target.transform.position.x - transform.position.x) < AttackRange)
+		if ((Target.transform.position.x - transform.position.x) < AttackRange + (Target.GetComponent<BoxCollider2D>().size.x/2 ))
 			//print ("attack!");
 			return true;
 		return false;
