@@ -82,13 +82,13 @@ public class AI : MonoBehaviour {
 
 	void OnCollisionEnter2D (Collision2D col)
 	{
-		if (col.gameObject.tag == "Enemy" || col.gameObject.tag == "Finish")
-			Physics2D.IgnoreCollision (GetComponent<Collider2D>(), col.collider);
+		if (col.gameObject.tag == gameObject.tag || col.gameObject.tag == "Finish") {
+			Physics2D.IgnoreCollision (GetComponent<Collider2D> (), col.collider);
+			return;
+		}
 	}
 
 	void Search () {
-
-
 		GameObject[] nodes = GameObject.FindGameObjectsWithTag("Ally");
 
 		Target = null;// Reset Targets
@@ -113,12 +113,12 @@ public class AI : MonoBehaviour {
 
 			if (EnemyDistance < attackRange)
 				state = AI_ENEMY_State.Enemy_Attack;
-			else if (EnemyDistance < attackRange + 10f)
+			else if (  EnemyDistance < attackRange + 10f
+					&& state != AI_ENEMY_State.Enemy_Attack)
 				state = AI_ENEMY_State.Enemy_Forward;
 			else if (Target == null)
 				state = AI_ENEMY_State.Enemy_Idle;
 		}
-
 	}
 
 
@@ -168,6 +168,8 @@ public class AI : MonoBehaviour {
 			var script = Target.GetComponent<AllyClass> ();
 			script.TakeDamage (attackDamage);
 		}
+
+		Search ();
 	}
 
 	public void TakeDamage (float damage)
