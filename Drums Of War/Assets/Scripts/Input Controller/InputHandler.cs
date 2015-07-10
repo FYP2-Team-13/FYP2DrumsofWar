@@ -53,6 +53,12 @@ public class InputHandler : MonoBehaviour {
 				ArmyStats ThisArmy = theArmy.TheArmy[index];
 				Ally.Init (ThisArmy.Quantity);
 				ThisArmy.ApplyStats (Ally);
+
+				foreach (AllyClass Unit in Ally.Allies)
+				{
+					Unit.transform.FindChild("Body_BackHand/Body_Weapon").gameObject.GetComponent<SpriteRenderer>().sprite = ThisArmy.Weapon.SpriteItem;
+					Unit.transform.FindChild("Body_Origin/Mask").gameObject.GetComponent<SpriteRenderer>().sprite = ThisArmy.Helmet.SpriteItem;
+				}
 			}
 			else
 			{

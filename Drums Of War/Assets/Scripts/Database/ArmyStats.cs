@@ -20,6 +20,7 @@ public class ArmyStats {
 	{
 		Helmet = new Item ();
 		Weapon = new Item ();
+		Quantity = 1;
 	}
 
 	public void ChangeHelmet (Item Helmet)

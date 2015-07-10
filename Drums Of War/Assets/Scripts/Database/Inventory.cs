@@ -9,6 +9,7 @@ public class Inventory : MonoBehaviour {
 	public List<Item> TheInventory = new List<Item>();
 	ItemDatabase theItemDatabase;
 	int Currency;
+	int nextlevel;
 
 	// Use this for initialization
 	void Start () {
@@ -18,6 +19,8 @@ public class Inventory : MonoBehaviour {
 			print ("Load Successful");
 		} else {
 			print ("Load Failed");
+			nextlevel = 1;
+			Currency = 0;
 		}
 	}
 
@@ -83,6 +86,7 @@ public class Inventory : MonoBehaviour {
 			file.Close();
 
 			Currency = InventoryData.Currency;
+			nextlevel = InventoryData.nextlevel;
 
 			foreach (int id in InventoryData.ItemIDs)
 			{
@@ -103,6 +107,7 @@ public class Inventory : MonoBehaviour {
 			InventoryID.ItemIDs.Add (item.getIdNum() );
 		}
 		InventoryID.Currency = Currency;
+		InventoryID.nextlevel = nextlevel;
 		
 		BinaryFormatter bf = new BinaryFormatter ();
 		if (!File.Exists (Application.persistentDataPath + "/Inventory.data")) {
@@ -128,11 +133,21 @@ public class Inventory : MonoBehaviour {
 		Item RandomedItem = theItemDatabase.GetAllItems () [id];
 		TheInventory.Add (RandomedItem);
 	}
+
+	public int GetNextLevel ()
+	{
+		return nextlevel;
+	}
+
+	public void SetNextLevel (int level)
+	{
+		nextlevel = level;
+	}
 }
 
 [System.Serializable]
 public class InventoryIDS
 {
 	public List<int> ItemIDs = new List<int>();
-	public int Currency;
+	public int Currency, nextlevel;
 }

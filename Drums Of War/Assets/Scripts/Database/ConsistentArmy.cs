@@ -17,8 +17,17 @@ public class ConsistentArmy : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		for (int i = 0; i < 6; i ++) {
-			SpriteDatabase.Add (Resources.Load<Sprite> ("BodyImages/BodyType" + i));
+//		DirectoryInfo BodyImagePath = new DirectoryInfo ("Resources/BodyImages");
+//		print (BodyImagePath);
+
+		Sprite[] BodyImages = Resources.LoadAll<Sprite> ("BodyImages");
+//
+//		for (int i = 0; i < 6; i ++) {
+//			SpriteDatabase.Add (Resources.Load<Sprite> ("BodyImages/BodyType" + i));
+//		}
+
+		foreach (Sprite Image in BodyImages) {
+			SpriteDatabase.Add (Image);
 		}
 
 		if (Load ()) {
@@ -77,7 +86,17 @@ public class ConsistentArmy : MonoBehaviour {
 //			theArmyData.SpriteIndex = 0;
 //		}
 		theArmyData.SpriteIndex = SpriteIndex;
-		theArmyData.TheArmy = TheArmy;
+//		theArmyData.TheArmy = TheArmy;
+		
+		theArmyData.TheArmy = new ArmyStatsNoImage[3];
+
+		for (int i = 0; i < 3; i++) {
+			theArmyData.TheArmy[i] = new ArmyStatsNoImage();
+			theArmyData.TheArmy[i].HelmetID = TheArmy[i].Helmet.getIdNum();
+			theArmyData.TheArmy[i].WeaponID = TheArmy[i].Weapon.getIdNum();
+			theArmyData.TheArmy[i].Quantity = TheArmy[i].Quantity;
+			theArmyData.TheArmy[i].Type = TheArmy[i].Type;
+		}
 
 		BinaryFormatter bf = new BinaryFormatter ();
 		if (!File.Exists (Application.persistentDataPath + "/ArmyData.data")) {
@@ -107,7 +126,11 @@ public class ConsistentArmy : MonoBehaviour {
 
 			for (int i= 0; i < data.TheArmy.Length; i++)
 			{
-				TheArmy[i] = data.TheArmy[i];
+				TheArmy[i].Quantity = data.TheArmy[i].Quantity;
+				TheArmy[i].Type = data.TheArmy[i].Type;
+				//				TheArmy[i] = data.TheArmy[i];
+				TheArmy[i].Weapon = GameObject.FindGameObjectWithTag("Database").GetComponent<ItemDatabase>().GetItem(data.TheArmy[i].WeaponID);
+				TheArmy[i].Helmet = GameObject.FindGameObjectWithTag("Database").GetComponent<ItemDatabase>().GetItem(data.TheArmy[i].HelmetID);
 			}
 
 			return true;
@@ -128,5 +151,5 @@ public class ArmyData
 {
 	public float r, g, b;
 	public int SpriteIndex;
-	public ArmyStats[] TheArmy;
+	public ArmyStatsNoImage[] TheArmy;
 }

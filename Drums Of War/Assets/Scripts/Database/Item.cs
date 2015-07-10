@@ -26,7 +26,7 @@ public class Item {
 	public int Evasion;
 
 	public int beingUsed;
-
+	public Sprite SpriteItem;
 	
 	public int unlockedLevel;
 
@@ -61,7 +61,7 @@ public class Item {
 		this.attackSpeed = 1;
 		this.HealthPoint = 1;
 		this.Evasion = 1;
-		
+
 		this.beingUsed = 0;
 	}
 

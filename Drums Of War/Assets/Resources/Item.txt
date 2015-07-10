@@ -1,0 +1,27 @@
+00,Club,1,10,0,0,0,0,1,club
+01,Hammer,1,15,0,0,0,0,4,hammer
+02,Axe,1,20,0,0,0,0,8,axe
+03,Sword,1,25,0,0,0,0,12,sword
+04,Sabre,1,30,0,0,0,0,16,fire sword
+11,Wooden Mask,6,0,0,50,0,0,1,Wooden Mask.psd
+12,Stone Mask,6,0,0,100,0,0,3,Wooden Mask.psd
+13,Copper Mask,6,0,0,150,0,0,6,Wooden Mask.psd
+14,Bronze Mask,6,0,0,200,0,0,9,Wooden Mask.psd
+15,Iron Mask,6,0,0,250,0,0,12,Wooden Mask.psd
+16,Steel Mask,6,0,0,300,0,0,15,Wooden Mask.psd
+21,Shaft,2,12,0,0,0,0,3,shaft
+22,Spear,2,16,0,0,0,0,6,spear
+23,Javelin,2,20,0,0,0,0,9,javellin
+24,Pilum,2,24,0,0,0,0,12,lightning spear
+25,Lightning Spear,2,28,0,0,0,0,15,lightning spear
+31,Short Bow,3,7,0.25,0,0,0,6,short bow
+32,Composite Bow,3,9,0.25,0,0,0,9,composite bow
+33,Compound Bow,3,11,0.5,0,0,0,11,composite bow
+34,Recurve Bow,3,13,0.5,0,0,0,13,wind bow
+35,Wind Bow,3,16,0.75,0,0,0,15,wind bow
+41,Claw,4,17,0.25,0,0,0,9,claw
+42,Dagger,4,20,0.25,0,0,0,12,Dagger
+43,Poison Dagger,4,22,0.5,0,0,0,15,poison dagger
+51,SpellBook,5,35,0,0,0,0,12,book
+52,Staff,5,45,0,0,0,0,14,staff
+53,Wand,5,55,0,0,0,0,16,wand

@@ -38,6 +38,8 @@ public class ItemDatabase : MonoBehaviour{
 			//print (values[8]);
 			temp.unlockedLevel = int.Parse(values[8]);
 
+			temp.SpriteItem = Resources.Load<Sprite> ("ItemSprites/OneHand/" + values[9]);
+
 			ItemList.Add(temp);
 		}
 	}
