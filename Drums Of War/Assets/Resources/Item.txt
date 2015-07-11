@@ -3,12 +3,12 @@
 02,Axe,1,20,0,0,0,0,8,axe
 03,Sword,1,25,0,0,0,0,12,sword
 04,Sabre,1,30,0,0,0,0,16,fire sword
-11,Wooden Mask,6,0,0,50,0,0,1,Wooden Mask.psd
-12,Stone Mask,6,0,0,100,0,0,3,Wooden Mask.psd
-13,Copper Mask,6,0,0,150,0,0,6,Wooden Mask.psd
-14,Bronze Mask,6,0,0,200,0,0,9,Wooden Mask.psd
-15,Iron Mask,6,0,0,250,0,0,12,Wooden Mask.psd
-16,Steel Mask,6,0,0,300,0,0,15,Wooden Mask.psd
+11,Wooden Mask,6,0,0,50,0,0,1,Wooden Mask
+12,Stone Mask,6,0,0,100,0,0,3,Wooden Mask
+13,Copper Mask,6,0,0,150,0,0,6,Wooden Mask
+14,Bronze Mask,6,0,0,200,0,0,9,Wooden Mask
+15,Iron Mask,6,0,0,250,0,0,12,Wooden Mask
+16,Steel Mask,6,0,0,300,0,0,15,Wooden Mask
 21,Shaft,2,12,0,0,0,0,3,shaft
 22,Spear,2,16,0,0,0,0,6,spear
 23,Javelin,2,20,0,0,0,0,9,javellin
