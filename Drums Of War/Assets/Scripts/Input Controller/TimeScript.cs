@@ -42,20 +42,20 @@ public class TimeScript : MonoBehaviour {
 		if (Endbeat) {
 			if (time <= 0.25f) { //if the key hits before the "beat" ended
 				//insert Beat Script sending
-				print ("hit");
+				//print ("hit");
 				return true;
 			} else {
 				//TheBeat.SetBeatType(BeatScript.BeatType.Beat_Fail );
-				print ("miss");
+				//print ("miss");
 				return false;
 			}
 		} else {
 			if (time >= 0.00f) { // if the key hits after the "beat" starts
 				//insert Beat Script sending
-				print ("hit");
+//				print ("hit");
 				return true;
 			} else {
-				print ("miss");
+//				print ("miss");
 				return false;
 			}
 		}

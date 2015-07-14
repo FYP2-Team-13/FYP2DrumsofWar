@@ -61,3 +61,6 @@ TagManager:
   - name: FrontLimb
     uniqueID: 2778479939
     locked: 0
+  - name: Item
+    uniqueID: 1483083951
+    locked: 0

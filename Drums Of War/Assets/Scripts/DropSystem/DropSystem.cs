@@ -9,6 +9,7 @@ public class DropSystem : MonoBehaviour {
 	List<AI> Enemies = new List<AI>();
 	public GameObject ItemGameObject;
 	public int MoneyDropRate = 60, ItemDropRate = 30;
+	public Sprite MoneySprite;
 
 	// Use this for initialization
 	void Start () {
@@ -26,7 +27,9 @@ public class DropSystem : MonoBehaviour {
 		foreach (AI Enemy in Enemies) {
 			if (Enemy.state == AI.AI_ENEMY_State.Enemy_Dead)
 			{
-
+				DropItem(Enemy.gameObject.transform);
+				Enemies.Remove(Enemy);
+				return;
 			}
 		}
 	}
@@ -34,6 +37,7 @@ public class DropSystem : MonoBehaviour {
 	public void DropItem(Transform position)
 	{
 		GameObject tempItem = (GameObject)Instantiate(ItemGameObject, position.position, position.rotation);
+		ItemScript ItemDetail = tempItem.GetComponent<ItemScript> ();
 
 		int roll = Random.Range (0, 100);
 		if (roll < ItemDropRate)
@@ -41,12 +45,17 @@ public class DropSystem : MonoBehaviour {
 			int id = Random.Range (0, DropList.Count);
 			id = DropList[id].getIdNum();
 
-			tempItem.GetComponent<ItemScript>().isItem = true;
-			tempItem.GetComponent<ItemScript>().Setvalue(id);
+			ItemDetail.isItem = true;
+			ItemDetail.Setvalue(id);
+
+			tempItem.GetComponent<SpriteRenderer>().sprite = DropList[id].SpriteItem;
+
 		} else if (roll < ItemDropRate + MoneyDropRate) {
 			//GameObject TempMoney = (GameObject)Instantiate(MoneyGameObject, Enemy.gameObject.transform.position, Enemy.gameObject.transform.rotation);
-			tempItem.GetComponent<ItemScript>().isItem = false;
-			tempItem.GetComponent<ItemScript>().Setvalue (Random.Range (Level, Level * 5) );
+			ItemDetail.isItem = false;
+			ItemDetail.Setvalue (Random.Range (Level, Level * 5) );
+			tempItem.GetComponent<SpriteRenderer>().sprite = MoneySprite;
+
 		}
 	}
 

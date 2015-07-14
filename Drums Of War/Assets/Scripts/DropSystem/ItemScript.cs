@@ -19,6 +19,7 @@ public class ItemScript : MonoBehaviour {
 	void OnCollisionEnter2D( Collision2D col )
 	{
 		if (col.gameObject.tag == "Ally") {
+			print ("Collected");
 			if (isItem)
 				GameObject.FindGameObjectWithTag("Database").GetComponent<Inventory>().NewItem(value);
 			else

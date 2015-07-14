@@ -40,6 +40,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 412474}
+  - 114: {fileID: 11474494}
   m_Layer: 0
   m_Name: PositionToSpawn
   m_TagString: Untagged
@@ -185,6 +186,22 @@ MonoBehaviour:
   AmountOfRange: 1
   AmountOfMelee: 1
   theSpawner: {fileID: 11469184, guid: db3304964513165438e10be2cf01c93d, type: 2}
+--- !u!114 &11474494
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 143900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c391e77bc550a940b5f823044c15283, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Level: 0
+  ItemGameObject: {fileID: 191074, guid: f9964d4b66ee2274392d7a9abe326c51, type: 2}
+  MoneyDropRate: 60
+  ItemDropRate: 30
+  MoneySprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!114 &11491102
 MonoBehaviour:
   m_ObjectHideFlags: 1
