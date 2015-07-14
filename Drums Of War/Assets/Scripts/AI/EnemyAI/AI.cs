@@ -42,26 +42,6 @@ public class AI : MonoBehaviour {
 		prevTime = Time.time;
 	}
 
-	public void Set (float ADamage, float ASpeed, float ARange, float MSpeed, float HP, int forceState)
-	{
-		this.attackDamage = ADamage;
-		this.attackSpeed = ASpeed * 1000;
-		this.attackRange = ARange;
-		this.moveSpeed = MSpeed;
-		this.health = HP;
-
-		//for testing
-		this.SetState(forceState);
-	}
-
-	public void SetState (int set) { //just incase I need to force state change
-		if (set == 0)
-			state = AI_ENEMY_State.Enemy_Idle;
-		if (set == 1)
-			state = AI_ENEMY_State.Enemy_Forward;
-		if (set == 2)
-			state = AI_ENEMY_State.Enemy_Attack;
-	}
 
 	// Update is called once per frame
 	void Update () {
@@ -153,7 +133,7 @@ public class AI : MonoBehaviour {
 	void Attacking () {
 
 		//if can't attack now
-		if (diff < attackSpeed)
+		if (diff < attackSpeed * 1000)
 			return;
 
 		prevTime = now;

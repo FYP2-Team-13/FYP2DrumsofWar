@@ -209,7 +209,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 176000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.19316673, y: -2.48299122, z: -1}
+  m_LocalPosition: {x: 4.19316673, y: -2.48299122, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 449286}
@@ -339,8 +339,8 @@ MonoBehaviour:
   health: 40
   moveSpeed: 1
   attackDamage: 4
-  attackSpeed: 0
-  attackRange: 0
+  attackSpeed: 1
+  attackRange: 5
   Target: {fileID: 0}
   DamageText: {fileID: 117630, guid: ccdda4777c3876e46b8b8e8b7904cb2b, type: 2}
 --- !u!114 &11416532
