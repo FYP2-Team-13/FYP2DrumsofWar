@@ -118,7 +118,7 @@ public class levelselectorscript : MonoBehaviour {
 		else if (menuCounter == 7) {
 			Application.LoadLevel("Level7");
 		}
-		else if (menuCounter == 1) {
+		else if (menuCounter == 8) {
 			Application.LoadLevel("Level8");
 		}
 		else if (menuCounter == 9) {
