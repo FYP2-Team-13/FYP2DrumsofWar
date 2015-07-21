@@ -53,13 +53,17 @@ public class AllyClass : MonoBehaviour {
 	//game object for damage indicator
 	public GameObject DamageText;
 
+	public void SetWeaponAnim (int i)
+	{
+		TheAnimator = GetComponent<Animator> ();
+		TheAnimator.SetInteger ("WeaponType", i);
+	}
+
 	// Use this for initialization
 	void Start () {
 		PrevTime = Time.time;
 		LastAttack = 0.0f;
 		TheAnimator = GetComponent<Animator> ();
-		if (Type == Unit_Type.Type_Range)
-			TheAnimator.SetInteger ("WeaponType", 1);
 
 		ConsistentArmy ArmyCustomization = GameObject.FindGameObjectWithTag ("Database").GetComponent<ConsistentArmy> ();
 		if (ArmyCustomization != null) {

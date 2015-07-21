@@ -31,10 +31,10 @@ public class ArmyStats {
 	public void ChangeWeapon (Item Weapon)
 	{
 		this.Weapon = Weapon;
-		if (Weapon.itemType == Item.IType.Sword
-		    || Weapon.itemType == Item.IType.Dagger) {
+		if (Weapon.getIdNum() == 1
+		    || Weapon.getIdNum() == 4) {
 			Type = AllyClass.Unit_Type.Type_Melee;
-		} else if (Weapon.itemType == Item.IType.Magic) {
+		} else if (Weapon.getIdNum() == 5) {
 			Type = AllyClass.Unit_Type.Type_Mage;
 		} else {
 			Type = AllyClass.Unit_Type.Type_Range;
@@ -57,7 +57,7 @@ public class ArmyStats {
 			Type = AllyClass.Unit_Type.Type_Range;
 			break;
 		case 5:
-			Type = AllyClass.Unit_Type.Type_Range;
+			Type = AllyClass.Unit_Type.Type_Mage;
 			break;
 		}
 		TheGroup.InitStats (Type, BASE_ATTACK_DAMAGE + Helmet.attackDamage + Weapon.attackDamage, BASE_ATTACK_SPEED - Helmet.attackSpeed - Weapon.attackSpeed,

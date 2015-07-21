@@ -52,14 +52,11 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: BackLimb
+  - name: EnemyLayer
     uniqueID: 2162860809
     locked: 0
-  - name: Body
+  - name: AllyLayer
     uniqueID: 1697571311
-    locked: 0
-  - name: FrontLimb
-    uniqueID: 2778479939
     locked: 0
   - name: Item
     uniqueID: 1483083951

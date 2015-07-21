@@ -59,6 +59,7 @@ public class InputHandler : MonoBehaviour {
 					Unit.transform.FindChild("Body_BackHand/Body_Weapon").gameObject.GetComponent<SpriteRenderer>().sprite = ThisArmy.Weapon.SpriteItem;
 					Unit.transform.FindChild("Body_Origin/Mask").gameObject.GetComponent<SpriteRenderer>().sprite = ThisArmy.Helmet.SpriteItem;
 				}
+				Ally.SetAnimation (ThisArmy.Weapon.type);
 			}
 			else
 			{

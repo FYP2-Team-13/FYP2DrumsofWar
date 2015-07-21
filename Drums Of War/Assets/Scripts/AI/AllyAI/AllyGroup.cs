@@ -40,6 +40,13 @@ public class AllyGroup : MonoBehaviour {
 		}
 	}
 
+	public void SetAnimation (int i)
+	{
+		foreach (AllyClass Ally in Allies) {
+			Ally.GetComponent<AllyClass>().SetWeaponAnim(i);
+		}
+	}
+
 	public int GetQuantity ()
 	{
 		return Quantity;
@@ -56,13 +63,15 @@ public class AllyGroup : MonoBehaviour {
 		if (
 			(GroupType == AllyClass.Unit_Type.Type_Melee && Melee == "Advance")
 		    || (GroupType == AllyClass.Unit_Type.Type_Range && Range == "Advance") 
-		    ) 
+			|| (GroupType == AllyClass.Unit_Type.Type_Mage && Range == "Advance") 
+			) 
 		{
 			Theposition = newposition + Vector3.right * 2.0f;
 		}
 		if (
 			(GroupType == AllyClass.Unit_Type.Type_Melee && Melee == "Retreat")
 			|| (GroupType == AllyClass.Unit_Type.Type_Range && Range == "Retreat") 
+			|| (GroupType == AllyClass.Unit_Type.Type_Mage && Range == "Retreat") 
 			) 
 		{
 			Theposition = newposition + Vector3.left * 4.0f;
