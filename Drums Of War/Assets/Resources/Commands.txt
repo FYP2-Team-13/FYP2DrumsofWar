@@ -1,10 +1,4 @@
-Advance,Advance,Snare,Snare,Snare,Tom
-Attack,Advance,Snare,Tom,Bass,Tom
-Attack,Attack,Tom,Tom,Snare,Tom
-Attack,Retreat,Snare,Tom,Bass,Snare
-Attack,Defend,Snare,Tom,Bass,HiHat
-Retreat,Attack,Snare,Snare,Bass,Tom
-Retreat,Retreat,Bass,Bass,Snare,Tom
-Retreat,Defend,Snare,Snare,Bass,HiHat
-Defend,Attack,Snare,HiHat,Bass,Tom
-Defend,Defend,HiHat,HiHat,Snare,Tom
+Advance,Advance,Snare,Snare,Snare,Tom,AllAdvance
+Attack,Attack,Tom,Tom,Snare,Tom,AllAttack
+Retreat,Retreat,Bass,Bass,Snare,Tom,AllRetreat
+Attack,Defend,HiHat,HiHat,Snare,Tom,CoveringFire

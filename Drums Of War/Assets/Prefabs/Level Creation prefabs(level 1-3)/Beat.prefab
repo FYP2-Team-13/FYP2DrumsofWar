@@ -297,17 +297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Database: {fileID: 4900000, guid: d33b6f08f56f4ee4185c2538f32438ad, type: 3}
-  ResponseList:
-  - {fileID: 8300000, guid: 3cbab1cec736fc547a3cbee5ba69160b, type: 3}
-  - {fileID: 8300000, guid: 2a885672b75ae774186e96bfc792cbdc, type: 3}
-  - {fileID: 8300000, guid: 82f61e44f49b1f345b9b02cbddc5b654, type: 3}
-  - {fileID: 8300000, guid: b1987ef6e4c5299449afe557d5994ec9, type: 3}
-  - {fileID: 8300000, guid: 3079e92a148bb0e4292c5b1abb27af28, type: 3}
-  - {fileID: 8300000, guid: 2325186aad4f94045a71846854ccae6c, type: 3}
-  - {fileID: 8300000, guid: f35ab935d9ef796408d9aa99c9ea30f6, type: 3}
-  - {fileID: 8300000, guid: 44517c15271706c4080c66d0bd9a394a, type: 3}
-  - {fileID: 8300000, guid: 653db5b4ac87c1b4f9e6742c9c03b272, type: 3}
-  - {fileID: 8300000, guid: 46e2f7c451541c44aa4eab2b6cc909a5, type: 3}
+  ResponseList: []
 --- !u!114 &11491572
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -322,10 +312,6 @@ MonoBehaviour:
   Beat: {fileID: 119032}
   TheInputHandler: {fileID: 133418}
   DrumSFX: {fileID: 105002, guid: ede6b29074c782f498e2038578a4e0d2, type: 2}
-  Hihats: 119
-  Snare: 97
-  Bass: 115
-  Toms: 100
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

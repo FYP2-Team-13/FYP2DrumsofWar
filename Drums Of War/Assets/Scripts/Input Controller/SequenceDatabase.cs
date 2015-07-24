@@ -47,7 +47,7 @@ public class SequenceDatabase : MonoBehaviour {
 				}
 				Temp.SetBeat (TempBeat, i - 2);
 			}
-			
+			ResponseList.Add (Resources.Load<AudioClip> ("ArmyResponses/" + values[6] ) );
 			//Load the Temp Sequence into to List
 			//print (Temp.ShowSequence() );
 			SequenceList.Add(Temp);
