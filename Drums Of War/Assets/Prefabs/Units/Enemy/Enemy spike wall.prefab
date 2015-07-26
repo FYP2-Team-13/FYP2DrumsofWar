@@ -26,7 +26,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 107864}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -57.8800011, y: -.560000002, z: 0}
+  m_LocalPosition: {x: 50.0527115, y: -.326748013, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -41,9 +41,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: -.0403595008, y: .0538341999}
+  m_Offset: {x: -.0403594971, y: -.0897154808}
   serializedVersion: 2
-  m_Size: {x: 6.19503784, y: 6.65260601}
+  m_Size: {x: 6.19503784, y: 6.9397049}
 --- !u!114 &11446180
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -68,11 +68,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   iswall: 1
-  health: 100
+  health: 150
   moveSpeed: 1
   attackDamage: 10
-  attackSpeed: 0
-  attackRange: 0
+  attackSpeed: 2
+  attackRange: 2
   Target: {fileID: 0}
   DamageText: {fileID: 117630, guid: ccdda4777c3876e46b8b8e8b7904cb2b, type: 2}
 --- !u!212 &21274066

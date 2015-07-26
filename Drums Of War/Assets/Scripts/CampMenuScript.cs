@@ -86,10 +86,10 @@ public class CampMenuScript : MonoBehaviour {
 
 	public void Enter()
 	{
-		if (menuCounter == 0) {
-			Application.LoadLevel("Camp Screen");
-		}
-		else if (menuCounter == 1) {
+		//if (menuCounter == 0) {
+		//	Application.LoadLevel("Camp Screen");
+		//}
+		if (menuCounter == 1) {
 			Application.LoadLevel("armory screen");
 		}
 		else if (menuCounter == 2) {

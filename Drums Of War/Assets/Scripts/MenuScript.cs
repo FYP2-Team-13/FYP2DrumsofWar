@@ -30,7 +30,7 @@ public class MenuScript : MonoBehaviour {
 			if (QuitMenubool == false) {
 				if (menuCounter != 1) {
 					menuCounter--;
-					menuArrow.transform.Translate (0, 40, 0);
+					menuArrow.transform.Translate (0, 72, 0);
 				}
 			}
 			else
@@ -38,7 +38,7 @@ public class MenuScript : MonoBehaviour {
 				if(exitCounter != 1)
 				{
 					exitCounter--;
-					quitArrow.transform.Translate (0,48,0);
+					quitArrow.transform.Translate (0,54,0);
 				}
 			}
 		} 
@@ -47,7 +47,7 @@ public class MenuScript : MonoBehaviour {
 			{
 				if (menuCounter != 2) {
 					menuCounter++;
-					menuArrow.transform.Translate (0, -40, 0);
+					menuArrow.transform.Translate (0, -72, 0);
 				}
 			}
 			else
@@ -55,7 +55,7 @@ public class MenuScript : MonoBehaviour {
 				if(exitCounter != 2)
 				{
 					exitCounter++;
-					quitArrow.transform.Translate (0,-48,0);
+					quitArrow.transform.Translate (0,-54,0);
 				}
 			}
 		}
