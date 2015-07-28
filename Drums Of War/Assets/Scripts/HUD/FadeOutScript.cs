@@ -22,7 +22,7 @@ public class FadeOutScript : MonoBehaviour {
 		//print (TheRect.position.y);
 		startTime = Time.time;
 		if (VerticalChange) {
-			TheRect.position = new Vector3 (TheRect.position.x, Random.Range (30 + 60, 329 - 60), TheRect.position.z);
+			TheRect.position = new Vector3 (TheRect.position.x, Random.Range (30 + 120, 329 - 60), TheRect.position.z);
 		} else {
 			TheRect.position = new Vector3 (Random.Range (75 + 130, 563 - 130), TheRect.position.y, TheRect.position.z);
 		}

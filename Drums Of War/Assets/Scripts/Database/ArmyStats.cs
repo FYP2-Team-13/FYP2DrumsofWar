@@ -5,7 +5,7 @@ using System.Collections;
 public class ArmyStats {
 
 	static float BASE_ATTACK_DAMAGE = 1
-			, BASE_ATTACK_SPEED = 0.75f
+			, BASE_ATTACK_SPEED = 1.5f
 			, BASE_ATTACK_RANGE_MELEE = 2
 			, BASE_ATTACK_RANGE_RANGE = 10
 			, BASE_EVASION = 1

@@ -117,7 +117,7 @@ public class InputHandler : MonoBehaviour {
 
 					foreach (AllyGroup Ally in Allies)
 					{
-						Ally.ReceiveCommand(Sequence.GetMeleeBehaviour(), Sequence.GetRangeBehaviour(), FrontMostAlly + Vector3.left * 3.5f * Allies.IndexOf (Ally));
+						Ally.ReceiveCommand(Sequence.GetMeleeBehaviour(), Sequence.GetRangeBehaviour(), FrontMostAlly + Vector3.right * 3.5f * Allies.IndexOf (Ally));
 					}
 
 					runningcommand = true;
@@ -179,6 +179,17 @@ public class InputHandler : MonoBehaviour {
 		{
 			TheSprite.sprite = WinImage;
 			TheSource.clip = WinSFX;
+
+			foreach (AllyGroup Ally in Allies)
+			{
+				if (Allies.IndexOf(Ally) < theArmy.TheArmy.Length)
+				{
+					int index = Allies.IndexOf (Ally);
+					ArmyStats ThisArmy = theArmy.TheArmy[index];
+
+					ThisArmy.Quantity = Ally.Quantity;
+				}
+			}
 		}
 		else
 		{
