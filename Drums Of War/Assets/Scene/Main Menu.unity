@@ -622,10 +622,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2035674544}
   m_RootOrder: 4
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -130, y: 12.6000004}
-  m_SizeDelta: {x: 62.5999985, y: 61.2999992}
+  m_AnchorMin: {x: .280643165, y: .45161292}
+  m_AnchorMax: {x: .365713686, y: .632580638}
+  m_AnchoredPosition: {x: .5, y: -.399999619}
+  m_SizeDelta: {x: -.400001526, y: 5.29999924}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1041643498
 MonoBehaviour:
@@ -748,10 +748,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2035674544}
   m_RootOrder: 3
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 1, y: -60}
-  m_SizeDelta: {x: 160, y: 53}
+  m_AnchorMin: {x: .398286313, y: .222451612}
+  m_AnchorMax: {x: .609568477, y: .383774221}
+  m_AnchoredPosition: {x: -2, y: 1}
+  m_SizeDelta: {x: 4, y: 3}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1313766723
 MonoBehaviour:
@@ -938,10 +938,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2035674544}
   m_RootOrder: 1
-  m_AnchorMin: {x: .203536108, y: .628732264}
-  m_AnchorMax: {x: .789000034, y: .90419668}
-  m_AnchoredPosition: {x: 0, y: 18.6000004}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: .205356866, y: .712774217}
+  m_AnchorMax: {x: .7815727, y: .958000064}
+  m_AnchoredPosition: {x: 1.5, y: -2.90000153}
+  m_SizeDelta: {x: 5, y: 9}
   m_Pivot: {x: .5, y: .5}
 --- !u!1 &1466162832
 GameObject:
@@ -1480,10 +1480,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2035674544}
   m_RootOrder: 2
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 1, y: 12}
-  m_SizeDelta: {x: 160, y: 61.2999992}
+  m_AnchorMin: {x: .398286313, y: .45161292}
+  m_AnchorMax: {x: .604141057, y: .610000014}
+  m_AnchoredPosition: {x: 0, y: 2.5}
+  m_SizeDelta: {x: 8, y: 12.3000031}
   m_Pivot: {x: .5, y: .5}
 --- !u!1 &1746212564
 GameObject:
@@ -1900,7 +1900,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 2
   m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 425612623}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1

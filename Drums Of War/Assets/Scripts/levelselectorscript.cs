@@ -75,24 +75,24 @@ public class levelselectorscript : MonoBehaviour {
 
 	void moveLeft()
 	{
-		arrow.transform.Translate (-80, 0, 0);
+		arrow.transform.Translate (-145, 0, 0);
 	}
 
 	void moveRight()
 	{
-		arrow.transform.Translate (80, 0, 0);
+		arrow.transform.Translate (145, 0, 0);
 	}
 
 	void moveToEight()
 	{
 		arrow.transform.localScale = Up;
-		arrow.transform.Translate (560, 0, 0);
+		arrow.transform.Translate (1015, 0, 0);
 	}
 
 	void moveToNine()
 	{
 		arrow.transform.localScale = Down;
-		arrow.transform.Translate (-560, 0, 0);
+		arrow.transform.Translate (-1015, 0, 0);
 	}
 
 	void Select()

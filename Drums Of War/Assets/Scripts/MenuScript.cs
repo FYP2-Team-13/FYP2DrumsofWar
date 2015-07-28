@@ -26,11 +26,11 @@ public class MenuScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown (KeyCode.W)) {
+		if (Input.GetKeyDown (KeyCode.W)||(Input.GetAxis("Vertical")>0)) {
 			if (QuitMenubool == false) {
 				if (menuCounter != 1) {
 					menuCounter--;
-					menuArrow.transform.Translate (0, 72, 0);
+					menuArrow.transform.Translate (0, 144, 0);
 				}
 			}
 			else
@@ -42,12 +42,13 @@ public class MenuScript : MonoBehaviour {
 				}
 			}
 		} 
-		else if (Input.GetKeyDown (KeyCode.S)) {
+		else if (Input.GetKeyDown (KeyCode.S)||(Input.GetAxis("Vertical")<0)) 
+		{
 			if (QuitMenubool == false)
 			{
 				if (menuCounter != 2) {
 					menuCounter++;
-					menuArrow.transform.Translate (0, -72, 0);
+					menuArrow.transform.Translate (0, -144, 0);
 				}
 			}
 			else
@@ -59,7 +60,7 @@ public class MenuScript : MonoBehaviour {
 				}
 			}
 		}
-		if(Input.GetKeyDown(KeyCode.Space) )//|| Input.GetKeyDown(KeyCode.KeypadEnter))
+		if(Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Fire2"))//fire2 = circle
 		{
 			if(QuitMenubool == false)
 			{

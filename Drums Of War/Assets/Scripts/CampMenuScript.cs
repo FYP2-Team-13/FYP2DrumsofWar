@@ -4,9 +4,9 @@ using System.Collections;
 
 public class CampMenuScript : MonoBehaviour {
 
-	public Button left;
-	public Button right;
-	public Button enter;
+	//public Button left;
+	//public Button right;
+	//public Button enter;
 	public GameObject MenuSelector;
 
 	private int menuCounter;
@@ -21,9 +21,9 @@ public class CampMenuScript : MonoBehaviour {
 		//MenuSelector.transform.Translate( 40 + menuCounter * 15,0,0);
 		menuCounter = 0;
 		movingstate = 0;
-		left = left.GetComponent<Button>();
-		right = right.GetComponent<Button>();
-		enter = enter.GetComponent<Button>();
+		// = left.GetComponent<Button>();
+		//right = right.GetComponent<Button>();
+		//enter = enter.GetComponent<Button>();
 		anim = MenuSelector.GetComponent<Animator> ();
 	}
 	
@@ -49,16 +49,16 @@ public class CampMenuScript : MonoBehaviour {
 
 		if (movingstate == 0)
 		{
-			if (Input.GetKeyDown (KeyCode.A)) {
+			if (Input.GetKeyDown (KeyCode.A)||(Input.GetAxis("Horizontal")<0)) {
 				GoLeft ();
 			}
-			if (Input.GetKeyDown (KeyCode.D)) {
+			if (Input.GetKeyDown (KeyCode.D)||(Input.GetAxis("Horizontal")>0)) {
 				GoRight ();
 			}
-			if (Input.GetKeyDown (KeyCode.Space) || Input.GetKeyDown (KeyCode.KeypadEnter)) {
+			if (Input.GetKeyDown (KeyCode.Space) || (Input.GetButtonDown("Fire2"))) {
 				Enter ();
 			}
-			if (Input.GetKeyDown (KeyCode.Backspace)) {
+			if (Input.GetKeyDown (KeyCode.Backspace)||(Input.GetButtonDown("Fire1"))) {
 				Back ();
 			}
 		}
