@@ -87,6 +87,103 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &3612460
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 3612462}
+  - 82: {fileID: 3612461}
+  m_Layer: 0
+  m_Name: AudioSelect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &3612461
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 3612460}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 2a10a895d4f2a8c4fa36bdccbe4a7a64, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+--- !u!4 &3612462
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 3612460}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 46.3276863, y: -7.1387496, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
 --- !u!1 &4942201
 GameObject:
   m_ObjectHideFlags: 0
@@ -97,7 +194,7 @@ GameObject:
   - 4: {fileID: 4942203}
   - 212: {fileID: 4942202}
   m_Layer: 0
-  m_Name: New Sprite 3
+  m_Name: Book
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -140,7 +237,7 @@ Transform:
   m_LocalScale: {x: .0505640619, y: .0460973531, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
 --- !u!1 &6241423
 GameObject:
   m_ObjectHideFlags: 0
@@ -194,7 +291,7 @@ Transform:
   m_LocalScale: {x: 1.01260185, y: 1.15154409, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 17
 --- !u!4 &46798573 stripped
 Transform:
   m_PrefabParentObject: {fileID: 476750, guid: f43d80071b8e63a4f9255724e11335da, type: 2}
@@ -435,7 +532,7 @@ GameObject:
   - 95: {fileID: 114227893}
   - 58: {fileID: 114227892}
   m_Layer: 8
-  m_Name: Ally Unit 4
+  m_Name: Army unit 1
   m_TagString: Ally
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -457,7 +554,7 @@ Transform:
   - {fileID: 2122086387}
   - {fileID: 251357738}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 11
 --- !u!58 &114227892
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -597,7 +694,7 @@ Transform:
   m_LocalScale: {x: .221012518, y: .261372745, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 8
 --- !u!1 &170323355
 GameObject:
   m_ObjectHideFlags: 0
@@ -723,6 +820,103 @@ SpriteRenderer:
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300008, guid: 5546fdb1d1d8c7440a204b29eb35b525, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &183324535
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 183324537}
+  - 82: {fileID: 183324536}
+  m_Layer: 0
+  m_Name: AudioSwitch
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &183324536
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 183324535}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 01ecf0de4caaa2549a0d6d0c3325b340, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+--- !u!4 &183324537
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 183324535}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 46.3276863, y: -7.1387496, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
 --- !u!1 &198465366
 GameObject:
   m_ObjectHideFlags: 0
@@ -897,7 +1091,7 @@ Transform:
   m_LocalScale: {x: 1.01260185, y: 1.15154409, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 18
 --- !u!1 &251357737
 GameObject:
   m_ObjectHideFlags: 0
@@ -990,7 +1184,7 @@ Transform:
   - {fileID: 999735312}
   - {fileID: 283639779}
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 28
 --- !u!4 &283639779 stripped
 Transform:
   m_PrefabParentObject: {fileID: 475948, guid: 26fd1fc227f77f34490dba0ff93ce9b1, type: 2}
@@ -1172,7 +1366,7 @@ Transform:
   m_LocalScale: {x: 1.01260185, y: 1.15154409, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 19
 --- !u!1 &309903987
 GameObject:
   m_ObjectHideFlags: 0
@@ -1560,7 +1754,7 @@ Transform:
   m_LocalScale: {x: 1.01260185, y: 1.15154409, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 23
 --- !u!1 &538689117
 GameObject:
   m_ObjectHideFlags: 0
@@ -1644,7 +1838,7 @@ GameObject:
   - 95: {fileID: 563227460}
   - 58: {fileID: 563227459}
   m_Layer: 8
-  m_Name: Ally Unit 1
+  m_Name: Camp unit 3
   m_TagString: Ally
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1666,7 +1860,7 @@ Transform:
   - {fileID: 1775999065}
   - {fileID: 1883067736}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 15
 --- !u!58 &563227459
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1819,7 +2013,7 @@ GameObject:
   - 4: {fileID: 580766569}
   - 212: {fileID: 580766568}
   m_Layer: 0
-  m_Name: New Sprite 5
+  m_Name: Parchment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1862,7 +2056,7 @@ Transform:
   m_LocalScale: {x: .318227649, y: .339846492, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
 --- !u!1 &587553618
 GameObject:
   m_ObjectHideFlags: 0
@@ -1873,7 +2067,7 @@ GameObject:
   - 4: {fileID: 587553620}
   - 212: {fileID: 587553619}
   m_Layer: 0
-  m_Name: New Sprite 2
+  m_Name: Crate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1916,7 +2110,7 @@ Transform:
   m_LocalScale: {x: .675596297, y: .801495612, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
 --- !u!1 &610095236
 GameObject:
   m_ObjectHideFlags: 0
@@ -2069,7 +2263,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 431754, guid: 36e84df01bb7afc4c8f56e9e9b951391, type: 2}
       propertyPath: m_RootOrder
-      value: 18
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 21262724, guid: 36e84df01bb7afc4c8f56e9e9b951391, type: 2}
       propertyPath: m_SortingOrder
@@ -2217,7 +2411,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 449076, guid: 6220a7953c3b11443ba23015f68a966e, type: 2}
       propertyPath: m_RootOrder
-      value: 25
+      value: 27
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6220a7953c3b11443ba23015f68a966e, type: 2}
@@ -2412,7 +2606,7 @@ GameObject:
   - 95: {fileID: 789143165}
   - 58: {fileID: 789143164}
   m_Layer: 8
-  m_Name: Ally Unit 5
+  m_Name: Army unit 2
   m_TagString: Ally
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2520,7 +2714,7 @@ Transform:
   - {fileID: 198465367}
   - {fileID: 1919198728}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 10
 --- !u!1 &790335777
 GameObject:
   m_ObjectHideFlags: 0
@@ -2629,7 +2823,7 @@ Transform:
   m_LocalScale: {x: 1.01260185, y: 1.15154409, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 22
 --- !u!1 &971609803
 GameObject:
   m_ObjectHideFlags: 0
@@ -2661,6 +2855,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8ee58a8142cf5f4481d6dfbaeb1970f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSwitch: {fileID: 183324536}
+  audioSelect: {fileID: 3612461}
   MenuSelector: {fileID: 2000325978}
 --- !u!114 &971609805
 MonoBehaviour:
@@ -3154,7 +3350,7 @@ GameObject:
   - 95: {fileID: 1180094547}
   - 58: {fileID: 1180094546}
   m_Layer: 8
-  m_Name: Ally Unit 3
+  m_Name: Camp unit 1
   m_TagString: Ally
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3176,7 +3372,7 @@ Transform:
   - {fileID: 463140132}
   - {fileID: 446512503}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 13
 --- !u!58 &1180094546
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3273,7 +3469,7 @@ GameObject:
   - 4: {fileID: 1183298176}
   - 212: {fileID: 1183298175}
   m_Layer: 0
-  m_Name: New Sprite 1
+  m_Name: Bow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3316,7 +3512,7 @@ Transform:
   m_LocalScale: {x: .203949943, y: .134845302, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
 --- !u!1 &1250608805
 GameObject:
   m_ObjectHideFlags: 0
@@ -3480,7 +3676,7 @@ Transform:
   m_LocalScale: {x: 1.01260185, y: 1.15154409, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 21
 --- !u!1001 &1279476583
 Prefab:
   m_ObjectHideFlags: 0
@@ -3518,7 +3714,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 432938, guid: d3efa764132b0c4449b2fd5e07a89b8c, type: 2}
       propertyPath: m_RootOrder
-      value: 22
+      value: 24
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d3efa764132b0c4449b2fd5e07a89b8c, type: 2}
@@ -3880,7 +4076,7 @@ Transform:
   m_LocalScale: {x: .673249841, y: .433547109, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 12
 --- !u!1 &1359771444
 GameObject:
   m_ObjectHideFlags: 0
@@ -4159,7 +4355,7 @@ GameObject:
   - 95: {fileID: 1408231746}
   - 58: {fileID: 1408231745}
   m_Layer: 8
-  m_Name: Ally Unit 6
+  m_Name: Army unit 3
   m_TagString: Ally
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4181,7 +4377,7 @@ Transform:
   - {fileID: 1254240679}
   - {fileID: 767118221}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 9
 --- !u!58 &1408231745
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -4818,7 +5014,7 @@ GameObject:
   - 4: {fileID: 1677511489}
   - 212: {fileID: 1677511488}
   m_Layer: 0
-  m_Name: New Sprite
+  m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4861,7 +5057,7 @@ Transform:
   m_LocalScale: {x: .130606413, y: .0830519274, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
 --- !u!1 &1775999064
 GameObject:
   m_ObjectHideFlags: 0
@@ -5000,7 +5196,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 435170, guid: 07e51a4ce7991e6428d8b589194c0ab1, type: 2}
       propertyPath: m_RootOrder
-      value: 24
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 162766, guid: 07e51a4ce7991e6428d8b589194c0ab1, type: 2}
       propertyPath: m_Name
@@ -5027,7 +5223,7 @@ GameObject:
   - 95: {fileID: 1852837149}
   - 58: {fileID: 1852837148}
   m_Layer: 8
-  m_Name: Ally Unit 2
+  m_Name: Camp unit 2
   m_TagString: Ally
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5049,7 +5245,7 @@ Transform:
   - {fileID: 410935953}
   - {fileID: 2013070912}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 14
 --- !u!58 &1852837148
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5202,7 +5398,7 @@ GameObject:
   - 4: {fileID: 1880114877}
   - 212: {fileID: 1880114876}
   m_Layer: 0
-  m_Name: New Sprite 4
+  m_Name: Staff
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5245,7 +5441,7 @@ Transform:
   m_LocalScale: {x: .170090213, y: .197912782, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
 --- !u!1 &1883067735
 GameObject:
   m_ObjectHideFlags: 0
@@ -5608,7 +5804,7 @@ GameObject:
   - 95: {fileID: 2000325981}
   - 58: {fileID: 2000325980}
   m_Layer: 8
-  m_Name: Ally Unit
+  m_Name: Selector unit
   m_TagString: Ally
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5631,7 +5827,7 @@ Transform:
   - {fileID: 2012728914}
   - {fileID: 1312206312}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 16
 --- !u!58 &2000325980
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5735,7 +5931,7 @@ RectTransform:
   - {fileID: 2131518336}
   - {fileID: 2032017031}
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 25
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}

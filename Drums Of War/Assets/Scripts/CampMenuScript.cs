@@ -7,6 +7,8 @@ public class CampMenuScript : MonoBehaviour {
 	//public Button left;
 	//public Button right;
 	//public Button enter;
+	public AudioSource audioSwitch;
+	public AudioSource audioSelect;
 	public GameObject MenuSelector;
 
 	private int menuCounter;
@@ -30,6 +32,7 @@ public class CampMenuScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (movingstate == 1) {//moving left
+
 			MenuSelector.transform.Translate (-Time.deltaTime * 15, 0, 0);
 			MenuSelector.transform.localScale = Left;
 			if (MenuSelector.transform.position.x <= (40 + (menuCounter * 15))) {
@@ -38,6 +41,7 @@ public class CampMenuScript : MonoBehaviour {
 				anim.SetInteger ("State", 0);
 			}
 		} else if (movingstate == 2) {//moving right
+
 			MenuSelector.transform.Translate (Time.deltaTime * 15, 0, 0);
 			MenuSelector.transform.localScale = Right;
 			if (MenuSelector.transform.position.x >= (40 + (menuCounter * 15))) {
@@ -68,6 +72,7 @@ public class CampMenuScript : MonoBehaviour {
 	{
 
 		if (menuCounter > 0) {
+			audioSwitch.Play();
 			anim.SetInteger("State",1);
 			menuCounter --;
 			movingstate = 1;
@@ -78,6 +83,7 @@ public class CampMenuScript : MonoBehaviour {
 	{
 
 		if (menuCounter < 3) {
+			audioSwitch.Play();
 			anim.SetInteger("State",1);
 			menuCounter++;
 			movingstate = 2;
@@ -86,10 +92,12 @@ public class CampMenuScript : MonoBehaviour {
 
 	public void Enter()
 	{
+
 		//if (menuCounter == 0) {
 		//	Application.LoadLevel("Camp Screen");
 		//}
 		if (menuCounter == 1) {
+			audioSelect.Play();
 			Application.LoadLevel("armory screen");
 		}
 		else if (menuCounter == 2) {
@@ -102,6 +110,7 @@ public class CampMenuScript : MonoBehaviour {
 
 	void Back()
 	{
+		audioSelect.Play();
 		Application.LoadLevel("Main Menu");
 	}
 }

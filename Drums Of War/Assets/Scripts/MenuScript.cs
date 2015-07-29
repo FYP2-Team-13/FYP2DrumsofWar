@@ -4,6 +4,8 @@ using System.Collections;
 
 public class MenuScript : MonoBehaviour {
 
+	public AudioSource audioSwitch;
+	public AudioSource audioSelect;
 	public Canvas QuitMenu;
 	public Button Play;
 	public Button Exit;
@@ -30,7 +32,9 @@ public class MenuScript : MonoBehaviour {
 			if (QuitMenubool == false) {
 				if (menuCounter != 1) {
 					menuCounter--;
-					menuArrow.transform.Translate (0, 144, 0);
+					audioSwitch.Play();
+					//menuArrow.transform.Translate (0, 144, 0);
+					menuArrow.transform.Translate (0, Screen.height*0.25f, 0);
 				}
 			}
 			else
@@ -38,6 +42,7 @@ public class MenuScript : MonoBehaviour {
 				if(exitCounter != 1)
 				{
 					exitCounter--;
+					audioSwitch.Play();
 					quitArrow.transform.Translate (0,54,0);
 				}
 			}
@@ -48,7 +53,8 @@ public class MenuScript : MonoBehaviour {
 			{
 				if (menuCounter != 2) {
 					menuCounter++;
-					menuArrow.transform.Translate (0, -144, 0);
+					audioSwitch.Play();
+					menuArrow.transform.Translate (0, -(Screen.height*0.25f), 0);
 				}
 			}
 			else
@@ -56,6 +62,7 @@ public class MenuScript : MonoBehaviour {
 				if(exitCounter != 2)
 				{
 					exitCounter++;
+					audioSwitch.Play();
 					quitArrow.transform.Translate (0,-54,0);
 				}
 			}
@@ -66,10 +73,12 @@ public class MenuScript : MonoBehaviour {
 			{
 				if(menuCounter == 1)
 				{
+					audioSelect.Play();
 					PlayPress();
 				}
 				else if(menuCounter == 2)
 				{
+					audioSelect.Play();
 					ExitPress();
 					QuitMenubool = true;
 				}
@@ -82,10 +91,12 @@ public class MenuScript : MonoBehaviour {
 			{
 				if(exitCounter == 1)
 				{
+					audioSelect.Play();
 					YesPress();
 				}
 				else if(exitCounter == 2)
 				{
+					audioSelect.Play();
 					NoPress();
 					QuitMenubool = false;
 				}

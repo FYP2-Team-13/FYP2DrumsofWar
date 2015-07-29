@@ -3,6 +3,8 @@ using System.Collections;
 
 public class levelselectorscript : MonoBehaviour {
 
+	public AudioSource audioSwitch;
+	public AudioSource audioSelect;
 	public GameObject arrow;
 	int menuCounter;
 	Vector3 Up = new Vector3(1,1,1);
@@ -15,7 +17,7 @@ public class levelselectorscript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown (KeyCode.A)) 
+		if (Input.GetKeyDown (KeyCode.A)||(Input.GetAxis("Horizontal")<0)) 
 		{
 			if(menuCounter > 1)
 			{
@@ -29,7 +31,7 @@ public class levelselectorscript : MonoBehaviour {
 				menuCounter--;
 			}
 		}
-		else if (Input.GetKeyDown (KeyCode.S))
+		else if (Input.GetKeyDown (KeyCode.S)||(Input.GetAxis("Vertical")<0))
 		{
 			if(menuCounter < 9)
 			{
@@ -37,7 +39,7 @@ public class levelselectorscript : MonoBehaviour {
 				moveDown();
 			}
 		}
-		else if (Input.GetKeyDown (KeyCode.D))
+		else if (Input.GetKeyDown (KeyCode.D)||(Input.GetAxis("Horizontal")>0))
 		{
 			if(menuCounter < 16)
 			{
@@ -49,7 +51,7 @@ public class levelselectorscript : MonoBehaviour {
 				menuCounter++;
 			}
 		} 
-		else if (Input.GetKeyDown (KeyCode.W))
+		else if (Input.GetKeyDown (KeyCode.W)||(Input.GetAxis("Vertical")>0))
 		{
 			if(menuCounter > 8)
 			{
@@ -57,7 +59,7 @@ public class levelselectorscript : MonoBehaviour {
 				moveUp();
 			}
 		}
-		else if(Input.GetKeyDown(KeyCode.Space))
+		else if(Input.GetKeyDown(KeyCode.Space)||(Input.GetButtonDown("Fire2")))
 		{
 			Select();
 		}
@@ -65,38 +67,45 @@ public class levelselectorscript : MonoBehaviour {
 
 	void moveDown()
 	{
+		audioSwitch.Play();
 		arrow.transform.localScale = Down;
 	}
 
 	void moveUp()
 	{
+		audioSwitch.Play();
 		arrow.transform.localScale = Up;
 	}
 
 	void moveLeft()
 	{
-		arrow.transform.Translate (-145, 0, 0);
+		audioSwitch.Play();
+		arrow.transform.Translate (-(Screen.width*0.1075f), 0, 0);
 	}
 
 	void moveRight()
 	{
-		arrow.transform.Translate (145, 0, 0);
+		audioSwitch.Play();
+		arrow.transform.Translate (Screen.width*0.1075f, 0, 0);
 	}
 
 	void moveToEight()
 	{
+		audioSwitch.Play();
 		arrow.transform.localScale = Up;
-		arrow.transform.Translate (1015, 0, 0);
+		arrow.transform.Translate (Screen.width*0.7535f, 0, 0);
 	}
 
 	void moveToNine()
 	{
+		audioSwitch.Play();
 		arrow.transform.localScale = Down;
-		arrow.transform.Translate (-1015, 0, 0);
+		arrow.transform.Translate (-(Screen.width*0.7535f), 0, 0);
 	}
 
 	void Select()
 	{
+		audioSelect.Play ();
 		if (menuCounter == 1) {
 			Application.LoadLevel("Level1");
 		}
