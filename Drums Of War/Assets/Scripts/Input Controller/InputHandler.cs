@@ -180,6 +180,10 @@ public class InputHandler : MonoBehaviour {
 			TheSprite.sprite = WinImage;
 			TheSource.clip = WinSFX;
 
+			//int level = GameObject.FindGameObjectWithTag("Database").GetComponent<Inventory>().nextlevel;
+			int lastlevel = GameObject.FindGameObjectWithTag("Database").GetComponent<Inventory>().nextlevel;
+			int thislevel = GameObject.FindGameObjectWithTag("Database").GetComponent<Inventory>().nextlevel;
+
 			foreach (AllyGroup Ally in Allies)
 			{
 				if (Allies.IndexOf(Ally) < theArmy.TheArmy.Length)

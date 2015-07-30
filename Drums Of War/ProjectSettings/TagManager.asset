@@ -15,6 +15,7 @@ TagManager:
   - HiHatVFX
   - BassVFX
   - Database
+  - Level
   layers:
   - Default
   - TransparentFX

@@ -44,7 +44,8 @@ public class FadeOutScript : MonoBehaviour {
 			}
 		}
 		if (TheImage != null) {
-			TheImage.color = new Color(TheImage.color.r, TheImage.color.g, TheImage.color.b,Mathf.SmoothStep(1.0f, 0.0f, t));
+			if (TheImage.color.a > 0)
+				TheImage.color = new Color(TheImage.color.r, TheImage.color.g, TheImage.color.b,Mathf.SmoothStep(1.0f, 0.0f, t));
 		}
 	}
 }

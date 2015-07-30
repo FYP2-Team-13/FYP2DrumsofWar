@@ -910,8 +910,8 @@ RectTransform:
   - {fileID: 1610489961}
   - {fileID: 1601744370}
   - {fileID: 1614608042}
-  - {fileID: 1192475980}
   - {fileID: 539577641}
+  - {fileID: 1192475980}
   - {fileID: 12764854}
   - {fileID: 1983297188}
   - {fileID: 2089314091}
@@ -1211,7 +1211,7 @@ RectTransform:
   m_Children:
   - {fileID: 1060501330}
   m_Father: {fileID: 391382635}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: -80, y: 15}
@@ -2016,7 +2016,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22458086, guid: a7a7ddd027aa5054088ac78d96dfd79d, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 22458086, guid: a7a7ddd027aa5054088ac78d96dfd79d, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -2740,10 +2740,6 @@ Prefab:
       propertyPath: m_Name
       value: ArmyCustomization 1
       objectReference: {fileID: 0}
-    - target: {fileID: 11437984, guid: a7a7ddd027aa5054088ac78d96dfd79d, type: 2}
-      propertyPath: m_Text
-      value: Army 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a7a7ddd027aa5054088ac78d96dfd79d, type: 2}
   m_IsPrefabParent: 0
@@ -2920,7 +2916,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 75
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 40
     m_Alignment: 4
