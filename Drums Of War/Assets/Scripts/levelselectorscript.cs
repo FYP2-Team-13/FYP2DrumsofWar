@@ -12,6 +12,7 @@ public class levelselectorscript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
 		menuCounter = 1;
 	}
 	
@@ -19,6 +20,7 @@ public class levelselectorscript : MonoBehaviour {
 	void Update () {
 		if (Input.GetKeyDown (KeyCode.A)||(Input.GetAxis("Horizontal")<0)) 
 		{
+
 			if(menuCounter > 1)
 			{
 

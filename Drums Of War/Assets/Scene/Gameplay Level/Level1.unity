@@ -304,6 +304,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11450952, guid: 1024d73d3360858419be08200543339b, type: 2}
+      propertyPath: DrumSFX
+      value: 
+      objectReference: {fileID: 105002, guid: ede6b29074c782f498e2038578a4e0d2, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1024d73d3360858419be08200543339b, type: 2}
   m_IsPrefabParent: 0
@@ -574,7 +578,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 449760, guid: a79169e07582bf44ba100d939a6bbbb4, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 86.4000015
+      value: 77.6999969
       objectReference: {fileID: 0}
     - target: {fileID: 449760, guid: a79169e07582bf44ba100d939a6bbbb4, type: 2}
       propertyPath: m_LocalPosition.y
