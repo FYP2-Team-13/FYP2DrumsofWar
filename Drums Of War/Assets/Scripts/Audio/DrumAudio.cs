@@ -28,7 +28,7 @@ public class DrumAudio : MonoBehaviour {
 			GetComponent<AudioSource> ().PlayOneShot (Tom);
 		}
 		if (TheBeat.GetBeatType () == BeatScript.BeatType.Beat_Miss) {
-			GetComponent<AudioSource> ().PlayOneShot (Tom);
+			GetComponent<AudioSource> ().PlayOneShot (Miss);
 		}
 		//Destroy (this, 1.0f);
 		//TheSource.PlayOneShot ();

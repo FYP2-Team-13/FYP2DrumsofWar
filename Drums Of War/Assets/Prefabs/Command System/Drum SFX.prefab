@@ -113,6 +113,7 @@ MonoBehaviour:
   Tom: {fileID: 8300000, guid: ae34994daa39c1f4c93d33502a2a8784, type: 3}
   Bass: {fileID: 8300000, guid: 4723fd8c546312941b4931eab63bcab2, type: 3}
   HiHat: {fileID: 8300000, guid: 1bb8e04608f60fb4eaacb16dfb965bf7, type: 3}
+  Miss: {fileID: 8300000, guid: bc905a663ce137b4084adb13e65c0937, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

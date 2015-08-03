@@ -12,6 +12,7 @@ public class InputHandler : MonoBehaviour {
 	bool runningcommand = false;
 	public Sprite WinImage, LoseImage;
 	public AudioClip WinSFX, LoseSFX;
+	public GameObject DrumSFX;
 
 	public List<AllyGroup> Allies = new List<AllyGroup>();
 	public string AllyTag;
@@ -74,13 +75,22 @@ public class InputHandler : MonoBehaviour {
 	public void ReceiveSequence (BeatScript nextbeat)
 	{ //Function Called when the next beat is received, stacks beats into sequence
 		if (nextbeat.GetBeatType () == BeatScript.BeatType.Beat_Rest) {
-			if (!runningcommand)//no command, sequence fail
+			if (drumindex != 0)
+			{
+				CreateMissSFX();
+				Reset();
+			} else if (!runningcommand)//no command, sequence fail
+			{
 				Reset ();
+			} 
 		} else {
 
 			//Add in checking for if the drum beat follows a pattern
 			if (runningcommand)
+			{
+				CreateMissSFX();
 				Reset();
+			}
 			else
 			{
 				Sequence.SetBeat(nextbeat, drumindex);// [drumindex].SetBeatType (nextbeat.GetBeatType() );
@@ -100,6 +110,10 @@ public class InputHandler : MonoBehaviour {
 					{
 						ResponseSFX = TheDatabase.GetAudio(Sequence);
 						GetComponent<AudioSource>().PlayOneShot(ResponseSFX);
+					}
+					else 
+					{
+						CreateMissSFX();
 					}
 					
 					Vector3 FrontMostAlly = new Vector3();
@@ -213,5 +227,16 @@ public class InputHandler : MonoBehaviour {
 	void BacktoCamp ()
 	{
 		Application.LoadLevel ("Camp Menu");
+	}
+
+	void CreateMissSFX()
+	{
+		GameObject TempSFX = (GameObject) Instantiate(DrumSFX);
+		TempSFX.gameObject.transform.parent = gameObject.transform;
+		BeatScript tempbeat  = new BeatScript();
+		tempbeat.SetBeatType (BeatScript.BeatType.Beat_Miss);
+		TempSFX.GetComponent<DrumAudio>().Set(tempbeat);
+		Destroy (TempSFX, 1.0f);
+		//GUI.Label (new Rect (Screen.width / 2 - 15, Screen.height / 2 - 15, 30, 30), "Hit");
 	}
 }
