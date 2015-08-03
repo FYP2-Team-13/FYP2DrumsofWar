@@ -283,6 +283,7 @@ MonoBehaviour:
   LoseImage: {fileID: 21300000, guid: 98915dc8555f74b488b96cb215e4e6ce, type: 3}
   WinSFX: {fileID: 8300000, guid: 5f5034b73d9ff5d43aaf9beeb99396d1, type: 3}
   LoseSFX: {fileID: 8300000, guid: a81be08c6c6e8574db6276780b2bd5a6, type: 3}
+  DrumSFX: {fileID: 105002, guid: ede6b29074c782f498e2038578a4e0d2, type: 2}
   Allies: []
   AllyTag: AllyGroup
 --- !u!114 &11454672
