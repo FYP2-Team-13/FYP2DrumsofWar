@@ -322,23 +322,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 11474494, guid: bd442b97bdecb5b499f53d4815ae13c4, type: 2}
-      propertyPath: Level
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 11474494, guid: bd442b97bdecb5b499f53d4815ae13c4, type: 2}
-      propertyPath: ItemDropRate
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11474494, guid: bd442b97bdecb5b499f53d4815ae13c4, type: 2}
-      propertyPath: MoneyDropRate
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 11474494, guid: bd442b97bdecb5b499f53d4815ae13c4, type: 2}
-      propertyPath: MoneySprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 9cca2b6529e93c149a9c422ae115240e,
-        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bd442b97bdecb5b499f53d4815ae13c4, type: 2}
   m_IsPrefabParent: 0
