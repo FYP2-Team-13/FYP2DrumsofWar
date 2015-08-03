@@ -8,7 +8,7 @@ public class Inventory : MonoBehaviour {
 
 	public List<Item> TheInventory = new List<Item>();
 	ItemDatabase theItemDatabase;
-	int Currency;
+	public int Currency;
 	public int nextlevel;
 
 	// Use this for initialization

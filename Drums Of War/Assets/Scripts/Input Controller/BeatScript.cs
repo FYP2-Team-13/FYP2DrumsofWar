@@ -10,6 +10,7 @@ public class BeatScript {
 		Beat_Tom,
 		Beat_Hithat,
 		Beat_Bass,
+		Beat_Miss,
 		Beat_Number
 	}
 

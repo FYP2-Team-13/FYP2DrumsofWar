@@ -47,6 +47,7 @@ public class TimeScript : MonoBehaviour {
 			} else {
 				//TheBeat.SetBeatType(BeatScript.BeatType.Beat_Fail );
 				//print ("miss");
+				CreateMissSFX();
 				return false;
 			}
 		} else {
@@ -56,6 +57,7 @@ public class TimeScript : MonoBehaviour {
 				return true;
 			} else {
 //				print ("miss");
+				CreateMissSFX();
 				return false;
 			}
 		}
@@ -66,6 +68,17 @@ public class TimeScript : MonoBehaviour {
 		GameObject TempSFX = (GameObject) Instantiate(DrumSFX);
 		TempSFX.gameObject.transform.parent = gameObject.transform;
 		TempSFX.GetComponent<DrumAudio>().Set(TheBeat);
+		Destroy (TempSFX, 1.0f);
+		//GUI.Label (new Rect (Screen.width / 2 - 15, Screen.height / 2 - 15, 30, 30), "Hit");
+	}
+
+	void CreateMissSFX()
+	{
+		GameObject TempSFX = (GameObject) Instantiate(DrumSFX);
+		TempSFX.gameObject.transform.parent = gameObject.transform;
+		BeatScript tempbeat  = new BeatScript();
+		tempbeat.SetBeatType (BeatScript.BeatType.Beat_Miss);
+		TempSFX.GetComponent<DrumAudio>().Set(tempbeat);
 		Destroy (TempSFX, 1.0f);
 		//GUI.Label (new Rect (Screen.width / 2 - 15, Screen.height / 2 - 15, 30, 30), "Hit");
 	}

@@ -180,10 +180,6 @@ public class InputHandler : MonoBehaviour {
 			TheSprite.sprite = WinImage;
 			TheSource.clip = WinSFX;
 
-			//int level = GameObject.FindGameObjectWithTag("Database").GetComponent<Inventory>().nextlevel;
-			int lastlevel = GameObject.FindGameObjectWithTag("Database").GetComponent<Inventory>().nextlevel;
-			int thislevel = GameObject.FindGameObjectWithTag("Database").GetComponent<Inventory>().nextlevel;
-
 			foreach (AllyGroup Ally in Allies)
 			{
 				if (Allies.IndexOf(Ally) < theArmy.TheArmy.Length)
@@ -193,6 +189,14 @@ public class InputHandler : MonoBehaviour {
 
 					ThisArmy.Quantity = Ally.Quantity;
 				}
+			}
+
+			//int level = GameObject.FindGameObjectWithTag("Database").GetComponent<Inventory>().nextlevel;
+			int lastlevel = GameObject.FindGameObjectWithTag("Database").GetComponent<Inventory>().nextlevel;
+			int thislevel = GameObject.FindGameObjectWithTag("Level").GetComponent<DropSystem>().Level;
+			if (thislevel >= lastlevel)
+			{
+				GameObject.FindGameObjectWithTag("Database").GetComponent<Inventory>().nextlevel = thislevel + 1;
 			}
 		}
 		else

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class DrumAudio : MonoBehaviour {
 
-	public AudioClip Snare, Tom, Bass, HiHat;
+	public AudioClip Snare, Tom, Bass, HiHat, Miss;
 	//AudioSource TheSource;
 	// Use this for initialization
 	void Start () {
@@ -25,6 +25,9 @@ public class DrumAudio : MonoBehaviour {
 		} 
 		if (TheBeat.GetBeatType () == BeatScript.BeatType.Beat_Tom) {
 			//TheSource.clip = Tom;
+			GetComponent<AudioSource> ().PlayOneShot (Tom);
+		}
+		if (TheBeat.GetBeatType () == BeatScript.BeatType.Beat_Miss) {
 			GetComponent<AudioSource> ().PlayOneShot (Tom);
 		}
 		//Destroy (this, 1.0f);

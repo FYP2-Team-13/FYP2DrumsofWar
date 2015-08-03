@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ItemScript : MonoBehaviour {
 
-	int value;
+	public int value;
 	public bool isItem = false;
 
 	public void Setvalue (int value)

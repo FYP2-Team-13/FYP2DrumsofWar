@@ -15,6 +15,9 @@ public class DropSystem : MonoBehaviour {
 	void Start () {
 		ItemDatabase temp = GameObject.FindGameObjectWithTag ("Database").GetComponent<ItemDatabase> ();
 		DropList = temp.GetAllItemFromLevel (Level);
+		if (DropList.Count < 1) {
+			ItemDropRate = 0;
+		}
 		GameObject[] Enemynodes = GameObject.FindGameObjectsWithTag ("Enemy");
 		foreach (GameObject Enemy in Enemynodes)
 		{
@@ -24,6 +27,9 @@ public class DropSystem : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		//This create a mino argument out of range issue...
+		//Not game breaking, but annoying
+		//I don't have a good way of fixing it right now.
 		foreach (AI Enemy in Enemies) {
 			if (Enemy.state == AI.AI_ENEMY_State.Enemy_Dead)
 			{
@@ -56,14 +62,6 @@ public class DropSystem : MonoBehaviour {
 			ItemDetail.Setvalue (Random.Range (Level, Level * 5) );
 			tempItem.GetComponent<SpriteRenderer>().sprite = MoneySprite;
 
-		}
-	}
-
-	void onDestroy()
-	{
-		Inventory theInventory = GameObject.FindGameObjectWithTag ("Database").GetComponent<Inventory> ();
-		if (Level > theInventory.GetNextLevel()) {
-			theInventory.SetNextLevel (Level);
 		}
 	}
 }

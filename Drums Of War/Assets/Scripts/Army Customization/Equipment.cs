@@ -22,7 +22,11 @@ public class Equipment : MonoBehaviour {
 
 	public void RecruitUnit ()
 	{
-		TheArmysStats.RecruitUnit ();
+		if (TheInventory.Currency < TheArmysStats.Quantity * 100) {
+		} else {
+			TheInventory.Currency -= TheArmysStats.Quantity * 100;
+			TheArmysStats.RecruitUnit ();
+		}
 	}
 
 	public void InventorySearchOfType (int searchvalue)
